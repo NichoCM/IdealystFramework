@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({
   secureTextEntry = false,
   autoCapitalize = 'sentences',
   size = 'medium',
-  variant = 'default',
+  variant = 'default' as any,
   hasError = false,
   style,
   testID,

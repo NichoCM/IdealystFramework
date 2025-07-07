@@ -24,7 +24,9 @@ export default defineConfig({
       '@react-native/normalize-colors': path.resolve(__dirname, 'node_modules/@react-native/normalize-colors'),
     },
     // Platform-specific file resolution
-    extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.js', '.jsx']
+    extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.js', '.jsx'],
+    // Ensure proper resolution of package exports
+    conditions: ['browser', 'import', 'module', 'default']
   },
   define: {
     global: 'globalThis',
@@ -35,6 +37,7 @@ export default defineConfig({
       'react-native-web',
       '@react-native/normalize-colors',
       'react-native-unistyles',
+      'react-native-unistyles/web',
     ],
     exclude: [
       'react-native-edge-to-edge',
