@@ -19,11 +19,32 @@ export * from './Input/types';
 export { default as DemoView } from './DemoView';
 export * from './DemoView/types';
 
+// New primitive components
+export { default as Checkbox } from './Checkbox';
+export * from './Checkbox/types';
+
+export { default as Card } from './Card';
+export * from './Card/types';
+
+export { default as Divider } from './Divider';
+export * from './Divider/types';
+
+export { default as Badge } from './Badge';
+export * from './Badge/types';
+
+export { default as Avatar } from './Avatar';
+export * from './Avatar/types';
+
 export type { ButtonProps } from './Button/types';
 export type { TextProps } from './Text/types';
 export type { ViewProps } from './View/types';
 export type { InputProps } from './Input/types';
 export type { DemoViewProps } from './DemoView/types';
+export type { CheckboxProps } from './Checkbox/types';
+export type { CardProps } from './Card/types';
+export type { DividerProps } from './Divider/types';
+export type { BadgeProps } from './Badge/types';
+export type { AvatarProps } from './Avatar/types';
 
 export { appThemes, breakpoints } from './theme';
 export type { AppThemes, AppBreakpoints } from './theme'; 
