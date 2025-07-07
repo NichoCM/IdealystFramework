@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 export const buttonStyles = StyleSheet.create((theme) => ({
   button: {
-    // Base styles
+    // Base styles - no borders defined here
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.borderRadius?.md || 8,
@@ -31,43 +31,39 @@ export const buttonStyles = StyleSheet.create((theme) => ({
       },
       intent: {
         primary: {
+          // Only background colors for intents, borders handled by variants
           backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-          borderColor: theme.intents?.primary?.main || '#3b82f6',
           color: theme.intents?.primary?.on || '#ffffff',
         },
         success: {
           backgroundColor: theme.intents?.success?.main || '#22c55e',
-          borderColor: theme.intents?.success?.main || '#22c55e',
           color: theme.intents?.success?.on || '#ffffff',
         },
         error: {
           backgroundColor: theme.intents?.error?.main || '#ef4444',
-          borderColor: theme.intents?.error?.main || '#ef4444',
           color: theme.intents?.error?.on || '#ffffff',
         },
         warning: {
           backgroundColor: theme.intents?.warning?.main || '#f59e0b',
-          borderColor: theme.intents?.warning?.main || '#f59e0b',
           color: theme.intents?.warning?.on || '#ffffff',
         },
         neutral: {
           backgroundColor: theme.intents?.neutral?.main || '#6b7280',
-          borderColor: theme.intents?.neutral?.main || '#6b7280',
           color: theme.intents?.neutral?.on || '#ffffff',
         },
       },
       variant: {
         contained: {
-          borderWidth: 1,
+          // Contained buttons have no border
+          border: 'none',
         },
         outlined: {
           backgroundColor: 'transparent',
-          borderWidth: 1,
+          // Border is defined in compound variants
         },
         text: {
           backgroundColor: 'transparent',
-          borderWidth: 0,
-          borderColor: 'transparent',
+          border: 'none',
         },
       },
       disabled: {
@@ -82,13 +78,13 @@ export const buttonStyles = StyleSheet.create((theme) => ({
     
     // Compound variants for specific combinations
     compoundVariants: [
-      // Outlined variant intent colors
+      // Outlined variant intent colors - only set border colors here
       {
         variant: 'outlined',
         intent: 'primary',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.primary?.main || '#3b82f6',
+          border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
           color: theme.intents?.primary?.main || '#3b82f6',
         },
       },
@@ -97,7 +93,7 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'success',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.success?.main || '#22c55e',
+          border: `1px solid ${theme.intents?.success?.main || '#22c55e'}`,
           color: theme.intents?.success?.main || '#22c55e',
         },
       },
@@ -106,7 +102,7 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'error',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.error?.main || '#ef4444',
+          border: `1px solid ${theme.intents?.error?.main || '#ef4444'}`,
           color: theme.intents?.error?.main || '#ef4444',
         },
       },
@@ -115,7 +111,7 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'warning',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.warning?.main || '#f59e0b',
+          border: `1px solid ${theme.intents?.warning?.main || '#f59e0b'}`,
           color: theme.intents?.warning?.main || '#f59e0b',
         },
       },
@@ -124,17 +120,16 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'neutral',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.neutral?.main || '#6b7280',
+          border: `1px solid ${theme.intents?.neutral?.main || '#6b7280'}`,
           color: theme.intents?.neutral?.main || '#6b7280',
         },
       },
-      // Text variant intent colors
+      // Text variant intent colors - no borders
       {
         variant: 'text',
         intent: 'primary',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: 'transparent',
           color: theme.intents?.primary?.main || '#3b82f6',
         },
       },
@@ -143,7 +138,6 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'success',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: 'transparent',
           color: theme.intents?.success?.main || '#22c55e',
         },
       },
@@ -152,7 +146,6 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'error',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: 'transparent',
           color: theme.intents?.error?.main || '#ef4444',
         },
       },
@@ -161,7 +154,6 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'warning',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: 'transparent',
           color: theme.intents?.warning?.main || '#f59e0b',
         },
       },
@@ -170,7 +162,6 @@ export const buttonStyles = StyleSheet.create((theme) => ({
         intent: 'neutral',
         styles: {
           backgroundColor: 'transparent',
-          borderColor: 'transparent',
           color: theme.intents?.neutral?.main || '#6b7280',
         },
       },
@@ -183,11 +174,18 @@ export const buttonStyles = StyleSheet.create((theme) => ({
       display: 'flex',
       boxSizing: 'border-box',
       userSelect: 'none',
+      // Fix for Chromium-based browsers (Brave, Chrome) border rendering
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
+      appearance: 'none',
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
+      transform: 'translateZ(0)', // Force hardware acceleration
       _hover: {
         opacity: 0.9,
       },
       _active: {
-        transform: 'scale(0.98)',
+        transform: 'scale(0.98) translateZ(0)', // Maintain hardware acceleration
       },
       _focus: {
         outlineOffset: '2px',

@@ -26,22 +26,21 @@ export const inputStyles = StyleSheet.create((theme) => ({
       variant: {
         default: {
           backgroundColor: theme.colors?.surface?.primary || '#ffffff',
-          borderColor: theme.colors?.border?.primary || '#e5e7eb',
+          border: `1px solid ${theme.colors?.border?.primary || '#e5e7eb'}`,
           color: theme.colors?.text?.primary || '#000000',
         },
         outlined: {
           backgroundColor: 'transparent',
-          borderColor: theme.intents?.primary?.main || '#3b82f6',
+          border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
           color: theme.colors?.text?.primary || '#000000',
         },
         filled: {
           backgroundColor: theme.colors?.surface?.secondary || '#f9fafb',
-          borderColor: 'transparent',
+          border: 'none',
           color: theme.colors?.text?.primary || '#000000',
         },
       },
     },
-    borderWidth: 1,
     borderRadius: theme.borderRadius?.md || 8,
     fontWeight: theme.typography?.fontWeight?.regular || '400',
     // Web-specific styles
@@ -67,7 +66,7 @@ export const inputStyles = StyleSheet.create((theme) => ({
     },
   },
   error: {
-    borderColor: theme.intents?.error?.main || '#ef4444',
+    border: `1px solid ${theme.intents?.error?.main || '#ef4444'}`,
     _web: {
       _focus: {
         borderColor: theme.intents?.error?.main || '#ef4444',
