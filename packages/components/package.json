@@ -1,0 +1,53 @@
+{
+  "name": "@idealyst/components",
+  "version": "1.0.0",
+  "description": "Shared component library for React and React Native",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "peerDependencies": {
+    "@react-native/normalize-colors": "*",
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
+    "react-native-edge-to-edge": "*",
+    "react-native-nitro-modules": "*",
+    "react-native-unistyles": "3.0.0-rc.5"
+  },
+  "peerDependenciesMeta": {
+    "@react-native/normalize-colors": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-native-edge-to-edge": {
+      "optional": true
+    },
+    "react-native-nitro-modules": {
+      "optional": true
+    },
+    "react-native-unistyles": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "react-native-unistyles": "3.0.0-rc.5",
+    "rollup": "^3.20.0",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "react-native",
+    "components",
+    "cross-platform"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "idealyst-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "@babel/runtime": "^7.27.6"
+  },
+  "devDependencies": {
+    "@babel/compat-data": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/helper-compilation-targets": "^7.27.2",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1"
+  }
+}
