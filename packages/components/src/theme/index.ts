@@ -1,5 +1,59 @@
 // Re-export themes from the main unistyles configuration
-export { lightTheme, darkTheme, breakpoints } from '../unistyles';
+export { 
+  lightTheme, 
+  darkTheme, 
+  breakpoints,
+} from '../unistyles';
+
+// Re-export default themes
+export {
+  defaultLightTheme,
+  defaultDarkTheme,
+  createDefaultLightTheme,
+  createDefaultDarkTheme,
+  commonThemeProperties,
+} from './defaultThemes';
+
+export type {
+  AppTheme,
+  AppIntents,
+  AppColors,
+  AppPalettes,
+  IntentNames,
+  ColorNames,
+} from '../unistyles';
+
+// Re-export color system
+export { 
+  colorPalettes,
+  intentMappings,
+  colorMappings,
+  darkThemeOverrides,
+} from './colors';
+
+export type {
+  ColorPalette,
+  ColorShade,
+  IntentName,
+  ColorName
+} from './colors';
+
+// Re-export color utilities
+export {
+  resolveColor,
+  createThemeContext,
+  getIntentColors,
+  getPaletteColors,
+  isValidColorReference,
+  getColorWithOpacity,
+  lightThemeContext,
+  darkThemeContext,
+} from './colorResolver';
+
+export type {
+  ColorReference,
+  ThemeContext,
+} from './colorResolver';
 
 // Import themes for local use
 import { lightTheme, darkTheme, breakpoints } from '../unistyles';

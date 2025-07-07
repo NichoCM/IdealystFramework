@@ -6,44 +6,44 @@ export const inputStyles = StyleSheet.create((theme) => ({
       size: {
         small: {
           height: 36,
-          paddingHorizontal: theme.spacing.sm,
-          paddingVertical: theme.spacing.xs,
-          fontSize: theme.typography.fontSize.sm,
+          paddingHorizontal: theme.spacing?.sm || 8,
+          paddingVertical: theme.spacing?.xs || 4,
+          fontSize: theme.typography?.fontSize?.sm || 14,
         },
         medium: {
           height: 44,
-          paddingHorizontal: theme.spacing.md,
-          paddingVertical: theme.spacing.sm,
-          fontSize: theme.typography.fontSize.md,
+          paddingHorizontal: theme.spacing?.md || 12,
+          paddingVertical: theme.spacing?.sm || 8,
+          fontSize: theme.typography?.fontSize?.md || 16,
         },
         large: {
           height: 52,
-          paddingHorizontal: theme.spacing.lg,
-          paddingVertical: theme.spacing.md,
-          fontSize: theme.typography.fontSize.lg,
+          paddingHorizontal: theme.spacing?.lg || 16,
+          paddingVertical: theme.spacing?.md || 12,
+          fontSize: theme.typography?.fontSize?.lg || 18,
         },
       },
       variant: {
         default: {
-          backgroundColor: theme.colors.surface,
-          borderColor: theme.colors.border,
-          color: theme.colors.text,
+          backgroundColor: theme.colors?.surface?.primary || '#ffffff',
+          borderColor: theme.colors?.border?.primary || '#e5e7eb',
+          color: theme.colors?.text?.primary || '#000000',
         },
         outlined: {
           backgroundColor: 'transparent',
-          borderColor: theme.colors.primary,
-          color: theme.colors.text,
+          borderColor: theme.intents?.primary?.main || '#3b82f6',
+          color: theme.colors?.text?.primary || '#000000',
         },
         filled: {
-          backgroundColor: theme.colors.surface,
+          backgroundColor: theme.colors?.surface?.secondary || '#f9fafb',
           borderColor: 'transparent',
-          color: theme.colors.text,
+          color: theme.colors?.text?.primary || '#000000',
         },
       },
     },
     borderWidth: 1,
-    borderRadius: theme.borderRadius.md,
-    fontWeight: theme.typography.fontWeight.regular,
+    borderRadius: theme.borderRadius?.md || 8,
+    fontWeight: theme.typography?.fontWeight?.regular || '400',
     // Web-specific styles
     _web: {
       boxSizing: 'border-box',
@@ -51,27 +51,27 @@ export const inputStyles = StyleSheet.create((theme) => ({
       transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
       fontFamily: 'inherit',
       _focus: {
-        borderColor: theme.colors.primary,
+        borderColor: theme.intents?.primary?.main || '#3b82f6',
       },
       _hover: {
-        borderColor: theme.colors.primary,
+        borderColor: theme.intents?.primary?.main || '#3b82f6',
       },
     },
   },
   disabled: {
     opacity: 0.6,
-    backgroundColor: theme.colors.surface,
-    color: theme.colors.textSecondary,
+    backgroundColor: theme.colors?.surface?.secondary || '#f3f4f6',
+    color: theme.colors?.text?.disabled || '#9ca3af',
     _web: {
       cursor: 'not-allowed',
     },
   },
   error: {
-    borderColor: theme.colors.error,
+    borderColor: theme.intents?.error?.main || '#ef4444',
     _web: {
       _focus: {
-        borderColor: theme.colors.error,
-        boxShadow: `0 0 0 2px ${theme.colors.error}20`,
+        borderColor: theme.intents?.error?.main || '#ef4444',
+        boxShadow: `0 0 0 2px ${theme.intents?.error?.main || '#ef4444'}20`,
       },
     },
   },

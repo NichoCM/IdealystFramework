@@ -1,75 +1,11 @@
 import { StyleSheet } from 'react-native-unistyles';
+import { defaultLightTheme, defaultDarkTheme } from './theme/defaultThemes';
 
-// Unistyles v3 configuration
-export const lightTheme = {
-  colors: {
-    primary: '#007AFF',
-    secondary: '#5856D6',
-    background: '#FFFFFF',
-    surface: '#F2F2F7',
-    text: '#000000',
-    textSecondary: '#6D6D80',
-    border: '#E5E5EA',
-    success: '#34C759',
-    warning: '#FF9500',
-    error: '#FF3B30',
-  },
-  spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-    xxl: 40,
-  },
-  borderRadius: {
-    xs: 4,
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 20,
-  },
-  typography: {
-    fontSize: {
-      xs: 12,
-      sm: 14,
-      md: 16,
-      lg: 18,
-      xl: 20,
-      xxl: 24,
-    },
-    fontWeight: {
-      light: '300',
-      regular: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-    },
-  },
-  // Dynamic functions
-  gap: (value: number) => value * 8,
-  scale: (value: number) => value * 1.2,
-} as const;
+// Use the comprehensive default themes
+export const lightTheme = defaultLightTheme;
+export const darkTheme = defaultDarkTheme;
 
-export const darkTheme = {
-  colors: {
-    primary: '#0A84FF',
-    secondary: '#5E5CE6',
-    background: '#000000',
-    surface: '#1C1C1E',
-    text: '#FFFFFF',
-    textSecondary: '#98989D',
-    border: '#38383A',
-    success: '#32D74B',
-    warning: '#FF9F0A',
-    error: '#FF453A',
-  },
-  spacing: lightTheme.spacing,
-  borderRadius: lightTheme.borderRadius,
-  typography: lightTheme.typography,
-  gap: lightTheme.gap,
-  scale: lightTheme.scale,
-} as const;
+
 
 export const breakpoints = {
   xs: 0,
@@ -93,7 +29,15 @@ declare module 'react-native-unistyles' {
     lg: typeof breakpoints.lg;
     xl: typeof breakpoints.xl;
   }
-} 
+}
+
+// Export enhanced theme types
+export type AppTheme = typeof lightTheme;
+export type AppIntents = typeof lightTheme.intents;
+export type AppColors = typeof lightTheme.colors;
+export type AppPalettes = typeof lightTheme.palettes;
+export type IntentNames = keyof AppIntents;
+export type ColorNames = keyof AppColors; 
 
 
 StyleSheet.configure({

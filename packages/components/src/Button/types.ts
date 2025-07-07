@@ -4,7 +4,12 @@ export interface ButtonProps {
   /**
    * The text or content to display inside the button
    */
-  children: ReactNode;
+  children?: ReactNode;
+  
+  /**
+   * The text title to display inside the button (for web)
+   */
+  title?: string;
   
   /**
    * Called when the button is pressed
@@ -19,7 +24,12 @@ export interface ButtonProps {
   /**
    * The visual style variant of the button
    */
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'contained' | 'outlined' | 'text';
+  
+  /**
+   * The intent/color scheme of the button
+   */
+  intent?: 'primary' | 'neutral' | 'success' | 'error' | 'warning';
   
   /**
    * The size of the button

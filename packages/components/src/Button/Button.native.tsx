@@ -1,20 +1,24 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import { ButtonProps } from './types';
 import { buttonStyles } from './Button.styles';
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  title,
   onPress,
   disabled = false,
-  variant = 'primary',
+  variant = 'contained',
+  intent = 'primary',
   size = 'medium',
   style,
   testID,
 }) => {
   buttonStyles.useVariants({
-    variant: variant as 'primary' | 'secondary' | 'outline',
-    size: size as 'small' | 'medium' | 'large',
+    size,
+    intent,
+    variant,
+    disabled,
   });
 
   return (
@@ -23,18 +27,11 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       testID={testID}
       activeOpacity={0.7}
+      style={[buttonStyles.button, style]}
     >
-      <View style={[
-        buttonStyles.button,
-      ]}>
-        <Text style={[
-          buttonStyles.text, 
-          disabled && buttonStyles.disabledText
-        ]}>
-          {children}
-        </Text>
-      </View>
-    
+      <Text style={buttonStyles.text}>
+        {children || title}
+      </Text>
     </TouchableOpacity>
   );
 };

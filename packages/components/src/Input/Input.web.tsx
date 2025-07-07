@@ -1,5 +1,4 @@
 import React from 'react';
-import { getWebProps } from 'react-native-unistyles/web';
 import { InputProps } from './types';
 import { inputStyles } from './Input.styles';
 
@@ -37,25 +36,47 @@ const Input: React.FC<InputProps> = ({
     }
   };
 
+  // Apply variants using the correct Unistyles 3.0 pattern
   inputStyles.useVariants({
     size,
     variant,
   });
 
-  // Create the style array following the official documentation pattern
-  const inputStyleArray = [
-    inputStyles.input,
-    disabled && inputStyles.disabled,
-    hasError && inputStyles.error,
-    style,
-  ];
-
-  // Use getWebProps to generate className and ref for web
-  const webProps = getWebProps(inputStyleArray);
+  // For web, create a comprehensive style object with fallbacks
+  const inputStyle = React.useMemo(() => {
+    const baseStyle = inputStyles.input;
+    const disabledStyle = disabled ? inputStyles.disabled : {};
+    const errorStyle = hasError ? inputStyles.error : {};
+    
+    // Fallback styles in case Unistyles isn't working
+    const fallbackStyle = {
+      padding: '8px 12px',
+      fontSize: '16px',
+      border: '1px solid #e5e7eb',
+      borderRadius: '8px',
+      backgroundColor: '#ffffff',
+      color: '#000000',
+      outline: 'none',
+      fontFamily: 'inherit',
+      boxSizing: 'border-box',
+      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+      width: '100%',
+      ...baseStyle,
+      ...disabledStyle,
+      ...errorStyle,
+    };
+    
+    // Merge with any additional styles
+    if (style) {
+      return { ...fallbackStyle, ...style };
+    }
+    
+    return fallbackStyle;
+  }, [disabled, hasError, style]);
 
   return (
     <input
-      {...webProps}
+      style={inputStyle}
       type={secureTextEntry ? 'password' : getInputType()}
       value={value}
       onChange={handleChange}
