@@ -31,8 +31,7 @@ const Divider: React.FC<DividerProps> = ({
       <View
         style={[dividerStyles.divider, style]}
         testID={testID}
-        accessibilityLabel={accessibilityLabel}
-        accessibilityRole="separator"
+        accessibilityLabel={accessibilityLabel || "divider"}
       />
     );
   }
@@ -42,8 +41,7 @@ const Divider: React.FC<DividerProps> = ({
     <View
       style={dividerStyles.container}
       testID={testID}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="separator"
+      accessibilityLabel={accessibilityLabel || "divider with content"}
     >
       <View style={dividerStyles.line} />
       <Text style={dividerStyles.content}>

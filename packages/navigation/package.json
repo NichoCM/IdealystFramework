@@ -1,0 +1,65 @@
+{
+  "name": "@idealyst/navigation",
+  "version": "1.0.0",
+  "description": "Cross-platform navigation library for React and React Native",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "peerDependencies": {
+    "@react-navigation/native": "^6.0.0",
+    "@react-navigation/stack": "^6.0.0",
+    "@react-navigation/bottom-tabs": "^6.0.0",
+    "@react-navigation/drawer": "^6.0.0",
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
+    "react-router-dom": "^6.0.0",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*"
+  },
+  "peerDependenciesMeta": {
+    "@react-navigation/native": {
+      "optional": true
+    },
+    "@react-navigation/stack": {
+      "optional": true
+    },
+    "@react-navigation/bottom-tabs": {
+      "optional": true
+    },
+    "@react-navigation/drawer": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-router-dom": {
+      "optional": true
+    },
+    "react-native-screens": {
+      "optional": true
+    },
+    "react-native-safe-area-context": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "rollup": "^3.20.0",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "react-native",
+    "navigation",
+    "cross-platform",
+    "router"
+  ]
+} 

@@ -55,9 +55,4 @@ export interface CardProps {
    * Accessibility label
    */
   accessibilityLabel?: string;
-  
-  /**
-   * Accessibility role
-   */
-  accessibilityRole?: string;
 } 

@@ -15,7 +15,6 @@ const Card: React.FC<CardProps> = ({
   style,
   testID,
   accessibilityLabel,
-  accessibilityRole,
 }) => {
   const handleClick = () => {
     if (!disabled && clickable && onPress) {
@@ -53,7 +52,7 @@ const Card: React.FC<CardProps> = ({
       disabled={clickable && disabled}
       data-testid={testID}
       aria-label={accessibilityLabel}
-      role={accessibilityRole}
+      role={clickable ? 'button' : undefined}
     >
       {children}
     </Component>

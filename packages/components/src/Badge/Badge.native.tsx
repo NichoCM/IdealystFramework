@@ -22,7 +22,7 @@ const Badge: React.FC<BadgeProps> = ({
       <View
         style={[badgeStyles.badge, style]}
         testID={testID}
-        accessibilityRole="status"
+        accessibilityLabel="status indicator"
       />
     );
   }
@@ -31,7 +31,7 @@ const Badge: React.FC<BadgeProps> = ({
     <View
       style={[badgeStyles.badge, style]}
       testID={testID}
-      accessibilityRole="status"
+      accessibilityLabel="badge"
     >
       <Text style={badgeStyles.text}>
         {children}

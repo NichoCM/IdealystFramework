@@ -15,7 +15,6 @@ const Card: React.FC<CardProps> = ({
   style,
   testID,
   accessibilityLabel,
-  accessibilityRole,
 }) => {
   // Apply variants
   cardStyles.useVariants({
@@ -34,7 +33,8 @@ const Card: React.FC<CardProps> = ({
     style: [cardStyles.card, style],
     testID,
     accessibilityLabel,
-    accessibilityRole,
+    // Only use button role for clickable cards in React Native
+    ...(clickable && { accessibilityRole: 'button' as const }),
     ...(clickable && {
       onPress: disabled ? undefined : onPress,
       disabled,

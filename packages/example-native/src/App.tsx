@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   StatusBar,
   useColorScheme,
+  ScrollView,
 } from 'react-native';
 
 import { DemoView } from '@idealyst/components';
@@ -32,12 +33,15 @@ function App() {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <ScrollView>
       <DemoView 
         title="React Native App with Unistyles"
         subtitle="Full featured cross-platform app with advanced styling"
         onButtonPress={handleButtonPress}
         testID="native-home-screen"
       />
+      </ScrollView>
+     
     </SafeAreaView>
   );
 }
