@@ -205,3 +205,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+/packages/example-ssr/.react-router
