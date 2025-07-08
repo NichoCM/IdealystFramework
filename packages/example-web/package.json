@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@idealyst/components": "*",
+    "@idealyst/navigation": "*",
     "@react-native/normalize-colors": "^0.80.1",
+    "@types/react-router-dom": "^5.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-native": "^0.80.1",
     "react-native-edge-to-edge": "^1.6.2",
     "react-native-nitro-modules": "0.26.3",
     "react-native-unistyles": "3.0.0-rc.5",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.20.0",
+    "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

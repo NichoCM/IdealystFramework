@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { DemoView } from '@idealyst/components';
+import { DemoView, View, Divider } from '@idealyst/components';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,19 +29,7 @@ function App() {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView>
-      <DemoView 
-        title="React Native App with Unistyles"
-        subtitle="Full featured cross-platform app with advanced styling"
-        onButtonPress={handleButtonPress}
-        testID="native-home-screen"
-      />
-      </ScrollView>
-     
+      <DemoView />
     </SafeAreaView>
   );
 }

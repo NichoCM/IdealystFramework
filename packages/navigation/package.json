@@ -10,39 +10,39 @@
     "dev": "rollup -c -w"
   },
   "peerDependencies": {
-    "@react-navigation/native": "^6.0.0",
-    "@react-navigation/stack": "^6.0.0",
-    "@react-navigation/bottom-tabs": "^6.0.0",
-    "@react-navigation/drawer": "^6.0.0",
+    "@react-navigation/bottom-tabs": "^7.0.0",
+    "@react-navigation/drawer": "^7.0.0",
+    "@react-navigation/native": "^7.0.0",
+    "@react-navigation/stack": "^7.0.0",
     "react": ">=16.8.0",
     "react-native": ">=0.60.0",
-    "react-router-dom": "^6.0.0",
+    "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "react-native-safe-area-context": "*"
+    "react-router-dom": "^6.0.0 || ^7.0.0"
   },
   "peerDependenciesMeta": {
-    "@react-navigation/native": {
-      "optional": true
-    },
-    "@react-navigation/stack": {
-      "optional": true
-    },
     "@react-navigation/bottom-tabs": {
       "optional": true
     },
     "@react-navigation/drawer": {
       "optional": true
     },
+    "@react-navigation/native": {
+      "optional": true
+    },
+    "@react-navigation/stack": {
+      "optional": true
+    },
     "react-native": {
       "optional": true
     },
-    "react-router-dom": {
+    "react-native-safe-area-context": {
       "optional": true
     },
     "react-native-screens": {
       "optional": true
     },
-    "react-native-safe-area-context": {
+    "react-router-dom": {
       "optional": true
     }
   },
@@ -62,4 +62,4 @@
     "cross-platform",
     "router"
   ]
-} 
+}
