@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
-    "react-native-unistyles": "3.0.0-rc.5",
     "rollup": "^3.20.0",
     "rollup-plugin-typescript2": "^0.34.0",
     "typescript": "^5.0.0"

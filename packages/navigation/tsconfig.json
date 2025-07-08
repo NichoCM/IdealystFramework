@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@react-navigation/native": ["../example-native/node_modules/@react-navigation/native"],
+            "@react-navigation/bottom-tabs": ["../example-native/node_modules/@react-navigation/bottom-tabs"],
+            "@react-navigation/drawer": ["../example-native/node_modules/@react-navigation/drawer"],
+            "@react-navigation/native-stack": ["../example-native/node_modules/@react-navigation/native-stack"],
+            "react-native-*": ["../example-native/node_modules/react-native-*"]
+        }
+    }
+}

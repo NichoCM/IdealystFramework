@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 
 import { DemoView, View, Divider } from '@idealyst/components';
+import { Navigator } from './Navigator';
+import { NavigationContainer } from '@react-navigation/native';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,14 +25,16 @@ function App() {
   };
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#000000' : '#ffffff',
+    backgroundColor: isDarkMode ? 'red' : 'red',
     flex: 1,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <DemoView />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={backgroundStyle}>
+        <Navigator />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
