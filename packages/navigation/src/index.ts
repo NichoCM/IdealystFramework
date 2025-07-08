@@ -1,3 +1,3 @@
-export * from './routing/index.native';
-export * from './context/types';
-export * from './context/NavigatorContext'; 
+// Web-specific exports
+export * from './routing';
+export * from './context'; 

@@ -11,5 +11,5 @@ export type LayoutType = 'stack' | 'tab' | 'drawer' | 'modal';
 
 export type LayoutParam = {
     type: LayoutType;
-    component?: React.ComponentType;
+    component?: React.ComponentType<{ children?: React.ReactNode }>;
 }

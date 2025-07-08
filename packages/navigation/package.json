@@ -27,42 +27,11 @@
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "react-router-dom": "^7.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@react-navigation/bottom-tabs": {
-      "optional": true
-    },
-    "@react-navigation/drawer": {
-      "optional": true
-    },
-    "@react-navigation/native": {
-      "optional": true
-    },
-    "@react-navigation/native-stack": {
-      "optional": true
-    },
-    "react-native": {
-      "optional": true
-    },
-    "react-native-gesture-handler": {
-      "optional": true
-    },
-    "react-native-reanimated": {
-      "optional": true
-    },
-    "react-native-safe-area-context": {
-      "optional": true
-    },
-    "react-native-screens": {
-      "optional": true
-    },
-    "react-router-dom": {
-      "optional": true
-    }
+    "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
+    "@types/react-router-dom": "^5.3.3",
     "rollup": "^3.20.0",
     "rollup-plugin-typescript2": "^0.34.0",
     "typescript": "^5.0.0"
