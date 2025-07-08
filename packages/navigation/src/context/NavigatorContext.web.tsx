@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { NavigateParams } from './types';
+import { useNavigate } from "react-router-dom";
 
 const NavigatorContext = createContext<{
     navigate: (params: NavigateParams) => void;
@@ -9,12 +10,16 @@ const NavigatorContext = createContext<{
 
 export const NavigatorProvider = ({ 
     children, 
-    navigate 
 }: { 
     children: React.ReactNode;
-    navigate?: (params: NavigateParams) => void;
 }) => {
-    const navigateFunction = navigate || (() => {});
+    const routerNavigate = useNavigate();
+    
+    const navigateFunction = (params: NavigateParams) => {
+        if (params.path) {
+            routerNavigate(params.path);
+        }
+    };
     
     return (
         <NavigatorContext.Provider value={{ navigate: navigateFunction }}>

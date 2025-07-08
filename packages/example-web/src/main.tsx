@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 
@@ -13,9 +12,7 @@ if (container.hasChildNodes()) {
   // If the container has child nodes, it means we're hydrating SSR content
   ReactDOM.hydrateRoot(container, 
     <React.StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </React.StrictMode>
   );
 } else {
@@ -23,9 +20,7 @@ if (container.hasChildNodes()) {
   const root = ReactDOM.createRoot(container);
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </React.StrictMode>
   );
 } 

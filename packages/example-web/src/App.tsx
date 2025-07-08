@@ -1,5 +1,8 @@
 import './App.css';
-import { DemoView } from '@idealyst/components';
+import { buildRouter } from '@idealyst/navigation';
+import { BrowserRouter } from 'react-router-dom';
+import { ExampleStackRouter } from '@idealyst/navigation/examples';
+import { NavigatorProvider } from '@idealyst/navigation';
 
 function App() {
   const handleButtonPress = (buttonType: string) => {
@@ -8,12 +11,11 @@ function App() {
   
   return (
     <div className="App">
-      <DemoView 
-        title="Web App with Navigation"
-        subtitle="Cross-platform components + navigation system"
-        onButtonPress={handleButtonPress}
-        testID="web-home-screen"
-      />
+        <BrowserRouter>
+        <NavigatorProvider>
+          <ExampleStackRouter />
+        </NavigatorProvider>
+      </BrowserRouter>
     </div>
   );  
 }

@@ -21,6 +21,7 @@ export const buildRouter = (routeParam: RouteParam, path: string = '') => {
 const buildNativeRouter = (routeParam: RouteParam, path: string = '', LastNavigator?: TypedNavigator<any>): React.ReactElement => {
     const nextPath = (routeParam.path ? path + routeParam.path : path) || '';
     const type = routeParam.layout?.type;
+    console.log('Registered routes', nextPath, routeParam.routes);
     switch (type) {
         case 'stack':
             const Stack = createNativeStackNavigator();

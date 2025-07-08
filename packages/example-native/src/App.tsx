@@ -13,9 +13,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { DemoView, View, Divider } from '@idealyst/components';
-import { Navigator } from './Navigator';
 import { NavigationContainer } from '@react-navigation/native';
+import { ExampleStackRouter } from '@idealyst/navigation/examples';
+import { NavigatorProvider, useNavigator } from '@idealyst/navigation';
+
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,7 +33,9 @@ function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={backgroundStyle}>
-        <Navigator />
+        <NavigatorProvider>
+          <ExampleStackRouter />
+        </NavigatorProvider>
       </SafeAreaView>
     </NavigationContainer>
   );
