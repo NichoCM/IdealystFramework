@@ -1,16 +1,31 @@
-import '@idealyst/components/src/unistyles';
+// import '@idealyst/components/src/unistyles';
 
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom/client';
-
-
-
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
- 
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-); 
+// Hydrate the app if it's SSR, otherwise render normally
+const container = document.getElementById('root')!;
+
+if (container.hasChildNodes()) {
+  // If the container has child nodes, it means we're hydrating SSR content
+  ReactDOM.hydrateRoot(container, 
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+} else {
+  // Otherwise, render normally (for development)
+  const root = ReactDOM.createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+} 
