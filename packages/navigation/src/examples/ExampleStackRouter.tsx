@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { buildRouter } from "../routing";
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "@idealyst/components/src/examples";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "@idealyst/components";
 import { Button, Text, View } from "@idealyst/components";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
@@ -123,6 +123,7 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create((theme) => ({
     container: {
+        
         padding: theme.spacing?.lg || 20,
         gap: theme.spacing?.md || 10,
         backgroundColor: theme.colors?.surface?.primary || '#ffffff',

@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { ExampleStackRouter } from '@idealyst/navigation/examples';
+import { ExampleStackRouter } from '@idealyst/navigation';
 import { NavigatorProvider, useNavigator } from '@idealyst/navigation';
 
 
@@ -26,7 +26,6 @@ function App() {
   };
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? 'red' : 'red',
     flex: 1,
   };
 

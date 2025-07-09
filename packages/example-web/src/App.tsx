@@ -1,7 +1,7 @@
 import './App.css';
 import { buildRouter } from '@idealyst/navigation';
 import { BrowserRouter } from 'react-router-dom';
-import { ExampleStackRouter } from '@idealyst/navigation/examples';
+import { ExampleStackRouter } from '@idealyst/navigation';
 import { NavigatorProvider } from '@idealyst/navigation';
 
 function App() {

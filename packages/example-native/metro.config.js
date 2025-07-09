@@ -29,7 +29,6 @@ const config = {
   watchFolders: [
     path.resolve(__dirname, '../components'),
     path.resolve(__dirname, '../navigation'),
-    path.resolve(__dirname, '../example-web'),
     path.resolve(__dirname, 'src'),
   ],
   watcher: {

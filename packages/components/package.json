@@ -5,6 +5,18 @@
   "main": "src/index.ts",
   "module": "src/index.ts",
   "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./src/unistyles": {
+      "import": "./src/unistyles.ts",
+      "require": "./src/unistyles.ts",
+      "types": "./src/unistyles.ts"
+    }
+  },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w"
