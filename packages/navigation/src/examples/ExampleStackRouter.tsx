@@ -43,7 +43,7 @@ const HomeScreen = () => {
                         vars: {},
                     });
                 }}>
-                    <Text>Avatar</Text>
+                    Avatar
                 </Button>
                 <Button
                     onPress={() => {
@@ -52,7 +52,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Badge</Text>
+                    Badge
                 </Button>
                 <Button
                     onPress={() => {
@@ -61,7 +61,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Button</Text>
+                    Button
                 </Button>
                 <Button
                     onPress={() => {
@@ -70,7 +70,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Card</Text>
+                    Card
                 </Button>
                 <Button
                     onPress={() => {
@@ -79,7 +79,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Checkbox</Text>
+                    Checkbox
                 </Button>
                 <Button
                     onPress={() => {
@@ -88,7 +88,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Divider</Text>
+                    Divider
                 </Button>
                 <Button
                     onPress={() => {
@@ -97,7 +97,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Input</Text>
+                    Input
                 </Button>
                 <Button
                     onPress={() => {
@@ -106,7 +106,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Text</Text>
+                    Text
                 </Button>
                 <Button
                     onPress={() => {
@@ -115,7 +115,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>View</Text>
+                    View
                 </Button>
                 <Button
                     onPress={() => {
@@ -124,7 +124,7 @@ const HomeScreen = () => {
                             vars: {},
                         });
                     }}>
-                    <Text>Screen</Text>
+                    Screen
                 </Button>
             </View>
             </View>

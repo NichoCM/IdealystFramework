@@ -1,4 +1,6 @@
-const textStyles = (theme) => ({
+import { StyleSheet } from "react-native-unistyles";
+
+const textStyles = StyleSheet.create((theme) => ({
   text: {
     variants: {
       size: {
@@ -89,6 +91,6 @@ const textStyles = (theme) => ({
       lineHeight: 'inherit',
     },
   },
-});
+}));
 
 export default textStyles; 

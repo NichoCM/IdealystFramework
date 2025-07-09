@@ -2,9 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { Text as RNText } from 'react-native';
 import { TextProps } from './types';
-import textStylesFunction from './Text.styles';
-
-const textStyles = StyleSheet.create(textStylesFunction);
+import textStyles from './Text.styles';
 
 const Text: React.FC<TextProps> = ({
   children,

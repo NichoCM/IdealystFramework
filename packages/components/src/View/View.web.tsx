@@ -1,17 +1,14 @@
 import React from 'react';
-import { StyleSheet } from 'react-native-unistyles';
 import { getWebProps } from 'react-native-unistyles/web';
 import { ViewProps } from './types';
-import viewStylesFunction from './View.styles';
-
-const viewStyles = StyleSheet.create(viewStylesFunction);
+import viewStyles from './View.styles';
 
 const View: React.FC<ViewProps> = ({
   children,
   spacing = 'none',
   marginVariant = 'none',
   background = 'transparent',
-  radius = 'none',
+  radius = 'none',  
   border = 'none',
   backgroundColor,
   padding,
