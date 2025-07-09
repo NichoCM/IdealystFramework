@@ -1,6 +1,7 @@
-import React, { createContext, useContext } from 'react';
-import { NavigateParams } from './types';
+import React, { createContext, useContext, useMemo } from 'react';
+import { NavigateParams, NavigatorProviderProps } from './types';
 import { useNavigate } from "react-router-dom";
+import { buildRouter } from '../routing';
 
 const NavigatorContext = createContext<{
     navigate: (params: NavigateParams) => void;
@@ -9,10 +10,8 @@ const NavigatorContext = createContext<{
 });
 
 export const NavigatorProvider = ({ 
-    children, 
-}: { 
-    children: React.ReactNode;
-}) => {
+    route,
+}: NavigatorProviderProps) => {
     const routerNavigate = useNavigate();
     
     const navigateFunction = (params: NavigateParams) => {
@@ -21,9 +20,13 @@ export const NavigatorProvider = ({
         }
     };
     
+    const RouteComponent = useMemo(() => {
+        return buildRouter(route);
+    }, [route]);
+    
     return (
         <NavigatorContext.Provider value={{ navigate: navigateFunction }}>
-            {children}
+            <RouteComponent />
         </NavigatorContext.Provider>
     );
 };

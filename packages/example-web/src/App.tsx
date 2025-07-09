@@ -11,9 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavigatorProvider>
-          <ExampleTabRouter />
-        </NavigatorProvider>
+        <NavigatorProvider route={ExampleTabRouter} />
       </BrowserRouter>
     </div>
   );  

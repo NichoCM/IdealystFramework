@@ -1,8 +1,8 @@
 import React from 'react';
-import { buildRouter } from "../routing";
 import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
 import { Screen, Text, View, Button } from "../../../components/src";
 import { UnistylesRuntime } from 'react-native-unistyles';
+import { RouteParam } from '../routing';
 
 const HomeDrawerScreen = () => {
     const toggleTheme = () => {
@@ -83,7 +83,7 @@ const ViewDrawerScreen = () => (
     </Screen>
 );
 
-const DrawerRouter = buildRouter({
+const DrawerRouter: RouteParam = {
     path: "/",
     component: HomeDrawerScreen,
     layout: {
@@ -100,6 +100,6 @@ const DrawerRouter = buildRouter({
         { path: "text", component: TextDrawerScreen },
         { path: "view", component: ViewDrawerScreen },
     ],
-});
+};
 
 export default DrawerRouter; 

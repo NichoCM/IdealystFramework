@@ -13,14 +13,17 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { ExampleStackRouter, ExampleTabRouter } from '@idealyst/navigation/examples';
 import { NavigatorProvider, useNavigator } from '@idealyst/navigation';
+import { useUnistyles } from 'react-native-unistyles';
 
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
 
+  const {rt} = useUnistyles()
+  
+  const isDarkMode = rt.themeName === 'dark';
   const handleButtonPress = (buttonType: string) => {
     console.log(`Native app received button press: ${buttonType}`);
   };
@@ -30,13 +33,9 @@ function App() {
   };
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
-        <NavigatorProvider>
-          <ExampleStackRouter />
-        </NavigatorProvider>
-      </SafeAreaView>
-    </NavigationContainer>
+    <SafeAreaView style={backgroundStyle}>
+      <NavigatorProvider route={ExampleStackRouter} />
+    </SafeAreaView>
   );
 }
 

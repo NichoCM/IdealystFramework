@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { buildRouter } from "../routing";
 import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, ScreenExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
 import { Button, Divider, Screen, Text, View } from "../../../components/src";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
 import { GeneralLayout } from '../layouts/GeneralLayout';
+import { RouteParam } from '../routing';
 
 const HomeScreen = () => {
     const navigator = useNavigator();
@@ -158,7 +158,7 @@ const WrappedGeneralLayout = (props: any) => {
     )
 }
 
-const StackRouter = buildRouter({
+const StackRouter: RouteParam = {
     path: "/",
     component: HomeScreen,
     layout: {
@@ -177,6 +177,6 @@ const StackRouter = buildRouter({
         { path: "view", component: ViewExamples},
         { path: "screen", component: ScreenExamples},
     ],
-});
+};
 
 export default StackRouter;
