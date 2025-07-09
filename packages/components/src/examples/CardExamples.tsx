@@ -7,8 +7,8 @@ export const CardExamples = () => {
   };
 
   return (
-    <Screen background="primary">
-      <View spacing="lg">
+    <Screen background="primary" padding="lg">
+      <View spacing="none">
       <Text size="large" weight="bold" align="center">
         Card Examples
       </Text>

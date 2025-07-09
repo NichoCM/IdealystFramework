@@ -12,6 +12,16 @@ export interface ScreenProps {
   background?: 'primary' | 'secondary' | 'tertiary' | 'inverse';
   
   /**
+   * Screen padding variant
+   */
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  
+  /**
+   * Safe area padding for mobile devices
+   */
+  safeArea?: boolean;
+  
+  /**
    * Additional styles (platform-specific)
    */
   style?: any;

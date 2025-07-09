@@ -6,17 +6,19 @@ import { screenStyles } from './Screen.styles';
 const Screen: React.FC<ScreenProps> = ({
   children,
   background = 'primary',
+  padding = 'md',
+  safeArea = false,
   style,
   testID,
 }) => {
   screenStyles.useVariants({
     background,
+    padding,
+    safeArea,
   });
 
   // Use getWebProps to generate className and ref for web
-  const webProps = getWebProps(screenStyles.screen);
-
-  console.log(webProps);
+  const webProps = getWebProps([screenStyles.screen, style]);
 
   return (
     <div

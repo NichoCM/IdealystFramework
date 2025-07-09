@@ -3,39 +3,11 @@ import { Screen, View, Text } from '../index';
 
 export const ScreenExamples = () => {
   return (
-    <Screen background="primary">
+    <Screen background="primary" padding="lg">
       <View spacing="lg">
         <Text size="large" weight="bold" align="center">
-          Screen Background Test
+          Screen Examples
         </Text>
-        
-        {/* Test with hardcoded colors */}
-        <View spacing="md">
-          <Text size="medium" weight="semibold">Hardcoded Color Test</Text>
-          <Text size="small" color="secondary">
-            This should show blue and yellow backgrounds
-          </Text>
-          
-          <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen backgroundColor="#e3f2fd">
-                <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-                  <Text size="small" weight="bold">Blue</Text>
-                  <Text size="small" color="secondary">Hardcoded</Text>
-                </View>
-              </Screen>
-            </View>
-            
-            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen backgroundColor="#fff3e0">
-                <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-                  <Text size="small" weight="bold">Orange</Text>
-                  <Text size="small" color="secondary">Hardcoded</Text>
-                </View>
-              </Screen>
-            </View>
-          </View>
-        </View>
         
         {/* Background Examples */}
         <View spacing="md">
@@ -46,7 +18,7 @@ export const ScreenExamples = () => {
           
           <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen background="primary">
+              <Screen background="primary" padding="sm">
                 <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
                   <Text size="small" weight="bold">Primary</Text>
                   <Text size="small" color="secondary">Surface</Text>
@@ -55,7 +27,7 @@ export const ScreenExamples = () => {
             </View>
             
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen background="secondary">
+              <Screen background="secondary" padding="sm">
                 <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
                   <Text size="small" weight="bold">Secondary</Text>
                   <Text size="small" color="secondary">Surface</Text>
@@ -64,7 +36,7 @@ export const ScreenExamples = () => {
             </View>
             
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen background="tertiary">
+              <Screen background="tertiary" padding="sm">
                 <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
                   <Text size="small" weight="bold">Tertiary</Text>
                   <Text size="small" color="secondary">Surface</Text>
@@ -73,7 +45,7 @@ export const ScreenExamples = () => {
             </View>
             
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen background="inverse">
+              <Screen background="inverse" padding="sm">
                 <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
                   <Text size="small" weight="bold" color="primary">Inverse</Text>
                   <Text size="small" color="secondary">Surface</Text>
@@ -83,36 +55,98 @@ export const ScreenExamples = () => {
           </View>
         </View>
 
-        {/* Custom Background Color */}
+        {/* Padding Examples */}
         <View spacing="md">
-          <Text size="medium" weight="semibold">Custom Background Color</Text>
+          <Text size="medium" weight="semibold">Padding Variants</Text>
+          <Text size="small" color="secondary">
+            Different padding options for Screen content
+          </Text>
+          
           <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen backgroundColor="#f0f9ff">
-                <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-                  <Text size="small" weight="bold">Custom</Text>
-                  <Text size="small" color="secondary">Light Blue</Text>
+              <Screen background="secondary" padding="none">
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(255,0,0,0.1)' }}>
+                  <Text size="small" weight="bold">None</Text>
+                  <Text size="small" color="secondary">No padding</Text>
                 </View>
               </Screen>
             </View>
             
             <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
-              <Screen backgroundColor="#fef3c7">
-                <View spacing="sm" style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-                  <Text size="small" weight="bold">Custom</Text>
-                  <Text size="small" color="secondary">Light Amber</Text>
+              <Screen background="secondary" padding="sm">
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(255,0,0,0.1)' }}>
+                  <Text size="small" weight="bold">Small</Text>
+                  <Text size="small" color="secondary">8px</Text>
+                </View>
+              </Screen>
+            </View>
+            
+            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
+              <Screen background="secondary" padding="md">
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(255,0,0,0.1)' }}>
+                  <Text size="small" weight="bold">Medium</Text>
+                  <Text size="small" color="secondary">16px</Text>
+                </View>
+              </Screen>
+            </View>
+            
+            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
+              <Screen background="secondary" padding="lg">
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(255,0,0,0.1)' }}>
+                  <Text size="small" weight="bold">Large</Text>
+                  <Text size="small" color="secondary">24px</Text>
                 </View>
               </Screen>
             </View>
           </View>
         </View>
 
-        {/* Debug Info */}
+        {/* Safe Area Examples */}
         <View spacing="md">
-          <Text size="medium" weight="semibold">Debug Info</Text>
+          <Text size="medium" weight="semibold">Safe Area</Text>
           <Text size="small" color="secondary">
-            If you're seeing this but no background colors, there might be an issue with the theme or Screen component implementation.
+            Safe area padding for mobile devices
           </Text>
+          
+          <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
+            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
+              <Screen background="tertiary" padding="sm" safeArea={false}>
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(0,255,0,0.1)' }}>
+                  <Text size="small" weight="bold">No Safe Area</Text>
+                  <Text size="small" color="secondary">Standard</Text>
+                </View>
+              </Screen>
+            </View>
+            
+            <View style={{ height: 100, width: 120, borderWidth: 1, borderColor: '#ccc' }}>
+              <Screen background="tertiary" padding="sm" safeArea={true}>
+                <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'rgba(0,255,0,0.1)' }}>
+                  <Text size="small" weight="bold">Safe Area</Text>
+                  <Text size="small" color="secondary">Mobile</Text>
+                </View>
+              </Screen>
+            </View>
+          </View>
+        </View>
+
+        {/* Usage Examples */}
+        <View spacing="md">
+          <Text size="medium" weight="semibold">Common Usage</Text>
+          <View style={{ height: 120, borderWidth: 1, borderColor: '#ccc' }}>
+            <Screen background="primary" padding="lg">
+              <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+                <Text size="large" weight="bold" align="center">
+                  App Screen Layout
+                </Text>
+                <Text size="medium" color="secondary" align="center">
+                  Primary background with large padding
+                </Text>
+                <Text size="small" color="secondary" align="center">
+                  Perfect for main app screens
+                </Text>
+              </View>
+            </Screen>
+          </View>
         </View>
       </View>
     </Screen>

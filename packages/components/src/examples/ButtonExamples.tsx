@@ -7,8 +7,8 @@ export const ButtonExamples = () => {
   };
 
   return (
-    <Screen background="primary">
-      <View spacing="lg">
+    <Screen background="primary" padding="lg">
+      <View spacing="none">
       <Text size="large" weight="bold" align="center">
         Button Examples
       </Text>

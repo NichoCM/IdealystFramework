@@ -83,19 +83,20 @@ import { View } from '@idealyst/components';
 - Standard View props (style, children, etc.)
 
 #### Screen
-A full-screen container component that grows to fit the parent completely with theme-based backgrounds.
+A full-screen container component that grows to fit the parent completely with theme-based backgrounds and padding.
 
 ```tsx
 import { Screen } from '@idealyst/components';
 
-<Screen background="primary">
+<Screen background="primary" padding="lg" safeArea={true}>
   {/* Your app content */}
 </Screen>
 ```
 
 **Props:**
-- `background`: `"primary" | "secondary" | "tertiary" | "inverse"`
-- `backgroundColor`: Custom background color (overrides background variant)
+- `background`: `"primary" | "secondary" | "tertiary" | "inverse"` - Background color variant
+- `padding`: `"none" | "sm" | "md" | "lg" | "xl"` - Screen padding (default: "md")
+- `safeArea`: `boolean` - Enable safe area padding for mobile devices (default: false)
 - `style`: Additional styles
 - `testID`: Test identifier
 
@@ -383,6 +384,139 @@ interface MyButtonProps extends ButtonProps {
 interface MyScreenProps extends ScreenProps {
   customLayout: boolean;
 }
+```
+
+## Styling Guidelines
+
+### Component Styling Architecture
+
+This library follows a consistent approach to component styling using [react-native-unistyles](https://github.com/jpudysz/react-native-unistyles) with a variant-based system.
+
+#### 1. Style Precedence
+
+When both stylesheet variants and manual style props are provided, **manual styles take precedence**:
+
+```tsx
+// The backgroundColor in style will override the background variant
+<View 
+  background="primary"           // Sets background via variant
+  style={{ backgroundColor: 'red' }}  // This takes precedence
+>
+  Content
+</View>
+```
+
+This allows for flexible overrides while maintaining the design system defaults.
+
+#### 2. Variants Over Manual Styles
+
+**All style-related props should be implemented as variants** in the stylesheet rather than direct style modifications. This ensures consistency, theme integration, and maintainability.
+
+✅ **Good - Using Variants:**
+```tsx
+// Component prop
+<Text color="primary" size="large" weight="bold">
+  Hello World
+</Text>
+
+// Stylesheet implementation
+const textStyles = StyleSheet.create((theme) => ({
+  text: {
+    variants: {
+      color: {
+        primary: { color: theme.colors.text.primary },
+        secondary: { color: theme.colors.text.secondary },
+        error: { color: theme.intents.error.main },
+      },
+      size: {
+        small: { fontSize: theme.typography.fontSize.sm },
+        large: { fontSize: theme.typography.fontSize.lg },
+      },
+      weight: {
+        bold: { fontWeight: theme.typography.fontWeight.bold },
+        normal: { fontWeight: theme.typography.fontWeight.regular },
+      }
+    }
+  }
+}));
+```
+
+❌ **Avoid - Direct Style Manipulation:**
+```tsx
+// Don't do this
+const Text = ({ color, size, style }) => {
+  const dynamicStyles = {
+    color: color === 'primary' ? '#007AFF' : '#666',
+    fontSize: size === 'large' ? 18 : 14,
+  };
+  
+  return <RNText style={[dynamicStyles, style]} />;
+};
+```
+
+#### 3. Benefits of the Variant System
+
+- **Theme Integration**: Variants automatically use theme values
+- **Type Safety**: TypeScript can enforce valid variant values  
+- **Performance**: Styles are computed once, not on every render
+- **Consistency**: All components follow the same patterns
+- **Dark Mode**: Automatic theme switching without component changes
+
+#### 4. Style Override Pattern
+
+The recommended pattern for all components:
+
+```tsx
+const Component = ({ variant1, variant2, style, ...props }) => {
+  componentStyles.useVariants({
+    variant1,
+    variant2,
+  });
+
+  const styleArray = [
+    componentStyles.component,  // Base styles + variants
+    style,                     // Manual overrides (highest precedence)
+  ];
+
+  return <BaseComponent style={styleArray} {...props} />;
+};
+```
+
+#### 5. Creating New Variants
+
+When adding new style options to components:
+
+1. **Define the prop type** with specific allowed values
+2. **Add the variant** to the stylesheet  
+3. **Use theme values** where possible
+4. **Document the new prop** in the component's props section
+
+```tsx
+// 1. Type definition
+interface ButtonProps {
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+}
+
+// 2. Stylesheet variant
+const buttonStyles = StyleSheet.create((theme) => ({
+  button: {
+    variants: {
+      radius: {
+        none: { borderRadius: 0 },
+        sm: { borderRadius: theme.borderRadius.sm },
+        md: { borderRadius: theme.borderRadius.md },
+        lg: { borderRadius: theme.borderRadius.lg },
+        full: { borderRadius: theme.borderRadius.full },
+      }
+    }
+  }
+}));
+
+// 3. Component implementation
+const Button = ({ radius = 'md', style, ...props }) => {
+  buttonStyles.useVariants({ radius });
+  return <Pressable style={[buttonStyles.button, style]} {...props} />;
+};
 ```
 
 ## Development

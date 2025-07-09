@@ -13,8 +13,8 @@ import { ScreenExamples } from './ScreenExamples';
 
 export const AllExamples = () => {
   return (
-    <Screen background="primary">
-      <View spacing="xl" style={{ maxWidth: 800, alignSelf: 'center' }}>
+    <Screen background="primary" padding="xl">
+      <View spacing="none" style={{ maxWidth: 800, alignSelf: 'center' }}>
       <Text size="xlarge" weight="bold" align="center" color="primary">
         Idealyst Component Library Examples
       </Text>

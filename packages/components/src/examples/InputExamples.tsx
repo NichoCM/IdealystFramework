@@ -8,8 +8,8 @@ export const InputExamples = () => {
   const [numberValue, setNumberValue] = useState('');
 
   return (
-    <Screen background="primary">
-      <View spacing="lg">
+    <Screen background="primary" padding="lg">
+      <View spacing="none">
       <Text size="large" weight="bold" align="center">
         Input Examples
       </Text>

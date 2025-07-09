@@ -9,8 +9,8 @@ export const CheckboxExamples = () => {
   const [indeterminateChecked, setIndeterminateChecked] = useState(false);
 
   return (
-    <Screen background="primary">
-      <View spacing="lg">
+    <Screen background="primary" padding="lg">
+      <View spacing="none">
       <Text size="large" weight="bold" align="center">
         Checkbox Examples
       </Text>

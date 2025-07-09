@@ -20,6 +20,33 @@ export const screenStyles = StyleSheet.create((theme) => ({
           backgroundColor: theme.colors.surface.inverse,
         },
       },
+      padding: {
+        none: {
+          padding: 0,
+        },
+        sm: {
+          padding: theme.spacing.sm,
+        },
+        md: {
+          padding: theme.spacing.md,
+        },
+        lg: {
+          padding: theme.spacing.lg,
+        },
+        xl: {
+          padding: theme.spacing.xl,
+        },
+      },
+      safeArea: {
+        true: {
+          paddingTop: theme.spacing.lg, // Safe area top
+          paddingBottom: theme.spacing.lg, // Safe area bottom
+        },
+        false: {
+          paddingTop: 0,
+          paddingBottom: 0,
+        },
+      },
     },
     // Web-specific styles
     _web: {

@@ -3,8 +3,8 @@ import { Screen, View, Text } from '../index';
 
 export const TextExamples = () => {
   return (
-    <Screen background="primary">
-      <View spacing="lg">
+    <Screen background="primary" padding="lg">
+      <View spacing="none">
       <Text size="large" weight="bold" align="center">
         Text Examples
       </Text>
