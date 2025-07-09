@@ -50,9 +50,10 @@ export const screenStyles = StyleSheet.create((theme) => ({
     },
     // Web-specific styles
     _web: {
+      overflow: 'auto',
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '100vh',
+      minHeight: '100%',
       boxSizing: 'border-box',
     },
   },

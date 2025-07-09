@@ -12,7 +12,7 @@ export const TextExamples = () => {
       {/* Text Sizes */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Sizes</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Text size="small">Small text - Lorem ipsum dolor sit amet</Text>
           <Text size="medium">Medium text - Lorem ipsum dolor sit amet</Text>
           <Text size="large">Large text - Lorem ipsum dolor sit amet</Text>
@@ -23,7 +23,7 @@ export const TextExamples = () => {
       {/* Text Weights */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Weights</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Text weight="light">Light weight text</Text>
           <Text weight="normal">Normal weight text</Text>
           <Text weight="medium">Medium weight text</Text>
@@ -35,7 +35,7 @@ export const TextExamples = () => {
       {/* Text Colors */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Color Variants</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Text color="primary">Primary color text</Text>
           <Text color="secondary">Secondary color text</Text>
           <Text color="success">Success color text</Text>
@@ -47,7 +47,7 @@ export const TextExamples = () => {
       {/* Text Alignment */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Alignment</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Text align="left">Left aligned text</Text>
           <Text align="center">Center aligned text</Text>
           <Text align="right">Right aligned text</Text>
@@ -57,7 +57,7 @@ export const TextExamples = () => {
       {/* Combined Examples */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Combined Examples</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Text size="large" weight="bold" color="primary" align="center">
             Large Bold Primary Centered
           </Text>

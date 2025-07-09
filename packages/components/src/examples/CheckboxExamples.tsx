@@ -18,7 +18,7 @@ export const CheckboxExamples = () => {
       {/* Basic Checkbox */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Basic Checkbox</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             checked={basicChecked}
             onCheckedChange={setBasicChecked}
@@ -40,7 +40,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox Sizes */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Sizes</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             size="small"
             checked={true}
@@ -65,7 +65,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox Intents */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Intents</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             intent="primary"
             checked={primaryChecked}
@@ -108,7 +108,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox Variants */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Variants</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             variant="default"
             checked={true}
@@ -127,7 +127,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox States */}
       <View spacing="md">
         <Text size="medium" weight="semibold">States</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             checked={false}
             onCheckedChange={() => {}}
@@ -162,7 +162,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox with Custom Children */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Custom Content</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             checked={true}
             onCheckedChange={() => {}}
@@ -188,7 +188,7 @@ export const CheckboxExamples = () => {
       {/* Checkbox with Helper Text and Errors */}
       <View spacing="md">
         <Text size="medium" weight="semibold">With Helper Text</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Checkbox
             checked={true}
             onCheckedChange={() => {}}

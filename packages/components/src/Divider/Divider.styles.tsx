@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 export const dividerStyles = StyleSheet.create((theme) => ({
   divider: {
-    backgroundColor: theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db',
+    backgroundColor: theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db',
     
     variants: {
       orientation: {
@@ -33,33 +33,45 @@ export const dividerStyles = StyleSheet.create((theme) => ({
           // Default solid style
         },
         dashed: {
-          // Handled by platform-specific styles
+          // React Native: handled by component logic with segments
+          backgroundColor: 'transparent',
+          
+          _web: {
+            border: 'none',
+            backgroundColor: 'transparent',
+          },
         },
         dotted: {
-          // Handled by platform-specific styles
+          // React Native: handled by component logic with segments
+          backgroundColor: 'transparent',
+          
+          _web: {
+            border: 'none',
+            backgroundColor: 'transparent',
+          },
         },
       },
       intent: {
         primary: {
-          backgroundColor: theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db',
+          backgroundColor: theme.intents?.primary?.main || '#3b82f6',
         },
         secondary: {
-          backgroundColor: theme.colors?.border?.secondary || theme.palettes?.gray?.[200] || '#e5e7eb',
+          backgroundColor: theme.colors?.border?.primary || theme.palettes?.gray?.[200] || '#e5e7eb',
         },
         neutral: {
-          backgroundColor: theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db',
+          backgroundColor: theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db',
         },
         success: {
-          backgroundColor: theme.intents?.success?.border || theme.palettes?.green?.[300] || '#86efac',
+          backgroundColor: theme.intents?.success?.main || '#22c55e',
         },
         error: {
-          backgroundColor: theme.intents?.error?.border || theme.palettes?.red?.[300] || '#fca5a5',
+          backgroundColor: theme.intents?.error?.main || '#ef4444',
         },
         warning: {
-          backgroundColor: theme.intents?.warning?.border || theme.palettes?.amber?.[300] || '#fcd34d',
+          backgroundColor: theme.intents?.warning?.main || '#f59e0b',
         },
         info: {
-          backgroundColor: theme.intents?.info?.border || theme.palettes?.cyan?.[300] || '#67e8f9',
+          backgroundColor: theme.intents?.info?.main || '#06b6d4',
         },
       },
       length: {
@@ -175,25 +187,291 @@ export const dividerStyles = StyleSheet.create((theme) => ({
           marginHorizontal: theme.spacing?.lg || 16,
         },
       },
-      // Dashed variant styles
+      // Dashed variant compound styles (web-only, RN handled by component)
       {
         variant: 'dashed',
+        orientation: 'horizontal',
         styles: {
-          backgroundColor: 'transparent',
+          _web: {
+            borderTop: `1px dashed ${theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+            borderLeft: 'none',
+          },
         },
       },
-      // Dotted variant styles
+      {
+        variant: 'dashed',
+        orientation: 'vertical',
+        styles: {
+          _web: {
+            borderLeft: `1px dashed ${theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+            borderTop: 'none',
+          },
+        },
+      },
+      // Dotted variant compound styles (web-only, RN handled by component)
       {
         variant: 'dotted',
+        orientation: 'horizontal',
         styles: {
-          backgroundColor: 'transparent',
+          _web: {
+            borderTop: `1px dotted ${theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+            borderLeft: 'none',
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        orientation: 'vertical',
+        styles: {
+          _web: {
+            borderLeft: `1px dotted ${theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+            borderTop: 'none',
+          },
+        },
+      },
+      // Intent color compounds for dashed variant
+      {
+        variant: 'dashed',
+        intent: 'primary',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.primary?.main || '#3b82f6',
+          
+          _web: {
+            borderTop: `1px dashed ${theme.intents?.primary?.main || '#3b82f6'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'primary',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.primary?.main || '#3b82f6',
+          
+          _web: {
+            borderLeft: `1px dashed ${theme.intents?.primary?.main || '#3b82f6'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'success',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.success?.main || '#22c55e',
+          
+          _web: {
+            borderTop: `1px dashed ${theme.intents?.success?.main || '#22c55e'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'success',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.success?.main || '#22c55e',
+          
+          _web: {
+            borderLeft: `1px dashed ${theme.intents?.success?.main || '#22c55e'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'error',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.error?.main || '#ef4444',
+          
+          _web: {
+            borderTop: `1px dashed ${theme.intents?.error?.main || '#ef4444'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'error',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.error?.main || '#ef4444',
+          
+          _web: {
+            borderLeft: `1px dashed ${theme.intents?.error?.main || '#ef4444'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'warning',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.warning?.main || '#f59e0b',
+          
+          _web: {
+            borderTop: `1px dashed ${theme.intents?.warning?.main || '#f59e0b'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'warning',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.warning?.main || '#f59e0b',
+          
+          _web: {
+            borderLeft: `1px dashed ${theme.intents?.warning?.main || '#f59e0b'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'info',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.info?.main || '#06b6d4',
+          
+          _web: {
+            borderTop: `1px dashed ${theme.intents?.info?.main || '#06b6d4'}`,
+          },
+        },
+      },
+      {
+        variant: 'dashed',
+        intent: 'info',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.info?.main || '#06b6d4',
+          
+          _web: {
+            borderLeft: `1px dashed ${theme.intents?.info?.main || '#06b6d4'}`,
+          },
+        },
+      },
+      // Intent color compounds for dotted variant
+      {
+        variant: 'dotted',
+        intent: 'primary',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.primary?.main || '#3b82f6',
+          
+          _web: {
+            borderTop: `1px dotted ${theme.intents?.primary?.main || '#3b82f6'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'primary',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.primary?.main || '#3b82f6',
+          
+          _web: {
+            borderLeft: `1px dotted ${theme.intents?.primary?.main || '#3b82f6'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'success',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.success?.main || '#22c55e',
+          
+          _web: {
+            borderTop: `1px dotted ${theme.intents?.success?.main || '#22c55e'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'success',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.success?.main || '#22c55e',
+          
+          _web: {
+            borderLeft: `1px dotted ${theme.intents?.success?.main || '#22c55e'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'error',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.error?.main || '#ef4444',
+          
+          _web: {
+            borderTop: `1px dotted ${theme.intents?.error?.main || '#ef4444'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'error',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.error?.main || '#ef4444',
+          
+          _web: {
+            borderLeft: `1px dotted ${theme.intents?.error?.main || '#ef4444'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'warning',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.warning?.main || '#f59e0b',
+          
+          _web: {
+            borderTop: `1px dotted ${theme.intents?.warning?.main || '#f59e0b'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'warning',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.warning?.main || '#f59e0b',
+          
+          _web: {
+            borderLeft: `1px dotted ${theme.intents?.warning?.main || '#f59e0b'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'info',
+        orientation: 'horizontal',
+        styles: {
+          borderTopColor: theme.intents?.info?.main || '#06b6d4',
+          
+          _web: {
+            borderTop: `1px dotted ${theme.intents?.info?.main || '#06b6d4'}`,
+          },
+        },
+      },
+      {
+        variant: 'dotted',
+        intent: 'info',
+        orientation: 'vertical',
+        styles: {
+          borderLeftColor: theme.intents?.info?.main || '#06b6d4',
+          
+          _web: {
+            borderLeft: `1px dotted ${theme.intents?.info?.main || '#06b6d4'}`,
+          },
         },
       },
     ],
-    
-    _web: {
-      // Web-specific styles for dashed and dotted variants
-    },
   },
   
   // Container for dividers with content
@@ -249,7 +527,7 @@ export const dividerStyles = StyleSheet.create((theme) => ({
   
   // Line segments for dividers with content
   line: {
-    backgroundColor: theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db',
+    backgroundColor: theme.colors?.border?.secondary || theme.palettes?.gray?.[300] || '#d1d5db',
     flex: 1,
     
     variants: {
@@ -320,50 +598,5 @@ export const dividerStyles = StyleSheet.create((theme) => ({
         },
       },
     ],
-  },
-}));
-
-// Web-specific styles for dashed and dotted variants
-export const dividerWebStyles = StyleSheet.create((theme) => ({
-  dashed: {
-    _web: {
-      border: 'none',
-      borderTop: `1px dashed ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-      backgroundColor: 'transparent',
-      
-      variants: {
-        orientation: {
-          horizontal: {
-            borderTop: `1px dashed ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-            borderLeft: 'none',
-          },
-          vertical: {
-            borderLeft: `1px dashed ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-            borderTop: 'none',
-          },
-        },
-      },
-    },
-  },
-  
-  dotted: {
-    _web: {
-      border: 'none',
-      borderTop: `1px dotted ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-      backgroundColor: 'transparent',
-      
-      variants: {
-        orientation: {
-          horizontal: {
-            borderTop: `1px dotted ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-            borderLeft: 'none',
-          },
-          vertical: {
-            borderLeft: `1px dotted ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
-            borderTop: 'none',
-          },
-        },
-      },
-    },
   },
 })); 

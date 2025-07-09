@@ -17,7 +17,7 @@ export const InputExamples = () => {
       {/* Input Types */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Input Types</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Input
             value={textValue}
             onChangeText={setTextValue}
@@ -49,7 +49,7 @@ export const InputExamples = () => {
       {/* Input Sizes */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Sizes</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Input
             placeholder="Small input"
             size="small"
@@ -68,7 +68,7 @@ export const InputExamples = () => {
       {/* Input Variants */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Variants</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Input
             placeholder="Default variant"
             variant="default"
@@ -87,7 +87,7 @@ export const InputExamples = () => {
       {/* Input States */}
       <View spacing="md">
         <Text size="medium" weight="semibold">States</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Input
             placeholder="Normal state"
           />
@@ -109,7 +109,7 @@ export const InputExamples = () => {
       {/* Auto-capitalization Examples */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Auto-capitalization</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Input
             placeholder="No capitalization"
             autoCapitalize="none"

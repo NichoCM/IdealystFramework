@@ -1,7 +1,7 @@
 import React from 'react';
 import { getWebProps } from 'react-native-unistyles/web';
 import { DividerProps } from './types';
-import { dividerStyles, dividerWebStyles } from './Divider.styles';
+import { dividerStyles } from './Divider.styles';
 
 const Divider: React.FC<DividerProps> = ({
   orientation = 'horizontal',
@@ -28,8 +28,6 @@ const Divider: React.FC<DividerProps> = ({
   // Create style arrays
   const dividerStyleArray = [
     dividerStyles.divider,
-    variant === 'dashed' && dividerWebStyles.dashed,
-    variant === 'dotted' && dividerWebStyles.dotted,
     style,
   ].filter(Boolean);
 
@@ -46,7 +44,7 @@ const Divider: React.FC<DividerProps> = ({
   // If no children, render simple divider
   if (!children) {
     return (
-      <hr
+      <div
         {...dividerProps}
         data-testid={testID}
         aria-label={accessibilityLabel}

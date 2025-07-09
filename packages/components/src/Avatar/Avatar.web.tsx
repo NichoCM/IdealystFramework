@@ -21,6 +21,10 @@ const Avatar: React.FC<AvatarProps> = ({
 
   const avatarStyleArray = [avatarStyles.avatar, style];
   const avatarProps = getWebProps(avatarStyleArray);
+  
+  // Generate fallback text styles with proper theming and size
+  const fallbackStyleArray = [avatarStyles.fallback];
+  const fallbackProps = getWebProps(fallbackStyleArray);
 
   const handleImageError = () => {
     setHasError(true);
@@ -36,7 +40,7 @@ const Avatar: React.FC<AvatarProps> = ({
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       ) : (
-        <span style={{ fontSize: 'inherit', color: 'inherit', fontWeight: '600' }}>
+        <span {...fallbackProps}>
           {fallback}
         </span>
       )}

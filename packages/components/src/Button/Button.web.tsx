@@ -31,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   // Create the style array following the official documentation pattern
   const buttonStyleArray = [
     buttonStyles.button,
+    buttonStyles.text, // Include text styles for font sizing
     style,
   ];
 

@@ -97,7 +97,7 @@ export const ViewExamples = () => {
       {/* Layout Examples */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Layout Examples</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <View 
             background="surface" 
             spacing="md" 

@@ -10,19 +10,37 @@ export const cardStyles = StyleSheet.create((theme) => ({
       variant: {
         default: {
           backgroundColor: theme.colors?.surface?.primary || '#ffffff',
-          border: `1px solid ${theme.colors?.border?.primary || theme.palettes?.gray?.[200] || '#e5e7eb'}`,
+          // React Native border properties
+          borderWidth: 1,
+          borderColor: theme.colors?.border?.primary || theme.palettes?.gray?.[200] || '#e5e7eb',
+          // Web-specific border override
+          _web: {
+            border: `1px solid ${theme.colors?.border?.primary || theme.palettes?.gray?.[200] || '#e5e7eb'}`,
+          },
         },
         outlined: {
           backgroundColor: 'transparent',
-          border: `1px solid ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+          // React Native border properties
+          borderWidth: 1,
+          borderColor: theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db',
+          // Web-specific border override
+          _web: {
+            border: `1px solid ${theme.colors?.border?.primary || theme.palettes?.gray?.[300] || '#d1d5db'}`,
+          },
         },
         elevated: {
           backgroundColor: theme.colors?.surface?.primary || '#ffffff',
-          border: 'none',
+          borderWidth: 0,
+          _web: {
+            border: 'none',
+          },
         },
         filled: {
           backgroundColor: theme.colors?.surface?.secondary || theme.palettes?.gray?.[50] || '#f9fafb',
-          border: 'none',
+          borderWidth: 0,
+          _web: {
+            border: 'none',
+          },
         },
       },
       padding: {
@@ -103,6 +121,10 @@ export const cardStyles = StyleSheet.create((theme) => ({
           shadowOpacity: theme.shadows?.md?.shadowOpacity || 0.1,
           shadowRadius: theme.shadows?.md?.shadowRadius || 8,
           elevation: theme.shadows?.md?.elevation || 4,
+          // More subtle shadow for web
+          _web: {
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04)',
+          },
         },
       },
       // Intent color combinations for outlined variant
@@ -111,6 +133,9 @@ export const cardStyles = StyleSheet.create((theme) => ({
         intent: 'primary',
         styles: {
           borderColor: theme.intents?.primary?.main || '#3b82f6',
+          _web: {
+            border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
+          },
         },
       },
       {
@@ -118,6 +143,9 @@ export const cardStyles = StyleSheet.create((theme) => ({
         intent: 'success',
         styles: {
           borderColor: theme.intents?.success?.main || '#22c55e',
+          _web: {
+            border: `1px solid ${theme.intents?.success?.main || '#22c55e'}`,
+          },
         },
       },
       {
@@ -125,6 +153,9 @@ export const cardStyles = StyleSheet.create((theme) => ({
         intent: 'error',
         styles: {
           borderColor: theme.intents?.error?.main || '#ef4444',
+          _web: {
+            border: `1px solid ${theme.intents?.error?.main || '#ef4444'}`,
+          },
         },
       },
       {
@@ -132,6 +163,9 @@ export const cardStyles = StyleSheet.create((theme) => ({
         intent: 'warning',
         styles: {
           borderColor: theme.intents?.warning?.main || '#f59e0b',
+          _web: {
+            border: `1px solid ${theme.intents?.warning?.main || '#f59e0b'}`,
+          },
         },
       },
       {
@@ -139,6 +173,9 @@ export const cardStyles = StyleSheet.create((theme) => ({
         intent: 'info',
         styles: {
           borderColor: theme.intents?.info?.main || '#06b6d4',
+          _web: {
+            border: `1px solid ${theme.intents?.info?.main || '#06b6d4'}`,
+          },
         },
       },
       // Intent color combinations for filled variant
@@ -196,9 +233,7 @@ export const cardHoverStyles = StyleSheet.create((theme) => ({
     _web: {
       _hover: {
         transform: 'translateY(-2px)',
-        boxShadow: theme.shadows?.lg ? 
-          `${theme.shadows.lg.shadowOffset.width}px ${theme.shadows.lg.shadowOffset.height}px ${theme.shadows.lg.shadowRadius}px rgba(0, 0, 0, ${theme.shadows.lg.shadowOpacity})` :
-          '0 8px 16px rgba(0, 0, 0, 0.15)',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06)',
       },
     },
   },

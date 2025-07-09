@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import { InputProps } from './types';
 import { inputStyles } from './Input.styles';
@@ -17,6 +17,8 @@ const Input: React.FC<InputProps> = ({
   style,
   testID,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   const getKeyboardType = () => {
     switch (inputType) {
       case 'email':
@@ -30,9 +32,19 @@ const Input: React.FC<InputProps> = ({
     }
   };
 
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+
+  // Apply variants to the stylesheet
   inputStyles.useVariants({
     size,
     variant,
+    focused: isFocused,
   });
 
   const inputStyleArray = [
@@ -51,6 +63,8 @@ const Input: React.FC<InputProps> = ({
       keyboardType={getKeyboardType()}
       secureTextEntry={secureTextEntry || inputType === 'password'}
       autoCapitalize={autoCapitalize}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
       style={inputStyleArray}
       testID={testID}
       placeholderTextColor="#999999"

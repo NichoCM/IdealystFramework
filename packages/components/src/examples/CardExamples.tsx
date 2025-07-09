@@ -16,7 +16,7 @@ export const CardExamples = () => {
       {/* Card Variants */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Variants</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Card variant="default" padding="medium">
             <Text>Default Card</Text>
             <Text size="small" color="secondary">
@@ -50,7 +50,7 @@ export const CardExamples = () => {
       {/* Card Intents */}
       <View spacing="md">
         <Text size="medium" weight="semibold">Intents</Text>
-        <View spacing="sm">
+        <View spacing="sm" style={{ gap: 10 }}>
           <Card intent="neutral" padding="medium" variant="outlined">
             <Text>Neutral Card</Text>
           </Card>

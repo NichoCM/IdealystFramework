@@ -25,8 +25,64 @@ const Divider: React.FC<DividerProps> = ({
     spacing,
   });
 
+  // Get the current styles for color and dimensions
+  const dividerStyle = dividerStyles.divider;
+  
+  // Get thickness value
+  const getThickness = () => {
+    switch (thickness) {
+      case 'thin': return 1;
+      case 'medium': return 2;
+      case 'thick': return 4;
+      default: return 1;
+    }
+  };
+
+  // For dashed/dotted variants, use border instead of background
+  const getDashedStyle = () => {
+    if (variant === 'dashed' || variant === 'dotted') {
+      const actualThickness = getThickness();
+      
+      return {
+        backgroundColor: 'transparent',
+        borderStyle: variant,
+        borderColor: dividerStyle.backgroundColor,
+        ...(orientation === 'horizontal' ? {
+          borderTopWidth: actualThickness,
+          borderBottomWidth: 0,
+          borderLeftWidth: 0,
+          borderRightWidth: 0,
+          width: '100%',
+          height: actualThickness,
+        } : {
+          borderLeftWidth: actualThickness,
+          borderTopWidth: 0,
+          borderBottomWidth: 0,
+          borderRightWidth: 0,
+          height: '100%',
+          width: actualThickness,
+        }),
+      };
+    }
+    return {};
+  };
+
   // If no children, render simple divider
   if (!children) {
+    if (variant === 'dashed' || variant === 'dotted') {
+      return (
+        <View
+          style={[
+            dividerStyle,
+            getDashedStyle(),
+            style,
+          ]}
+          testID={testID}
+          accessibilityLabel={accessibilityLabel || "divider"}
+        />
+      );
+    }
+    
     return (
       <View
         style={[dividerStyles.divider, style]}
@@ -36,18 +92,52 @@ const Divider: React.FC<DividerProps> = ({
     );
   }
 
-  // If has children, render divider with content
+  // For lines with content, create a simple dashed line
+  const renderLineSegment = () => {
+    if (variant === 'dashed' || variant === 'dotted') {
+      const actualThickness = getThickness();
+      
+      return (
+        <View
+          style={[
+            dividerStyles.line,
+            {
+              backgroundColor: 'transparent',
+              borderStyle: variant,
+              borderColor: dividerStyles.line.backgroundColor,
+              ...(orientation === 'horizontal' ? {
+                borderTopWidth: actualThickness,
+                borderBottomWidth: 0,
+                borderLeftWidth: 0,
+                borderRightWidth: 0,
+                height: actualThickness,
+              } : {
+                borderLeftWidth: actualThickness,
+                borderTopWidth: 0,
+                borderBottomWidth: 0,
+                borderRightWidth: 0,
+                width: actualThickness,
+              }),
+            },
+          ]}
+        />
+      );
+    }
+    
+    return <View style={dividerStyles.line} />;
+  };
+
   return (
     <View
       style={dividerStyles.container}
       testID={testID}
       accessibilityLabel={accessibilityLabel || "divider with content"}
     >
-      <View style={dividerStyles.line} />
+      {renderLineSegment()}
       <Text style={dividerStyles.content}>
         {children}
       </Text>
-      <View style={dividerStyles.line} />
+      {renderLineSegment()}
     </View>
   );
 };

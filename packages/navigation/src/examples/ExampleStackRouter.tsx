@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { buildRouter } from "../routing";
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, ScreenExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
 import { Button, Divider, Screen, Text, View } from "../../../components/src";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
@@ -117,6 +117,15 @@ const HomeScreen = () => {
                     }}>
                     <Text>View</Text>
                 </Button>
+                <Button
+                    onPress={() => {
+                        navigator.navigate({
+                            path: "/screen",
+                            vars: {},
+                        });
+                    }}>
+                    <Text>Screen</Text>
+                </Button>
             </View>
             </View>
         </Screen>
@@ -166,6 +175,7 @@ const StackRouter = buildRouter({
         { path: "input", component: InputExamples},
         { path: "text", component: TextExamples},
         { path: "view", component: ViewExamples},
+        { path: "screen", component: ScreenExamples},
     ],
 });
 

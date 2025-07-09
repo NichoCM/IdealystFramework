@@ -131,7 +131,6 @@ const GeneralLayout: React.FC<GeneralLayoutProps> = ({
         {/* Main Content Area */}
         <View style={generalLayoutStyles.mainContent}>
           <View 
-            spacing="md"
             style={generalLayoutStyles.contentArea}
           >
             {children}
