@@ -30,4 +30,9 @@ export interface ScreenProps {
    * Test ID for testing
    */
   testID?: string;
+
+  /**
+   * Scrollable content
+   */
+  scrollable?: boolean;
 } 

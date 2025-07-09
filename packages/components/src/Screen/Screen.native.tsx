@@ -1,5 +1,5 @@
 import React from 'react';
-import { View as RNView, ViewStyle } from 'react-native';
+import { View as RNView, ScrollView as RNScrollView } from 'react-native';
 import { ScreenProps } from './types';
 import { screenStyles } from './Screen.styles';
 
@@ -8,6 +8,7 @@ const Screen: React.FC<ScreenProps> = ({
   background = 'primary',
   padding = 'md',
   safeArea = false,
+  scrollable = true,
   style,
   testID,
 }) => {
@@ -21,6 +22,14 @@ const Screen: React.FC<ScreenProps> = ({
     screenStyles.screen,
     style,
   ];
+
+  if (scrollable) {
+    return (
+      <RNScrollView style={screenStyleArray} testID={testID}>
+        {children}
+      </RNScrollView>
+    );
+  }
 
   return (
     <RNView style={screenStyleArray} testID={testID}>
