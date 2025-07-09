@@ -35,8 +35,6 @@ export * from './Badge/types';
 export { default as Avatar } from './Avatar';
 export * from './Avatar/types';
 
-export * from './examples';
-
 export type { ButtonProps } from './Button/types';
 export type { TextProps } from './Text/types';
 export type { ViewProps } from './View/types';

@@ -1835,7 +1835,6 @@ __metadata:
     rollup-plugin-typescript2: "npm:^0.34.0"
     typescript: "npm:^5.0.0"
   peerDependencies:
-    "@idealyst/components": "*"
     "@react-navigation/bottom-tabs": ^7.0.0
     "@react-navigation/drawer": ^7.0.0
     "@react-navigation/native": ^7.0.0

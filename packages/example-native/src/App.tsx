@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { ExampleStackRouter } from '@idealyst/navigation';
+import { ExampleStackRouter } from '@idealyst/navigation/examples';
 import { NavigatorProvider, useNavigator } from '@idealyst/navigation';
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { buildRouter } from "../routing";
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "@idealyst/components";
-import { Button, Text, View } from "@idealyst/components";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
+import { Button, Text, View } from "../../../components/src";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
 
