@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { buildRouter } from "../routing";
 import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
-import { Button, Screen, Text, View } from "../../../components/src";
+import { Button, Divider, Screen, Text, View } from "../../../components/src";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
+import { GeneralLayout } from '../layouts/GeneralLayout';
 
 const HomeScreen = () => {
     const navigator = useNavigator();
@@ -122,11 +123,38 @@ const HomeScreen = () => {
     )
 };
 
+const WrappedGeneralLayout = (props: any) => {
+
+    const navigator = useNavigator();
+
+    return (
+        <GeneralLayout
+            header={{
+                content: <Text style={{ marginHorizontal: 'auto' }} color="inverse">Stack Router Demo App</Text>,
+            }}
+            sidebar={{
+                enabled: true,
+                collapsible: true,
+                position: 'left',
+                initiallyExpanded: false,
+                content: <Button onPress={() => {
+                    navigator.navigate({
+                        path: "/",
+                        vars: {},
+                    });
+                }}>Home</Button>,
+            }}
+            {...props}>
+        </GeneralLayout>
+    )
+}
+
 const StackRouter = buildRouter({
     path: "/",
     component: HomeScreen,
     layout: {
         type: "stack",
+        component: WrappedGeneralLayout,
     },
     routes: [
         { path: "avatar", component: AvatarExamples},

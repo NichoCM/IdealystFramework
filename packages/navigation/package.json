@@ -21,6 +21,9 @@
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "dependencies": {
+    "@idealyst/components": "*"
+  },
   "peerDependencies": {
     "@react-navigation/bottom-tabs": "^7.0.0",
     "@react-navigation/drawer": "^7.0.0",
@@ -37,6 +40,8 @@
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "rollup": "^3.20.0",
     "rollup-plugin-typescript2": "^0.34.0",
     "typescript": "^5.0.0"
