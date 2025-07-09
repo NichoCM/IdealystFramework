@@ -17,6 +17,7 @@ const HomeScreen = () => {
 
     return (
         <Screen>
+            <View style={{ maxWidth: 800, width: '100%', gap: 10, marginHorizontal: 'auto' }}>
             {/* Theme Toggle Section */}
             <View>
                 <Text size="medium" weight="bold">
@@ -33,7 +34,7 @@ const HomeScreen = () => {
             </View>
 
             {/* Component Navigation Buttons */}
-            <View>
+            <View style={{ gap: 10 }}>
                 <Button
                     onPress={() => {
                     navigator.navigate({
@@ -115,6 +116,7 @@ const HomeScreen = () => {
                     }}>
                     <Text>View</Text>
                 </Button>
+            </View>
             </View>
         </Screen>
     )
