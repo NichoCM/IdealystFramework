@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, Badge, Button } from '../index';
+import { Screen, View, Text, Badge, Button } from '../index';
 
 export const BadgeExamples = () => {
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Badge Examples
       </Text>
@@ -133,7 +134,7 @@ export const BadgeExamples = () => {
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text>Status</Text>
             <Badge intent="success" variant="dot" />
-            <Text size="small" colorVariant="secondary">Online</Text>
+            <Text size="small" color="secondary">Online</Text>
           </View>
           
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -167,5 +168,6 @@ export const BadgeExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

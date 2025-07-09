@@ -7,4 +7,5 @@ export { CheckboxExamples } from './CheckboxExamples';
 export { DividerExamples } from './DividerExamples';
 export { BadgeExamples } from './BadgeExamples';
 export { AvatarExamples } from './AvatarExamples';
+export { ScreenExamples } from './ScreenExamples';
 export { AllExamples } from './AllExamples'; 

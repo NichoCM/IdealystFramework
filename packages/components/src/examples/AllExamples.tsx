@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Divider } from '../index';
+import { Screen, View, Text, Divider } from '../index';
 import { ButtonExamples } from './ButtonExamples';
 import { TextExamples } from './TextExamples';
 import { ViewExamples } from './ViewExamples';
@@ -9,19 +9,21 @@ import { CheckboxExamples } from './CheckboxExamples';
 import { DividerExamples } from './DividerExamples';
 import { BadgeExamples } from './BadgeExamples';
 import { AvatarExamples } from './AvatarExamples';
+import { ScreenExamples } from './ScreenExamples';
 
 export const AllExamples = () => {
   return (
-    <View spacing="xl" style={{ flex: 1, maxWidth: 800, alignSelf: 'center' }}>
-      <Text size="xlarge" weight="bold" align="center" colorVariant="primary">
+    <Screen background="primary">
+      <View spacing="xl" style={{ maxWidth: 800, alignSelf: 'center' }}>
+      <Text size="xlarge" weight="bold" align="center" color="primary">
         Idealyst Component Library Examples
       </Text>
-      <Text size="medium" align="center" colorVariant="secondary">
+      <Text size="medium" align="center" color="secondary">
         Comprehensive showcase of all available components
       </Text>
       
       <Divider spacing="large" intent="primary">
-        <Text size="small" weight="semibold" colorVariant="primary">COMPONENTS</Text>
+        <Text size="small" weight="semibold" color="primary">COMPONENTS</Text>
       </Divider>
       
       <ButtonExamples />
@@ -49,6 +51,10 @@ export const AllExamples = () => {
       <Divider spacing="medium" />
       
       <AvatarExamples />
+      <Divider spacing="medium" />
+      
+      <ScreenExamples />
     </View>
+    </Screen>
   );
 }; 

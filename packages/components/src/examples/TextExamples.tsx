@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text } from '../index';
+import { Screen, View, Text } from '../index';
 
 export const TextExamples = () => {
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Text Examples
       </Text>
@@ -35,11 +36,11 @@ export const TextExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Color Variants</Text>
         <View spacing="sm">
-          <Text colorVariant="primary">Primary color text</Text>
-          <Text colorVariant="secondary">Secondary color text</Text>
-          <Text colorVariant="success">Success color text</Text>
-          <Text colorVariant="warning">Warning color text</Text>
-          <Text colorVariant="error">Error color text</Text>
+          <Text color="primary">Primary color text</Text>
+          <Text color="secondary">Secondary color text</Text>
+          <Text color="success">Success color text</Text>
+          <Text color="warning">Warning color text</Text>
+          <Text color="error">Error color text</Text>
         </View>
       </View>
 
@@ -57,17 +58,18 @@ export const TextExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Combined Examples</Text>
         <View spacing="sm">
-          <Text size="large" weight="bold" colorVariant="primary" align="center">
+          <Text size="large" weight="bold" color="primary" align="center">
             Large Bold Primary Centered
           </Text>
-          <Text size="small" weight="light" colorVariant="secondary" align="right">
+          <Text size="small" weight="light" color="secondary" align="right">
             Small Light Secondary Right
           </Text>
-          <Text size="medium" weight="semibold" colorVariant="success">
+          <Text size="medium" weight="semibold" color="success">
             Medium Semibold Success
           </Text>
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

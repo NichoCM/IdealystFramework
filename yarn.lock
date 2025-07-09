@@ -1845,6 +1845,7 @@ __metadata:
     react-native-reanimated: "*"
     react-native-safe-area-context: "*"
     react-native-screens: "*"
+    react-native-unistyles: 3.0.0-rc.5
     react-router: ^7.6.3
     react-router-dom: ^7.6.3
   languageName: unknown

@@ -9,6 +9,8 @@ export const buttonStyles = StyleSheet.create((theme) => ({
     fontWeight: '600',
     textAlign: 'center',
     transition: 'all 0.2s ease',
+    // Set default color to prevent fallback to theme.colors.text.placeholder
+    color: theme.intents?.primary?.on || '#ffffff',
     
     // All variants defined here
     variants: {

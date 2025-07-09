@@ -51,10 +51,19 @@ export const textStyles = StyleSheet.create((theme) => ({
       },
       color: {
         primary: {
-          color: theme.colors.text,
+          color: theme.colors.text.primary,
         },
         secondary: {
-          color: theme.colors.textSecondary,
+          color: theme.colors.text.secondary,
+        },
+        disabled: {
+          color: theme.colors.text.disabled,
+        },
+        inverse: {
+          color: theme.colors.text.inverse,
+        },
+        muted: {
+          color: theme.colors.text.muted,
         },
         success: {
           color: theme.colors.success,
@@ -65,8 +74,15 @@ export const textStyles = StyleSheet.create((theme) => ({
         error: {
           color: theme.colors.error,
         },
+        info: {
+          color: theme.colors.info,
+        },
+        neutral: {
+          color: theme.colors.neutral,
+        },
       },
     },
+    color: theme.colors.text.primary, // Default text color
     margin: 0,
     padding: 0,
     // Web-specific styles

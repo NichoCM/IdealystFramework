@@ -17,14 +17,9 @@ export interface TextProps {
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
   
   /**
-   * The color variant of the text
+   * The color of the text
    */
-  colorVariant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  
-  /**
-   * Custom color (overrides colorVariant)
-   */
-  color?: string;
+  color?: 'primary' | 'secondary' | 'disabled' | 'inverse' | 'muted' | 'success' | 'warning' | 'error' | 'info' | 'neutral';
   
   /**
    * Text alignment

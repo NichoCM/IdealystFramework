@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Text } from '../index';
+import { Screen, View, Button, Text } from '../index';
 
 export const ButtonExamples = () => {
   const handlePress = (buttonType: string) => {
@@ -7,7 +7,8 @@ export const ButtonExamples = () => {
   };
 
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Button Examples
       </Text>
@@ -144,5 +145,6 @@ export const ButtonExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

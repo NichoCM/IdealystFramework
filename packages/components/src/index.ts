@@ -35,6 +35,9 @@ export * from './Badge/types';
 export { default as Avatar } from './Avatar';
 export * from './Avatar/types';
 
+export { default as Screen } from './Screen';
+export * from './Screen/types';
+
 export type { ButtonProps } from './Button/types';
 export type { TextProps } from './Text/types';
 export type { ViewProps } from './View/types';
@@ -45,6 +48,7 @@ export type { CardProps } from './Card/types';
 export type { DividerProps } from './Divider/types';
 export type { BadgeProps } from './Badge/types';
 export type { AvatarProps } from './Avatar/types';
+export type { ScreenProps } from './Screen/types';
 
 export { appThemes, breakpoints } from './theme';
 export type { AppThemes, AppBreakpoints } from './theme'; 

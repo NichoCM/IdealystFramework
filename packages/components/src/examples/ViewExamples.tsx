@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text } from '../index';
+import { Screen, View, Text } from '../index';
 
 export const ViewExamples = () => {
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         View Examples
       </Text>
@@ -44,10 +45,10 @@ export const ViewExamples = () => {
             <Text size="small">Surface</Text>
           </View>
           <View background="primary" spacing="sm">
-            <Text size="small" colorVariant="primary">Primary</Text>
+            <Text size="small" color="primary">Primary</Text>
           </View>
           <View background="secondary" spacing="sm">
-            <Text size="small" colorVariant="secondary">Secondary</Text>
+            <Text size="small" color="secondary">Secondary</Text>
           </View>
         </View>
       </View>
@@ -123,5 +124,6 @@ export const ViewExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

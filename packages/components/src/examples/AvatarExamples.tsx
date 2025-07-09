@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, Avatar } from '../index';
+import { Screen, View, Text, Avatar } from '../index';
 
 export const AvatarExamples = () => {
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Avatar Examples
       </Text>
@@ -91,5 +92,6 @@ export const AvatarExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

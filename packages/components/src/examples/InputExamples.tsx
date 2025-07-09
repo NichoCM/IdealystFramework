@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Input } from '../index';
+import { Screen, View, Text, Input } from '../index';
 
 export const InputExamples = () => {
   const [textValue, setTextValue] = useState('');
@@ -8,7 +8,8 @@ export const InputExamples = () => {
   const [numberValue, setNumberValue] = useState('');
 
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Input Examples
       </Text>
@@ -128,5 +129,6 @@ export const InputExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

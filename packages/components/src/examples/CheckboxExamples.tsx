@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Checkbox } from '../index';
+import { Screen, View, Text, Checkbox } from '../index';
 
 export const CheckboxExamples = () => {
   const [basicChecked, setBasicChecked] = useState(false);
@@ -9,7 +9,8 @@ export const CheckboxExamples = () => {
   const [indeterminateChecked, setIndeterminateChecked] = useState(false);
 
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Checkbox Examples
       </Text>
@@ -167,7 +168,7 @@ export const CheckboxExamples = () => {
             onCheckedChange={() => {}}
           >
             <Text>Custom label with </Text>
-            <Text weight="bold" colorVariant="primary">styled text</Text>
+            <Text weight="bold" color="primary">styled text</Text>
           </Checkbox>
           
           <Checkbox
@@ -176,7 +177,7 @@ export const CheckboxExamples = () => {
           >
             <View>
               <Text weight="semibold">Multi-line Label</Text>
-              <Text size="small" colorVariant="secondary">
+              <Text size="small" color="secondary">
                 This checkbox has a more complex label with multiple lines
               </Text>
             </View>
@@ -211,5 +212,6 @@ export const CheckboxExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

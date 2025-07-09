@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, Divider } from '../index';
+import { Screen, View, Text, Divider } from '../index';
 
 export const DividerExamples = () => {
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Divider Examples
       </Text>
@@ -111,13 +112,13 @@ export const DividerExamples = () => {
         <View spacing="sm">
           <Text>Content above</Text>
           <Divider spacing="medium">
-            <Text size="small" colorVariant="secondary">OR</Text>
+            <Text size="small" color="secondary">OR</Text>
           </Divider>
           <Text>Content below</Text>
           
           <Text>Content above</Text>
           <Divider spacing="medium" intent="primary">
-            <Text size="small" colorVariant="primary" weight="semibold">SECTION</Text>
+            <Text size="small" color="primary" weight="semibold">SECTION</Text>
           </Divider>
           <Text>Content below</Text>
         </View>
@@ -150,5 +151,6 @@ export const DividerExamples = () => {
         </View>
       </View>
     </View>
+    </Screen>
   );
 }; 

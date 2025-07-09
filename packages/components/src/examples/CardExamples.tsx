@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Card, Button } from '../index';
+import { Screen, View, Text, Card, Button } from '../index';
 
 export const CardExamples = () => {
   const handleCardPress = (cardType: string) => {
@@ -7,7 +7,8 @@ export const CardExamples = () => {
   };
 
   return (
-    <View spacing="lg" style={{ flex: 1 }}>
+    <Screen background="primary">
+      <View spacing="lg">
       <Text size="large" weight="bold" align="center">
         Card Examples
       </Text>
@@ -18,28 +19,28 @@ export const CardExamples = () => {
         <View spacing="sm">
           <Card variant="default" padding="medium">
             <Text>Default Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               This is a default card with standard styling
             </Text>
           </Card>
           
           <Card variant="outlined" padding="medium">
             <Text>Outlined Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               This is an outlined card with border
             </Text>
           </Card>
           
           <Card variant="elevated" padding="medium">
             <Text>Elevated Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               This is an elevated card with shadow
             </Text>
           </Card>
           
           <Card variant="filled" padding="medium">
             <Text>Filled Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               This is a filled card with background
             </Text>
           </Card>
@@ -131,7 +132,7 @@ export const CardExamples = () => {
             padding="medium"
           >
             <Text weight="semibold">Clickable Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               Click me to see interaction
             </Text>
           </Card>
@@ -144,7 +145,7 @@ export const CardExamples = () => {
             padding="medium"
           >
             <Text weight="semibold">Disabled Card</Text>
-            <Text size="small" colorVariant="secondary">
+            <Text size="small" color="secondary">
               This card is disabled
             </Text>
           </Card>
@@ -156,7 +157,7 @@ export const CardExamples = () => {
         <Text size="medium" weight="semibold">Complex Layout</Text>
         <Card variant="elevated" padding="large" radius="medium">
           <Text size="large" weight="bold">Product Card</Text>
-          <Text size="small" colorVariant="secondary" style={{ marginVertical: 8 }}>
+          <Text size="small" color="secondary" style={{ marginVertical: 8 }}>
             This is a more complex card layout with multiple elements
           </Text>
           <View style={{ flexDirection: 'row', gap: 8, marginTop: 12 }}>
@@ -170,5 +171,6 @@ export const CardExamples = () => {
         </Card>
       </View>
     </View>
+    </Screen>
   );
 }; 

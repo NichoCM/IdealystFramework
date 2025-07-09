@@ -1,408 +1,449 @@
-# IdealystFramework Design System
+# @idealyst/components
 
-A comprehensive, cross-platform design system built with React Native Unistyles 3.0, providing consistent styling across web and native platforms.
+A comprehensive, cross-platform component library for React and React Native applications. Built with TypeScript and powered by [react-native-unistyles](https://github.com/jpudysz/react-native-unistyles) for consistent styling across platforms.
 
-## 🏗️ Architecture Overview
+## Features
 
-The design system follows a **palette-based intent system** architecture:
+- 🌐 **Cross-Platform**: Works seamlessly in React and React Native
+- 🎨 **Design System**: Comprehensive theming with light/dark mode support
+- 📱 **Responsive**: Adaptive components that work on all screen sizes
+- ♿ **Accessible**: Built with accessibility best practices
+- 🔧 **TypeScript**: Full TypeScript support with comprehensive type definitions
+- 🎯 **Intent-Based**: Semantic color system for consistent UX
+- 🚀 **Production Ready**: Optimized for performance and developer experience
 
-- **Color Palettes**: 8 foundational color palettes with 10 shades each
-- **Intent System**: Semantic colors for actionable components (buttons, alerts, etc.)
-- **Color System**: Display colors for text, surfaces, borders, and interactive states
-- **Variant System**: Component variations (contained, outlined, text, etc.)
-- **Cross-Platform**: Single codebase with platform-specific optimizations
+## Installation
 
-## 🎨 Color System Philosophy
+```bash
+# Using Yarn (recommended)
+yarn add @idealyst/components
 
-### Intent vs Color Distinction
-
-**Intents** (for actionable components):
-- Used for buttons, alerts, checkboxes, form controls
-- Contextual meaning (primary, success, error, warning, neutral, info)
-- Includes semantic properties (main, on, container, onContainer, light, dark, border)
-
-**Colors** (for display components):
-- Used for text, surfaces, borders, backgrounds
-- Descriptive properties (text.primary, surface.secondary, border.focus)
-- No semantic meaning, purely visual hierarchy
-
-### Palette Structure
-
-```typescript
-// Example: Blue palette with 10 shades
-theme.palettes.blue = {
-  50: '#eff6ff',   // Lightest
-  100: '#dbeafe',
-  200: '#bfdbfe',
-  300: '#93c5fd',
-  400: '#60a5fa',
-  500: '#3b82f6',  // Base shade
-  600: '#2563eb',
-  700: '#1d4ed8',
-  800: '#1e40af',
-  900: '#1e3a8a',  // Darkest
-}
+# Using npm
+npm install @idealyst/components
 ```
 
-### Intent Color Structure
+### Peer Dependencies
 
-```typescript
-theme.intents.primary = {
-  main: '#3b82f6',      // Primary action color (blue.500)
-  on: '#ffffff',        // Text color on main background
-  container: '#eff6ff', // Light background version (blue.50)
-  onContainer: '#1e3a8a', // Text color on container (blue.900)
-  light: '#dbeafe',     // Lighter accent (blue.100)
-  dark: '#1d4ed8',      // Darker accent (blue.700)
-  border: '#bfdbfe',    // Border color (blue.200)
-}
+This library requires the following peer dependencies:
+
+```bash
+# Core dependencies
+yarn add react react-native-unistyles
+
+# For React Native projects
+yarn add react-native @react-native/normalize-colors react-native-edge-to-edge react-native-nitro-modules
+
+# For React/Web projects
+yarn add react
 ```
 
-## 🔧 Technical Implementation
+## Quick Start
 
-### Unistyles 3.0 Integration
+```tsx
+import React from 'react';
+import { Screen, View, Text, Button } from '@idealyst/components';
 
-The system uses React Native Unistyles 3.0 with proper Shadow Tree integration:
-
-```typescript
-// ✅ Correct Unistyles 3.0 pattern
-export const buttonStyles = StyleSheet.create((theme) => ({
-  button: {
-    // Base styles
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: theme.borderRadius?.md || 8,
-    
-    // Variants system
-    variants: {
-      size: {
-        small: { paddingHorizontal: 8, paddingVertical: 4 },
-        medium: { paddingHorizontal: 12, paddingVertical: 8 },
-        large: { paddingHorizontal: 16, paddingVertical: 12 },
-      },
-      intent: {
-        primary: {
-          backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-          color: theme.intents?.primary?.on || '#ffffff',
-        },
-        // ... other intents
-      },
-      variant: {
-        contained: { border: 'none' },
-        outlined: { backgroundColor: 'transparent' },
-        text: { backgroundColor: 'transparent', border: 'none' },
-      },
-    },
-    
-    // Compound variants for complex combinations
-    compoundVariants: [
-      {
-        variant: 'outlined',
-        intent: 'primary',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
-          color: theme.intents?.primary?.main || '#3b82f6',
-        },
-      },
-      // ... other combinations
-    ],
-    
-    // Platform-specific styles
-    _web: {
-      cursor: 'pointer',
-      outline: 'none',
-      display: 'flex',
-      boxSizing: 'border-box',
-      _hover: { opacity: 0.9 },
-      _active: { transform: 'scale(0.98)' },
-      _focus: { outlineOffset: '2px' },
-    },
-  },
-}));
-```
-
-### Component Implementation Pattern
-
-#### Web Components (with getWebProps)
-
-```typescript
-// ✅ Correct web component pattern
-import { getWebProps } from 'react-native-unistyles/web';
-
-const Button: React.FC<ButtonProps> = ({
-  variant = 'contained',
-  intent = 'primary',
-  size = 'medium',
-  disabled = false,
-  style,
-  ...props
-}) => {
-  // Apply variants
-  buttonStyles.useVariants({
-    size: size as 'small' | 'medium' | 'large',
-    intent: intent as 'primary' | 'success' | 'error' | 'warning' | 'neutral',
-    variant: variant as 'contained' | 'outlined' | 'text',
-    disabled: disabled as boolean,
-  });
-
-  // Create style array
-  const styleArray = [
-    buttonStyles.button,
-    style,
-  ];
-
-  // Generate web props
-  const webProps = getWebProps(styleArray);
-
+export default function App() {
   return (
-    <button {...webProps} disabled={disabled} {...props}>
-      {children}
-    </button>
+    <Screen background="primary">
+      <View spacing="lg" style={{ flex: 1, justifyContent: 'center' }}>
+        <Text size="large" weight="bold" align="center">
+          Welcome to Idealyst Components
+        </Text>
+        <Button
+          variant="contained"
+          intent="primary"
+          onPress={() => console.log('Button pressed!')}
+        >
+          Get Started
+        </Button>
+      </View>
+    </Screen>
   );
-};
-```
-
-#### Native Components
-
-```typescript
-// ✅ Correct native component pattern
-import { Pressable, Text } from 'react-native';
-
-const Button: React.FC<ButtonProps> = ({
-  variant = 'contained',
-  intent = 'primary',
-  size = 'medium',
-  disabled = false,
-  style,
-  ...props
-}) => {
-  // Apply variants
-  buttonStyles.useVariants({
-    size, intent, variant, disabled,
-  });
-
-  return (
-    <Pressable style={[buttonStyles.button, style]} disabled={disabled} {...props}>
-      <Text style={buttonStyles.text}>{children}</Text>
-    </Pressable>
-  );
-};
-```
-
-## 🎯 Best Practices
-
-### 1. Border Styling
-
-**❌ Avoid separate border properties:**
-```typescript
-// Don't do this - causes double borders in some browsers
-variant: {
-  outlined: { borderWidth: 1 },
-},
-compoundVariants: [
-  { variant: 'outlined', intent: 'primary', styles: { borderColor: 'blue' } }
-]
-```
-
-**✅ Use border shorthand:**
-```typescript
-// Do this - single border declaration
-variant: {
-  outlined: { /* no border props */ },
-},
-compoundVariants: [
-  { 
-    variant: 'outlined', 
-    intent: 'primary', 
-    styles: { border: '1px solid blue' } 
-  }
-]
-```
-
-### 2. Theme Color Resolution
-
-**✅ Use theme colors with fallbacks:**
-```typescript
-// Always provide fallbacks for theme colors
-backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-color: theme.colors?.text?.primary || '#000000',
-```
-
-### 3. Platform-Specific Considerations
-
-**Web-specific styles:**
-```typescript
-_web: {
-  cursor: 'pointer',
-  outline: 'none',
-  display: 'flex',
-  boxSizing: 'border-box',
-  userSelect: 'none',
-  _hover: { opacity: 0.9 },
-  _active: { transform: 'scale(0.98)' },
-  _focus: { outlineOffset: '2px' },
 }
 ```
 
-**Native-specific considerations:**
-- Use separate `<Text>` components for button text
-- Handle press states with `Pressable` component
-- No CSS pseudo-classes available
+## Available Components
 
-### 4. Variant System Guidelines
+### Layout Components
 
-**Single responsibility:**
-- `size`: Controls dimensions and padding
-- `intent`: Controls color scheme and meaning
-- `variant`: Controls visual style (contained, outlined, text)
+#### View
+A flexible container component with built-in spacing and styling options.
 
-**Compound variants for complex combinations:**
-```typescript
-compoundVariants: [
-  {
-    variant: 'outlined',
-    intent: 'primary',
-    styles: {
-      // Specific styles for outlined + primary combination
-    },
-  },
-]
+```tsx
+import { View } from '@idealyst/components';
+
+<View spacing="md" style={{ padding: 16 }}>
+  {/* Content */}
+</View>
 ```
 
-## 🚀 Usage Examples
+**Props:**
+- `spacing`: `"xs" | "sm" | "md" | "lg" | "xl" | "xxl"`
+- Standard View props (style, children, etc.)
 
-### Basic Component Usage
+#### Screen
+A full-screen container component that grows to fit the parent completely with theme-based backgrounds.
 
-```typescript
-// Button variants
-<Button variant="contained" intent="primary">Save</Button>
-<Button variant="outlined" intent="success">Confirm</Button>
-<Button variant="text" intent="error">Delete</Button>
+```tsx
+import { Screen } from '@idealyst/components';
 
-// Input variants
-<Input variant="default" size="medium" />
-<Input variant="outlined" size="large" hasError />
-<Input variant="filled" size="small" />
-
-// Text variants
-<Text size="xl" weight="bold" colorVariant="primary">Heading</Text>
-<Text size="md" colorVariant="secondary">Description</Text>
+<Screen background="primary">
+  {/* Your app content */}
+</Screen>
 ```
+
+**Props:**
+- `background`: `"primary" | "secondary" | "tertiary" | "inverse"`
+- `backgroundColor`: Custom background color (overrides background variant)
+- `style`: Additional styles
+- `testID`: Test identifier
+
+#### Divider
+A separator component with customizable styling and spacing.
+
+```tsx
+import { Divider } from '@idealyst/components';
+
+<Divider spacing="medium" intent="primary">
+  <Text>Section Title</Text>
+</Divider>
+```
+
+**Props:**
+- `spacing`: `"small" | "medium" | "large"`
+- `intent`: `"primary" | "secondary" | "neutral"`
+- `children`: Optional content to display in the divider
+
+### Typography
+
+#### Text
+A versatile text component with comprehensive styling options.
+
+```tsx
+import { Text } from '@idealyst/components';
+
+<Text
+  size="large"
+  weight="bold"
+  color="primary"
+  align="center"
+>
+  Hello World
+</Text>
+```
+
+**Props:**
+- `size`: `"small" | "medium" | "large" | "xlarge"`
+- `weight`: `"light" | "normal" | "medium" | "semibold" | "bold"`
+- `color`: `"primary" | "secondary" | "success" | "warning" | "error"`
+- `align`: `"left" | "center" | "right"`
+
+### Form Components
+
+#### Button
+A customizable button component with multiple variants and intents.
+
+```tsx
+import { Button } from '@idealyst/components';
+
+<Button
+  variant="contained"
+  intent="primary"
+  size="medium"
+  onPress={() => console.log('Pressed!')}
+>
+  Click Me
+</Button>
+```
+
+**Props:**
+- `variant`: `"contained" | "outlined" | "text"`
+- `intent`: `"primary" | "neutral" | "success" | "error" | "warning"`
+- `size`: `"small" | "medium" | "large"`
+- `disabled`: `boolean`
+- `onPress`: `() => void`
+
+#### Input
+A text input component with consistent styling.
+
+```tsx
+import { Input } from '@idealyst/components';
+
+<Input
+  placeholder="Enter your name"
+  value={value}
+  onChangeText={setValue}
+/>
+```
+
+#### Checkbox
+A checkbox component with customizable styling.
+
+```tsx
+import { Checkbox } from '@idealyst/components';
+
+<Checkbox
+  checked={isChecked}
+  onPress={() => setIsChecked(!isChecked)}
+  label="Agree to terms"
+/>
+```
+
+### Display Components
+
+#### Card
+A container component for displaying content in a card format.
+
+```tsx
+import { Card } from '@idealyst/components';
+
+<Card>
+  <Text size="large" weight="bold">Card Title</Text>
+  <Text>Card content goes here</Text>
+</Card>
+```
+
+#### Badge
+A small component for displaying status or count information.
+
+```tsx
+import { Badge } from '@idealyst/components';
+
+<Badge count={5} intent="error">
+  <Text>Notifications</Text>
+</Badge>
+```
+
+#### Avatar
+A component for displaying user avatars or profile pictures.
+
+```tsx
+import { Avatar } from '@idealyst/components';
+
+<Avatar
+  source={{ uri: 'https://example.com/avatar.jpg' }}
+  size="medium"
+  fallback="JD"
+/>
+```
+
+**Props:**
+- `source`: Image source object
+- `size`: `"small" | "medium" | "large"`
+- `fallback`: Text to display when image fails to load
+
+### Demo Component
+
+#### DemoView
+A utility component for showcasing components in examples and demos.
+
+```tsx
+import { DemoView } from '@idealyst/components';
+
+<DemoView title="Button Examples">
+  <Button variant="contained" intent="primary">
+    Demo Button
+  </Button>
+</DemoView>
+```
+
+## Theme System
+
+The library includes a comprehensive theme system with light and dark mode support.
+
+### Default Themes
+
+```tsx
+import { appThemes } from '@idealyst/components';
+
+// Access theme colors and properties
+const { colors, spacing, typography } = appThemes.light;
+```
+
+### Intent System
+
+Components use an intent-based color system for consistent UX:
+
+- **Primary**: Main brand actions
+- **Neutral**: Secondary actions
+- **Success**: Positive actions (save, confirm)
+- **Error**: Destructive actions (delete, cancel)
+- **Warning**: Caution actions
+
+### Color Palettes
+
+The theme includes 8 comprehensive color palettes:
+- Blue (Primary)
+- Green (Success)
+- Red (Error)
+- Amber (Warning)
+- Gray (Neutral)
+- Cyan (Info)
+- Purple (Accent)
+- Pink (Accent)
+
+Each palette includes 10 shades (50-900) optimized for both light and dark themes.
 
 ### Custom Styling
 
-```typescript
-// Using theme in custom StyleSheet
-const styles = StyleSheet.create((theme) => ({
-  card: {
+Use the theme in your custom components:
+
+```tsx
+import { StyleSheet } from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
+
+const styles = createStyleSheet((theme) => ({
+  container: {
     backgroundColor: theme.colors.surface.primary,
-    borderColor: theme.colors.border.primary,
-    borderRadius: theme.borderRadius.lg,
     padding: theme.spacing.md,
-    // Use border shorthand
-    border: `1px solid ${theme.colors.border.primary}`,
+    borderRadius: theme.borderRadius.lg,
   },
-  title: {
+  text: {
     color: theme.colors.text.primary,
-    fontSize: theme.typography.fontSize.lg,
-    fontWeight: theme.typography.fontWeight.semibold,
-  },
-  button: {
-    backgroundColor: theme.intents.primary.main,
-    color: theme.intents.primary.on,
-    // Single border declaration
-    border: `1px solid ${theme.intents.primary.main}`,
+    fontSize: theme.typography.fontSize.md,
   },
 }));
 ```
 
-### Theme Switching
+## Platform-Specific Usage
 
-```typescript
-import { UnistylesRuntime } from 'react-native-unistyles';
+### React Native
 
-// Switch between themes
-const toggleTheme = () => {
-  UnistylesRuntime.setTheme(
-    UnistylesRuntime.themeName === 'light' ? 'dark' : 'light'
+```tsx
+import React from 'react';
+import { Screen, View, Text, Button } from '@idealyst/components';
+
+export default function App() {
+  return (
+    <Screen background="primary">
+      <View spacing="lg" style={{ flex: 1 }}>
+        <Text size="large" weight="bold">
+          React Native App
+        </Text>
+        <Button variant="contained" intent="primary">
+          Native Button
+        </Button>
+      </View>
+    </Screen>
   );
-};
-```
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-1. **Double borders on web:**
-   - Use `border` shorthand instead of separate `borderWidth`/`borderColor`
-   - Ensure only one border declaration per variant
-
-2. **Variants not applying:**
-   - Check that `useVariants()` is called before rendering
-   - Verify variant names match the StyleSheet definitions
-   - Use type assertions for TypeScript compliance
-
-3. **Theme colors not resolving:**
-   - Always provide fallback colors
-   - Check theme structure matches expected format
-   - Verify theme is properly imported and configured
-
-4. **Web styles not working:**
-   - Ensure `getWebProps` is used for web components
-   - Check that `react-native-unistyles/web` is imported
-   - Verify style arrays are properly structured
-
-### Performance Optimization
-
-- Use `React.memo` for components with complex styling
-- Avoid inline style objects that change on every render
-- Prefer theme colors over hardcoded values
-- Use compound variants instead of complex conditional logic
-
-## 📚 API Reference
-
-### Theme Structure
-
-```typescript
-interface Theme {
-  palettes: ColorPalettes;
-  intents: IntentColors;
-  colors: DisplayColors;
-  spacing: SpacingScale;
-  borderRadius: BorderRadiusScale;
-  typography: TypographyScale;
-  shadows: ShadowScale;
-  transitions: TransitionScale;
 }
 ```
 
-### Component Props
+### React Web
 
-```typescript
-interface ButtonProps {
-  variant?: 'contained' | 'outlined' | 'text';
-  intent?: 'primary' | 'success' | 'error' | 'warning' | 'neutral' | 'info';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  children?: ReactNode;
-  style?: any;
-  onPress?: () => void;
+```tsx
+import React from 'react';
+import { Screen, View, Text, Button } from '@idealyst/components';
+
+export default function App() {
+  return (
+    <Screen background="primary">
+      <View spacing="lg">
+        <Text size="large" weight="bold">
+          Web App
+        </Text>
+        <Button variant="contained" intent="primary">
+          Web Button
+        </Button>
+      </View>
+    </Screen>
+  );
 }
 ```
 
-## 🔗 Related Documentation
+## Examples
 
-- [Theme System Details](./src/theme/README.md)
-- [Color System](./src/theme/colors.ts)
-- [Component Examples](./src/DemoView/DemoView.tsx)
-- [Platform Setup](./THEME_SETUP.md)
+Import pre-built examples to see components in action:
 
-## 🎯 Design Principles
+```tsx
+import { ButtonExamples, TextExamples, ScreenExamples, AllExamples } from '@idealyst/components/examples';
 
-1. **Consistency**: Same visual language across platforms
-2. **Accessibility**: WCAG compliant contrast ratios
-3. **Scalability**: Easy to extend with new components/variants
-4. **Performance**: Optimized for both web and native platforms
-5. **Developer Experience**: Clear APIs with TypeScript support
-6. **Maintainability**: Single source of truth for design tokens 
+// Show all components
+<AllExamples />
+
+// Show specific component examples
+<ButtonExamples />
+<TextExamples />
+<ScreenExamples />
+```
+
+## TypeScript Support
+
+All components are fully typed with comprehensive TypeScript definitions:
+
+```tsx
+import { ButtonProps, TextProps, ViewProps, ScreenProps } from '@idealyst/components';
+
+// Use component prop types in your own components
+interface MyButtonProps extends ButtonProps {
+  customProp: string;
+}
+
+interface MyScreenProps extends ScreenProps {
+  customLayout: boolean;
+}
+```
+
+## Development
+
+### Building
+
+```bash
+# Build the library
+yarn build
+
+# Watch for changes during development
+yarn dev
+```
+
+### Project Structure
+
+```
+packages/components/
+├── src/
+│   ├── Avatar/           # Avatar component
+│   ├── Badge/            # Badge component
+│   ├── Button/           # Button component
+│   ├── Card/             # Card component
+│   ├── Checkbox/         # Checkbox component
+│   ├── Divider/          # Divider component
+│   ├── Input/            # Input component
+│   ├── Text/             # Text component
+│   ├── View/             # View component
+│   ├── examples/         # Component examples
+│   ├── theme/            # Theme system
+│   └── index.ts          # Main exports
+├── package.json
+└── README.md
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Add your component following the existing patterns
+4. Include examples and TypeScript definitions
+5. Submit a pull request
+
+### Component Structure
+
+Each component follows this structure:
+```
+ComponentName/
+├── ComponentName.web.tsx      # Web implementation
+├── ComponentName.native.tsx   # React Native implementation
+├── ComponentName.styles.tsx   # Shared styles
+├── types.ts                   # TypeScript definitions
+├── index.ts                   # Web export
+├── index.native.ts            # Native export
+└── index.web.ts               # Web export
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Support
+
+For issues, questions, or contributions, please visit our [GitHub repository](https://github.com/your-org/idealyst-framework). 

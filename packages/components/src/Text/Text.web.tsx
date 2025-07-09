@@ -7,7 +7,6 @@ const Text: React.FC<TextProps> = ({
   children,
   size = 'medium',
   weight = 'normal',
-  colorVariant = 'primary',
   color,
   align = 'left',
   style,
@@ -17,13 +16,12 @@ const Text: React.FC<TextProps> = ({
     size,
     weight,
     align,
-    color: color ? undefined : colorVariant,
+    color: color
   });
 
   // Create the style array following the official documentation pattern
   const textStyleArray = [
     textStyles.text,
-    color && { color },
     style,
   ];
 

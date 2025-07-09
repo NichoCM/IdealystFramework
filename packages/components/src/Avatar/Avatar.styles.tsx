@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 export const avatarStyles = StyleSheet.create((theme) => ({
   avatar: {
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors?.surface?.secondary || '#f3f4f6',
