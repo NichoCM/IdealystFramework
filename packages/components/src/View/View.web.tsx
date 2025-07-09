@@ -1,7 +1,10 @@
 import React from 'react';
+import { StyleSheet } from 'react-native-unistyles';
 import { getWebProps } from 'react-native-unistyles/web';
 import { ViewProps } from './types';
-import { viewStyles } from './View.styles';
+import viewStylesFunction from './View.styles';
+
+const viewStyles = StyleSheet.create(viewStylesFunction);
 
 const View: React.FC<ViewProps> = ({
   children,

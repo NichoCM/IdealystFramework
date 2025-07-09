@@ -8,12 +8,12 @@ import { GeneralLayout } from '../layouts/GeneralLayout';
 
 const HomeScreen = () => {
     const navigator = useNavigator();
-    const [currentTheme, setCurrentTheme] = useState(UnistylesRuntime.themeName || 'light');
+    const currentTheme = "light";
 
     const toggleTheme = () => {
+        const currentTheme = UnistylesRuntime.themeName;
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        UnistylesRuntime.setTheme(newTheme);
-        setCurrentTheme(newTheme);
+        UnistylesRuntime.setTheme(newTheme);        
     };
 
     return (

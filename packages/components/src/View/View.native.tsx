@@ -1,7 +1,10 @@
 import React from 'react';
-import { View as RNView, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { View as RNView } from 'react-native';
 import { ViewProps } from './types';
-import { viewStyles } from './View.styles';
+import viewStylesFunction from './View.styles';
+
+const viewStyles = StyleSheet.create(viewStylesFunction);
 
 const View: React.FC<ViewProps> = ({
   children,

@@ -1,6 +1,4 @@
-import { StyleSheet } from 'react-native-unistyles';
-
-export const viewStyles = StyleSheet.create((theme) => ({
+const viewStyles = (theme) => ({
   view: {
     variants: {
       spacing: {
@@ -98,4 +96,6 @@ export const viewStyles = StyleSheet.create((theme) => ({
       boxSizing: 'border-box',
     },
   },
-})); 
+});
+
+export default viewStyles; 

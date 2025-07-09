@@ -4,14 +4,14 @@ import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxEx
 import { Screen, Text, View, Button } from "../../../components/src";
 import { UnistylesRuntime } from 'react-native-unistyles';
 
-const HomeTabScreen = () => {
+const HomeDrawerScreen = () => {
     const toggleTheme = () => {
         const currentTheme = UnistylesRuntime.themeName;
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         UnistylesRuntime.setTheme(newTheme);
         console.log('Theme toggled to:', newTheme);
     };
-
+    
     return (
         <Screen>
             <View>
@@ -22,84 +22,84 @@ const HomeTabScreen = () => {
                     Welcome to the Component Library
                 </Text>
                 <Text size="medium">
-                    Use the tabs above to explore different components
+                    Use the drawer menu to explore different components
                 </Text>
             </View>
         </Screen>
     );
 };
 
-const AvatarTabScreen = () => (
+const AvatarDrawerScreen = () => (
     <Screen>
         <AvatarExamples />
     </Screen>
 );
 
-const BadgeTabScreen = () => (
+const BadgeDrawerScreen = () => (
     <Screen>
         <BadgeExamples />
     </Screen>
 );
 
-const ButtonTabScreen = () => (
+const ButtonDrawerScreen = () => (
     <Screen>
         <ButtonExamples />
     </Screen>
 );
 
-const CardTabScreen = () => (
+const CardDrawerScreen = () => (
     <Screen>
         <CardExamples />
     </Screen>
 );
 
-const CheckboxTabScreen = () => (
+const CheckboxDrawerScreen = () => (
     <Screen>
         <CheckboxExamples />
     </Screen>
 );
 
-const DividerTabScreen = () => (
+const DividerDrawerScreen = () => (
     <Screen>
         <DividerExamples />
     </Screen>
 );
 
-const InputTabScreen = () => (
+const InputDrawerScreen = () => (
     <Screen>
         <InputExamples />
     </Screen>
 );
 
-const TextTabScreen = () => (
+const TextDrawerScreen = () => (
     <Screen>
         <TextExamples />
     </Screen>
 );
 
-const ViewTabScreen = () => (
-    <Screen>
+const ViewDrawerScreen = () => (
+    <Screen>   
         <ViewExamples />
     </Screen>
 );
 
-const TabRouter = buildRouter({
+const DrawerRouter = buildRouter({
     path: "/",
-    component: HomeTabScreen,
+    component: HomeDrawerScreen,
     layout: {
-        type: "tab",
+        type: "drawer",
     },
     routes: [
-        { path: "avatar", component: AvatarTabScreen },
-        { path: "badge", component: BadgeTabScreen },
-        { path: "button", component: ButtonTabScreen },
-        { path: "card", component: CardTabScreen },
-        { path: "checkbox", component: CheckboxTabScreen },
-        { path: "divider", component: DividerTabScreen },
-        { path: "input", component: InputTabScreen },
-        { path: "text", component: TextTabScreen },
-        { path: "view", component: ViewTabScreen },
+        { path: "avatar", component: AvatarDrawerScreen },
+        { path: "badge", component: BadgeDrawerScreen },
+        { path: "button", component: ButtonDrawerScreen },
+        { path: "card", component: CardDrawerScreen },
+        { path: "checkbox", component: CheckboxDrawerScreen },
+        { path: "divider", component: DividerDrawerScreen },
+        { path: "input", component: InputDrawerScreen },
+        { path: "text", component: TextDrawerScreen },
+        { path: "view", component: ViewDrawerScreen },
     ],
 });
 
-export default TabRouter; 
+export default DrawerRouter; 

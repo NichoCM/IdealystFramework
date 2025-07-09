@@ -1,7 +1,10 @@
 import React from 'react';
+import { StyleSheet } from 'react-native-unistyles';
 import { getWebProps } from 'react-native-unistyles/web';
 import { TextProps } from './types';
-import { textStyles } from './Text.styles';
+import textStylesFunction from './Text.styles';
+
+const textStyles = StyleSheet.create(textStylesFunction);
 
 const Text: React.FC<TextProps> = ({
   children,

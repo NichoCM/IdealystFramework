@@ -16,8 +16,6 @@ export * from './View/types';
 export { default as Input } from './Input';
 export * from './Input/types';
 
-
-// New primitive components
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox/types';
 
@@ -48,4 +46,7 @@ export type { AvatarProps } from './Avatar/types';
 export type { ScreenProps } from './Screen/types';
 
 export { appThemes, breakpoints } from './theme';
-export type { AppThemes, AppBreakpoints } from './theme'; 
+export type { AppThemes, AppBreakpoints } from './theme';
+
+// Theme provider for managing theme state (removed - using Unistyles Runtime directly)
+// export { ThemeProvider, useTheme } from './theme/ThemeProvider'; 

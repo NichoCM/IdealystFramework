@@ -26,7 +26,12 @@ const buildNativeRouter = (routeParam: RouteParam, path: string = '', LastNaviga
         case 'stack':
             const Stack = createNativeStackNavigator();
             return (
-                <Stack.Navigator>
+                <Stack.Navigator
+                    screenOptions={{
+                        // Disable screen optimization to ensure theme updates
+                        freezeOnBlur: false,
+                    }}
+                >
                     <Stack.Screen name={nextPath} component={routeParam.component} />
                     {routeParam.routes?.map((route) => buildNativeRouter(route, nextPath, Stack))}
                 </Stack.Navigator>
@@ -34,7 +39,13 @@ const buildNativeRouter = (routeParam: RouteParam, path: string = '', LastNaviga
         case 'tab':
             const Tab = createBottomTabNavigator();
             return (
-                <Tab.Navigator>
+                <Tab.Navigator
+                    screenOptions={{
+                        // Disable screen optimization to ensure theme updates
+                        lazy: false,
+                        freezeOnBlur: false,
+                    }}
+                >
                     <Tab.Screen name={nextPath} component={routeParam.component} />
                     {routeParam.routes?.map((route) => buildNativeRouter(route, nextPath, Tab))}
                 </Tab.Navigator>
@@ -42,7 +53,13 @@ const buildNativeRouter = (routeParam: RouteParam, path: string = '', LastNaviga
         case 'drawer':
             const Drawer = createDrawerNavigator();
             return (
-                <Drawer.Navigator>
+                <Drawer.Navigator
+                    screenOptions={{
+                        // Disable screen optimization to ensure theme updates
+                        lazy: false,
+                        freezeOnBlur: false,
+                    }}
+                >
                     <Drawer.Screen name={nextPath} component={routeParam.component} />
                     {routeParam.routes?.map((route) => buildNativeRouter(route, nextPath, Drawer))}
                 </Drawer.Navigator>
