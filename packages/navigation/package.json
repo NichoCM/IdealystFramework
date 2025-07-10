@@ -15,6 +15,11 @@
       "import": "./src/examples/index.ts",
       "require": "./src/examples/index.ts",
       "types": "./src/examples/index.ts"
+    },
+    "./examples/unistyles": {
+      "import": "./src/examples/unistyles.ts",
+      "require": "./src/examples/unistyles.ts",
+      "types": "./src/examples/unistyles.ts"
     }
   },
   "scripts": {

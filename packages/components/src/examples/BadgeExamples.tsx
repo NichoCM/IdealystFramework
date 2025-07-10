@@ -13,13 +13,13 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Variants</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge variant="filled" intent="primary">
+          <Badge variant="filled" color="blue">
             Filled
           </Badge>
-          <Badge variant="outlined" intent="primary">
+          <Badge variant="outlined" color="blue">
             Outlined
           </Badge>
-          <Badge variant="dot" intent="primary" />
+          <Badge variant="dot" color="blue" />
         </View>
       </View>
 
@@ -27,39 +27,66 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Sizes</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge size="small" intent="primary">
+          <Badge size="small" color="blue">
             Small
           </Badge>
-          <Badge size="medium" intent="primary">
+          <Badge size="medium" color="blue">
             Medium
           </Badge>
-          <Badge size="large" intent="primary">
+          <Badge size="large" color="blue">
             Large
           </Badge>
         </View>
       </View>
 
-      {/* Badge Intents */}
+      {/* Badge Colors */}
       <View spacing="md">
-        <Text size="medium" weight="semibold">Intents</Text>
+        <Text size="medium" weight="semibold">Colors</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge intent="primary">
-            Primary
+          <Badge color="blue">
+            Blue
           </Badge>
-          <Badge intent="success">
-            Success
+          <Badge color="green">
+            Green
           </Badge>
-          <Badge intent="error">
-            Error
+          <Badge color="red">
+            Red
           </Badge>
-          <Badge intent="warning">
-            Warning
+          <Badge color="orange">
+            Orange
           </Badge>
-          <Badge intent="neutral">
-            Neutral
+          <Badge color="gray">
+            Gray
           </Badge>
-          <Badge intent="info">
-            Info
+          <Badge color="purple">
+            Purple
+          </Badge>
+        </View>
+      </View>
+
+      {/* Badge Color Shades */}
+      <View spacing="md">
+        <Text size="medium" weight="semibold">Color Shades</Text>
+        <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge color="blue.200">
+            Blue 200
+          </Badge>
+          <Badge color="blue.500">
+            Blue 500
+          </Badge>
+          <Badge color="blue.800">
+            Blue 800
+          </Badge>
+        </View>
+        <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge color="green.100">
+            Green 100
+          </Badge>
+          <Badge color="green.600">
+            Green 600
+          </Badge>
+          <Badge color="green.900">
+            Green 900
           </Badge>
         </View>
       </View>
@@ -68,11 +95,11 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Dot Badges</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge variant="dot" intent="primary" size="small" />
-          <Badge variant="dot" intent="success" size="medium" />
-          <Badge variant="dot" intent="error" size="large" />
-          <Badge variant="dot" intent="warning" size="medium" />
-          <Badge variant="dot" intent="neutral" size="medium" />
+          <Badge variant="dot" color="blue" size="small" />
+          <Badge variant="dot" color="green" size="medium" />
+          <Badge variant="dot" color="red" size="large" />
+          <Badge variant="dot" color="orange" size="medium" />
+          <Badge variant="dot" color="gray" size="medium" />
         </View>
       </View>
 
@@ -80,16 +107,16 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Number Badges</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge intent="error" size="small">
+          <Badge color="red" size="small">
             1
           </Badge>
-          <Badge intent="error" size="medium">
+          <Badge color="red" size="medium">
             5
           </Badge>
-          <Badge intent="error" size="large">
+          <Badge color="red" size="large">
             99+
           </Badge>
-          <Badge intent="primary" size="medium">
+          <Badge color="blue" size="medium">
             42
           </Badge>
         </View>
@@ -99,19 +126,19 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Status Badges</Text>
         <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Badge intent="success" variant="filled">
+          <Badge color="green" variant="filled">
             ACTIVE
           </Badge>
-          <Badge intent="warning" variant="filled">
+          <Badge color="orange" variant="filled">
             PENDING
           </Badge>
-          <Badge intent="error" variant="filled">
+          <Badge color="red" variant="filled">
             INACTIVE
           </Badge>
-          <Badge intent="neutral" variant="outlined">
+          <Badge color="gray" variant="outlined">
             DRAFT
           </Badge>
-          <Badge intent="info" variant="outlined">
+          <Badge color="blue" variant="outlined">
             REVIEW
           </Badge>
         </View>
@@ -123,17 +150,17 @@ export const BadgeExamples = () => {
         <View spacing="sm">
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text>Notifications</Text>
-            <Badge intent="error" size="small">3</Badge>
+            <Badge color="red" size="small">3</Badge>
           </View>
           
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text>Messages</Text>
-            <Badge intent="primary" size="small">12</Badge>
+            <Badge color="blue" size="small">12</Badge>
           </View>
           
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text>Status</Text>
-            <Badge intent="success" variant="dot" />
+            <Badge color="green" variant="dot" />
             <Text size="small" color="secondary">Online</Text>
           </View>
           
@@ -141,7 +168,7 @@ export const BadgeExamples = () => {
             <Button size="small" variant="outlined">
               Inbox
             </Button>
-            <Badge intent="error" size="small">99+</Badge>
+            <Badge color="red" size="small">99+</Badge>
           </View>
         </View>
       </View>
@@ -150,19 +177,19 @@ export const BadgeExamples = () => {
       <View spacing="md">
         <Text size="medium" weight="semibold">Category Badges</Text>
         <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-          <Badge intent="primary" variant="outlined">
+          <Badge color="blue" variant="outlined">
             React
           </Badge>
-          <Badge intent="success" variant="outlined">
+          <Badge color="green" variant="outlined">
             TypeScript
           </Badge>
-          <Badge intent="info" variant="outlined">
+          <Badge color="yellow" variant="outlined">
             JavaScript
           </Badge>
-          <Badge intent="warning" variant="outlined">
+          <Badge color="orange" variant="outlined">
             CSS
           </Badge>
-          <Badge intent="neutral" variant="outlined">
+          <Badge color="gray" variant="outlined">
             HTML
           </Badge>
         </View>

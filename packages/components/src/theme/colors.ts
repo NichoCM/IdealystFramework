@@ -302,8 +302,14 @@ export const darkThemeOverrides = {
   },
 } as const;
 
+// Import variant types
+import type { IntentVariant, ColorVariant, ColorPaletteShade } from './variants';
+
 // Export types for TypeScript
 export type ColorPalette = keyof typeof colorPalettes;
 export type ColorShade = keyof typeof colorPalettes.blue;
 export type IntentName = keyof typeof intentMappings;
-export type ColorName = keyof typeof colorMappings; 
+export type ColorName = keyof typeof colorMappings;
+
+// Ensure our variant types match the actual data structures
+export type { IntentVariant, ColorVariant, ColorPaletteShade }; 

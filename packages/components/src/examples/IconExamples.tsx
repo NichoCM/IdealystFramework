@@ -19,32 +19,63 @@ export const IconExamples = () => {
               <Text size="small">Primary</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="check" size="md" color="success" />
-              <Text size="small">Success</Text>
-            </View>
-            <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="alert-circle" size="md" color="error" />
-              <Text size="small">Error</Text>
-            </View>
-            <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="alert" size="md" color="warning" />
-              <Text size="small">Warning</Text>
-            </View>
-            <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="cog" size="md" color="neutral" />
-              <Text size="small">Neutral</Text>
-            </View>
-            <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="text" size="md" color="text" />
-              <Text size="small">Text</Text>
-            </View>
-            <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="text" size="md" color="text-secondary" />
+              <Icon name="check" size="md" color="secondary" />
               <Text size="small">Secondary</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="text" size="md" color="text-disabled" />
+              <Icon name="alert-circle" size="md" color="blue" />
+              <Text size="small">Blue</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="alert" size="md" color="green" />
+              <Text size="small">Green</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="cog" size="md" color="red" />
+              <Text size="small">Red</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="text" size="md" color="orange" />
+              <Text size="small">Orange</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="text" size="md" color="disabled" />
               <Text size="small">Disabled</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="text" size="md" color="muted" />
+              <Text size="small">Muted</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Color Shades */}
+        <View spacing="md">
+          <Text size="medium" weight="semibold">Color Shades</Text>
+          <View style={{ flexDirection: 'row', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="star" size="md" color="blue.200" />
+              <Text size="small">Blue 200</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="star" size="md" color="blue.500" />
+              <Text size="small">Blue 500</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="star" size="md" color="blue.800" />
+              <Text size="small">Blue 800</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="heart" size="md" color="red.300" />
+              <Text size="small">Red 300</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="heart" size="md" color="red.600" />
+              <Text size="small">Red 600</Text>
+            </View>
+            <View style={{ alignItems: 'center', gap: 4 }}>
+              <Icon name="heart" size="md" color="red.900" />
+              <Text size="small">Red 900</Text>
             </View>
           </View>
         </View>
@@ -96,20 +127,20 @@ export const IconExamples = () => {
           <Text size="medium" weight="semibold">Custom Colors vs Variants</Text>
           <View style={{ flexDirection: 'row', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="heart" size="lg" color="#FF0000" />
+              <Icon name="heart" size="lg" style={{ color: '#FF0000' }} />
               <Text size="small">Custom Red</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="heart" size="lg" color="error" />
-              <Text size="small">Error Variant</Text>
+              <Icon name="heart" size="lg" color="red" />
+              <Text size="small">Red Variant</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="heart" size="lg" color="#00FF00" />
+              <Icon name="heart" size="lg" style={{ color: '#00FF00' }} />
               <Text size="small">Custom Green</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="heart" size="lg" color="success" />
-              <Text size="small">Success Variant</Text>
+              <Icon name="heart" size="lg" color="green" />
+              <Text size="small">Green Variant</Text>
             </View>
           </View>
         </View>
@@ -183,19 +214,19 @@ export const IconExamples = () => {
           <Text size="medium" weight="semibold">Status & Alerts (Using Variants)</Text>
           <View style={{ flexDirection: 'row', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="check-circle" size="md" color="success" />
+              <Icon name="check-circle" size="md" color="green" />
               <Text size="small">Success</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="alert" size="md" color="warning" />
+              <Icon name="alert" size="md" color="orange" />
               <Text size="small">Warning</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="alert-circle" size="md" color="error" />
+              <Icon name="alert-circle" size="md" color="red" />
               <Text size="small">Error</Text>
             </View>
             <View style={{ alignItems: 'center', gap: 4 }}>
-              <Icon name="information" size="md" color="primary" />
+              <Icon name="information" size="md" color="blue" />
               <Text size="small">Info</Text>
             </View>
           </View>
@@ -258,34 +289,6 @@ export const IconExamples = () => {
             <Icon name="weather-lightning" size="md" />
             <Icon name="weather-windy" size="md" />
             <Icon name="umbrella" size="md" />
-          </View>
-        </View>
-
-        {/* Icons with Button Integration */}
-        <View spacing="md">
-          <Text size="medium" weight="semibold">Icons with Buttons</Text>
-          <View style={{ flexDirection: 'row', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Button 
-              style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}
-              intent="primary"
-            >
-              <Icon name="plus" size="sm" color="text" />
-              <Text>Add Item</Text>
-            </Button>
-            <Button 
-              style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}
-              intent="success"
-            >
-              <Icon name="check" size="sm" color="text" />
-              <Text>Save</Text>
-            </Button>
-            <Button 
-              style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}
-              intent="error"
-            >
-              <Icon name="delete" size="sm" color="text" />
-              <Text>Delete</Text>
-            </Button>
           </View>
         </View>
 

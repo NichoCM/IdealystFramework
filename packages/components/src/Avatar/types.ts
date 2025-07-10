@@ -1,3 +1,5 @@
+import type { ColorVariant } from '../theme/variants';
+
 export interface AvatarProps {
   /**
    * Image source (URL or require())
@@ -23,6 +25,11 @@ export interface AvatarProps {
    * Shape of the avatar
    */
   shape?: 'circle' | 'square';
+  
+  /**
+   * The color scheme of the avatar (for background when no image)
+   */
+  color?: ColorVariant;
   
   /**
    * Additional styles

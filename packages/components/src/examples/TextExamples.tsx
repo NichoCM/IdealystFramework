@@ -38,9 +38,23 @@ export const TextExamples = () => {
         <View spacing="sm" style={{ gap: 10 }}>
           <Text color="primary">Primary color text</Text>
           <Text color="secondary">Secondary color text</Text>
-          <Text color="success">Success color text</Text>
-          <Text color="warning">Warning color text</Text>
-          <Text color="error">Error color text</Text>
+          <Text color="blue">Blue color text</Text>
+          <Text color="green">Green color text</Text>
+          <Text color="red">Red color text</Text>
+          <Text color="orange">Orange color text</Text>
+        </View>
+      </View>
+
+      {/* Text Color Shades */}
+      <View spacing="md">
+        <Text size="medium" weight="semibold">Color Shades</Text>
+        <View spacing="sm" style={{ gap: 10 }}>
+          <Text color="blue.300">Blue 300 text</Text>
+          <Text color="blue.500">Blue 500 text</Text>
+          <Text color="blue.700">Blue 700 text</Text>
+          <Text color="red.200">Red 200 text</Text>
+          <Text color="red.600">Red 600 text</Text>
+          <Text color="red.900">Red 900 text</Text>
         </View>
       </View>
 
@@ -64,8 +78,8 @@ export const TextExamples = () => {
           <Text size="small" weight="light" color="secondary" align="right">
             Small Light Secondary Right
           </Text>
-          <Text size="medium" weight="semibold" color="success">
-            Medium Semibold Success
+          <Text size="medium" weight="semibold" color="green">
+            Medium Semibold Green
           </Text>
         </View>
       </View>

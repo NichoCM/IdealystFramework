@@ -5,63 +5,105 @@ import { resolveColor, createThemeContext } from './colorResolver';
 export const defaultLightPalettes = {
   ...colorPalettes,
   
-  // Brand blue palette (primary)
-  blue: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    200: '#bfdbfe',
-    300: '#93c5fd',
-    400: '#60a5fa',
-    500: '#3b82f6',   // Primary brand color
-    600: '#2563eb',
-    700: '#1d4ed8',
-    800: '#1e40af',
-    900: '#1e3a8a',
-  },
-  
-  // Success green palette
-  green: {
-    50: '#f0fdf4',
-    100: '#dcfce7',
-    200: '#bbf7d0',
-    300: '#86efac',
-    400: '#4ade80',
-    500: '#22c55e',   // Success color
-    600: '#16a34a',
-    700: '#15803d',
-    800: '#166534',
-    900: '#14532d',
-  },
-  
-  // Error red palette
+  // Red palette
   red: {
     50: '#fef2f2',
     100: '#fee2e2',
     200: '#fecaca',
     300: '#fca5a5',
     400: '#f87171',
-    500: '#ef4444',   // Error color
+    500: '#ef4444',
     600: '#dc2626',
     700: '#b91c1c',
     800: '#991b1b',
     900: '#7f1d1d',
   },
   
-  // Warning amber palette
-  amber: {
-    50: '#fffbeb',
-    100: '#fef3c7',
-    200: '#fde68a',
-    300: '#fcd34d',
-    400: '#fbbf24',
-    500: '#f59e0b',   // Warning color
-    600: '#d97706',
-    700: '#b45309',
-    800: '#92400e',
-    900: '#78350f',
+  // Orange palette
+  orange: {
+    50: '#fff7ed',
+    100: '#ffedd5',
+    200: '#fed7aa',
+    300: '#fdba74',
+    400: '#fb923c',
+    500: '#f97316',
+    600: '#ea580c',
+    700: '#c2410c',
+    800: '#9a3412',
+    900: '#7c2d12',
   },
   
-  // Neutral gray palette
+  // Yellow palette
+  yellow: {
+    50: '#fefce8',
+    100: '#fef9c3',
+    200: '#fef08a',
+    300: '#fde047',
+    400: '#facc15',
+    500: '#eab308',
+    600: '#ca8a04',
+    700: '#a16207',
+    800: '#854d0e',
+    900: '#713f12',
+  },
+  
+  // Green palette
+  green: {
+    50: '#f0fdf4',
+    100: '#dcfce7',
+    200: '#bbf7d0',
+    300: '#86efac',
+    400: '#4ade80',
+    500: '#22c55e',
+    600: '#16a34a',
+    700: '#15803d',
+    800: '#166534',
+    900: '#14532d',
+  },
+  
+  // Blue palette
+  blue: {
+    50: '#eff6ff',
+    100: '#dbeafe',
+    200: '#bfdbfe',
+    300: '#93c5fd',
+    400: '#60a5fa',
+    500: '#3b82f6',
+    600: '#2563eb',
+    700: '#1d4ed8',
+    800: '#1e40af',
+    900: '#1e3a8a',
+  },
+  
+  // Purple palette
+  purple: {
+    50: '#faf5ff',
+    100: '#f3e8ff',
+    200: '#e9d5ff',
+    300: '#d8b4fe',
+    400: '#c084fc',
+    500: '#a855f7',
+    600: '#9333ea',
+    700: '#7c3aed',
+    800: '#6b21a8',
+    900: '#581c87',
+  },
+  
+  // Black palette
+  black: {
+    50: '#f8f9fa',
+    100: '#f1f3f4',
+    200: '#e8eaed',
+    300: '#dadce0',
+    400: '#bdc1c6',
+    500: '#9aa0a6',
+    600: '#80868b',
+    700: '#5f6368',
+    800: '#3c4043',
+    900: '#202124',
+  },
+  
+  // Gray palette
   gray: {
     50: '#f9fafb',
     100: '#f3f4f6',
@@ -73,6 +115,20 @@ export const defaultLightPalettes = {
     700: '#374151',
     800: '#1f2937',
     900: '#111827',
+  },
+  
+  // White palette
+  white: {
+    50: '#ffffff',
+    100: '#fefefe',
+    200: '#fdfdfd',
+    300: '#fcfcfc',
+    400: '#fafafa',
+    500: '#f8f8f8',
+    600: '#f5f5f5',
+    700: '#f0f0f0',
+    800: '#e8e8e8',
+    900: '#d4d4d4',
   },
 };
 
@@ -92,6 +148,34 @@ export const defaultDarkPalettes = {
     700: '#e4e4e7',   // Very light gray
     800: '#f4f4f5',   // Nearly white
     900: '#fafafa',   // White
+  },
+  
+  // Adjusted black palette for dark theme
+  black: {
+    50: '#000000',    // Pure black
+    100: '#0a0a0a',   // Very dark
+    200: '#141414',   // Dark
+    300: '#1f1f1f',   // Medium dark
+    400: '#2a2a2a',   // Medium
+    500: '#3c3c3c',   // Medium light
+    600: '#525252',   // Light
+    700: '#737373',   // Lighter
+    800: '#a3a3a3',   // Very light
+    900: '#d4d4d4',   // Nearly white
+  },
+  
+  // Adjusted white palette for dark theme
+  white: {
+    50: '#0c0c0c',    // Very dark (inverted)
+    100: '#171717',   // Dark
+    200: '#262626',   // Medium dark
+    300: '#404040',   // Medium
+    400: '#525252',   // Medium light
+    500: '#737373',   // Light
+    600: '#a3a3a3',   // Lighter
+    700: '#d4d4d4',   // Very light
+    800: '#f5f5f5',   // Nearly white
+    900: '#ffffff',   // Pure white
   },
 };
 
@@ -131,7 +215,7 @@ export const defaultLightIntents = {
   },
   
   warning: {
-    palette: 'amber' as const,
+    palette: 'orange' as const,
     main: 500 as const,
     on: '#ffffff',
     container: 50 as const,
@@ -153,7 +237,7 @@ export const defaultLightIntents = {
   },
   
   info: {
-    palette: 'cyan' as const,
+    palette: 'blue' as const,
     main: 500 as const,
     on: '#ffffff',
     container: 50 as const,
@@ -200,7 +284,7 @@ export const defaultDarkIntents = {
   },
   
   warning: {
-    palette: 'amber' as const,
+    palette: 'orange' as const,
     main: 400 as const,
     on: 'gray.900' as const,
     container: 900 as const,
@@ -222,7 +306,7 @@ export const defaultDarkIntents = {
   },
   
   info: {
-    palette: 'cyan' as const,
+    palette: 'blue' as const,
     main: 400 as const,
     on: 'gray.900' as const,
     container: 900 as const,

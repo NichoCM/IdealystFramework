@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { IntentVariant } from '../theme/variants';
 
 export interface CardProps {
   /**
@@ -24,7 +25,7 @@ export interface CardProps {
   /**
    * The intent/color scheme of the card
    */
-  intent?: 'neutral' | 'primary' | 'success' | 'error' | 'warning' | 'info';
+  intent?: IntentVariant;
   
   /**
    * Whether the card is clickable

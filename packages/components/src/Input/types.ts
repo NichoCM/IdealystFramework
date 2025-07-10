@@ -1,3 +1,5 @@
+import type { IntentVariant } from '../theme/variants';
+
 export interface InputProps {
   /**
    * The current value of the input
@@ -45,7 +47,13 @@ export interface InputProps {
   variant?: 'default' | 'outlined' | 'filled';
   
   /**
+   * The intent/color scheme of the input (for focus states, validation, etc.)
+   */
+  intent?: IntentVariant;
+  
+  /**
    * Whether the input has an error state
+   * @deprecated Use intent="error" instead
    */
   hasError?: boolean;
   

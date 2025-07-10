@@ -27,6 +27,11 @@
       "import": "./src/unistyles.ts",
       "require": "./src/unistyles.ts",
       "types": "./src/unistyles.ts"
+    },
+    "./theme": {
+      "import": "./src/theme/index.ts",
+      "require": "./src/theme/index.ts",
+      "types": "./src/theme/index.ts"
     }
   },
   "scripts": {

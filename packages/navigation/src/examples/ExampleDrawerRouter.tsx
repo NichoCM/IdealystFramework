@@ -1,5 +1,5 @@
 import React from 'react';
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, IconExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, IconExamples, InputExamples, TextExamples, ViewExamples, ThemeExtensionExamples } from "../../../components/src/examples";
 import { Screen, Text, View, Button } from "../../../components/src";
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { RouteParam } from '../routing';
@@ -89,6 +89,12 @@ const IconDrawerScreen = () => (
     </Screen>
 );
 
+const ThemeExtensionDrawerScreen = () => (
+    <Screen>
+        <ThemeExtensionExamples />
+    </Screen>
+);
+
 const DrawerRouter: RouteParam = {
     path: "/",
     component: HomeDrawerScreen,
@@ -106,6 +112,7 @@ const DrawerRouter: RouteParam = {
         { path: "text", component: TextDrawerScreen },
         { path: "view", component: ViewDrawerScreen },
         { path: "icon", component: IconDrawerScreen },
+        { path: "theme-extension", component: ThemeExtensionDrawerScreen },
     ],
 };
 

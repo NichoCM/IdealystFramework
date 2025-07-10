@@ -7,6 +7,9 @@ function App() {
   const handleButtonPress = (buttonType: string) => {
     console.log(`Web app received button press: ${buttonType}`);
   };
+
+  // You can switch themes using UnistylesRuntime.setTheme()
+  // UnistylesRuntime.setTheme('light');
   
   return (
     <div className="App">

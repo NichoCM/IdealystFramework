@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native-unistyles";
+import { generateColorVariants } from "../theme/variantHelpers";
 
 const textStyles = StyleSheet.create((theme) => ({
   text: {
@@ -49,38 +50,8 @@ const textStyles = StyleSheet.create((theme) => ({
           textAlign: 'right',
         },
       },
-      color: {
-        primary: {
-          color: theme.colors.text.primary,
-        },
-        secondary: {
-          color: theme.colors.text.secondary,
-        },
-        disabled: {
-          color: theme.colors.text.disabled,
-        },
-        inverse: {
-          color: theme.colors.text.inverse,
-        },
-        muted: {
-          color: theme.colors.text.muted,
-        },
-        success: {
-          color: theme.colors.success,
-        },
-        warning: {
-          color: theme.colors.warning,
-        },
-        error: {
-          color: theme.colors.error,
-        },
-        info: {
-          color: theme.colors.info,
-        },
-        neutral: {
-          color: theme.colors.neutral,
-        },
-      },
+      // Dynamically generated color variants
+      color: generateColorVariants(theme),
     },
     color: theme.colors.text.primary, // Default text color
     margin: 0,

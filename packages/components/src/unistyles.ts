@@ -1,19 +1,11 @@
 import { StyleSheet } from 'react-native-unistyles';
 import { defaultLightTheme, defaultDarkTheme } from './theme/defaultThemes';
+import { extendedThemes } from './examples/extendedTheme';
+import { breakpoints } from './theme/breakpoints';
 
-// Use the comprehensive default themes
-export const lightTheme = defaultLightTheme;
-export const darkTheme = defaultDarkTheme;
-
-
-
-export const breakpoints = {
-  xs: 0,
-  sm: 400,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
-} as const;
+// Use the extended themes instead of default themes
+export const lightTheme = extendedThemes.light;
+export const darkTheme = extendedThemes.dark;
 
 // Unistyles v3 themes declaration
 declare module 'react-native-unistyles' {
@@ -38,7 +30,6 @@ export type AppColors = typeof lightTheme.colors;
 export type AppPalettes = typeof lightTheme.palettes;
 export type IntentNames = keyof AppIntents;
 export type ColorNames = keyof AppColors; 
-
 
 StyleSheet.configure({
     settings: {

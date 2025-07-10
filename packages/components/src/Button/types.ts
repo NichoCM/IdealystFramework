@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { IntentVariant } from '../theme/variants';
 
 export interface ButtonProps {
   /**
@@ -29,7 +30,7 @@ export interface ButtonProps {
   /**
    * The intent/color scheme of the button
    */
-  intent?: 'primary' | 'neutral' | 'success' | 'error' | 'warning';
+  intent?: IntentVariant;
   
   /**
    * The size of the button

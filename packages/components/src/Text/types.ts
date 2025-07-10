@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { DisplayColorVariant } from '../theme/variants';
 
 export interface TextProps {
   /**
@@ -19,7 +20,7 @@ export interface TextProps {
   /**
    * The color of the text
    */
-  color?: 'primary' | 'secondary' | 'disabled' | 'inverse' | 'muted' | 'success' | 'warning' | 'error' | 'info' | 'neutral';
+  color?: DisplayColorVariant;
   
   /**
    * Text alignment

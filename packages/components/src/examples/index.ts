@@ -9,4 +9,7 @@ export { DividerExamples } from './DividerExamples';
 export { BadgeExamples } from './BadgeExamples';
 export { AvatarExamples } from './AvatarExamples';
 export { ScreenExamples } from './ScreenExamples';
+export { ThemeExtensionExamples } from './ThemeExtensionExamples';
+export { extendedThemes, } from './extendedTheme';
+export type { ExtendedColorVariant, ExtendedIntentVariant } from './extendedTheme';
 export { AllExamples } from './AllExamples'; 

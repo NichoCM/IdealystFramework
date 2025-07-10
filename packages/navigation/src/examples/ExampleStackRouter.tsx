@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, IconExamples, InputExamples, ScreenExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, IconExamples, InputExamples, ScreenExamples, TextExamples, ViewExamples, ThemeExtensionExamples } from "../../../components/src/examples";
 import { Button, Divider, Screen, Text, View } from "../../../components/src";
 import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
@@ -135,6 +135,20 @@ const HomeScreen = () => {
                     }}>
                     Icon
                 </Button>
+                
+                <Divider spacing="medium" />
+                <Text size="small" weight="semibold" color="secondary">Theme System</Text>
+                <Button
+                    variant="outlined"
+                    intent="success"
+                    onPress={() => {
+                        navigator.navigate({
+                            path: "/theme-extension",
+                            vars: {},
+                        });
+                    }}>
+                    🎨 Theme Extension Demo
+                </Button>
             </View>
             </View>
         </Screen>
@@ -186,6 +200,7 @@ const StackRouter: RouteParam = {
         { path: "view", component: ViewExamples},
         { path: "screen", component: ScreenExamples},
         { path: "icon", component: IconExamples},
+        { path: "theme-extension", component: ThemeExtensionExamples},
     ],
 };
 

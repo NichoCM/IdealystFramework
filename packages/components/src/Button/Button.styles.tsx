@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native-unistyles';
+import { generateIntentVariants, generateButtonCompoundVariants } from '../theme/variantHelpers';
 
 export const buttonStyles = StyleSheet.create((theme) => ({
   button: {
@@ -31,29 +32,8 @@ export const buttonStyles = StyleSheet.create((theme) => ({
           minHeight: 40,
         },
       },
-      intent: {
-        primary: {
-          // Only background colors for intents, borders handled by variants
-          backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-          color: theme.intents?.primary?.on || '#ffffff',
-        },
-        success: {
-          backgroundColor: theme.intents?.success?.main || '#22c55e',
-          color: theme.intents?.success?.on || '#ffffff',
-        },
-        error: {
-          backgroundColor: theme.intents?.error?.main || '#ef4444',
-          color: theme.intents?.error?.on || '#ffffff',
-        },
-        warning: {
-          backgroundColor: theme.intents?.warning?.main || '#f59e0b',
-          color: theme.intents?.warning?.on || '#ffffff',
-        },
-        neutral: {
-          backgroundColor: theme.intents?.neutral?.main || '#6b7280',
-          color: theme.intents?.neutral?.on || '#ffffff',
-        },
-      },
+      // Dynamically generated intent variants
+      intent: generateIntentVariants(theme),
       variant: {
         contained: {
           // Contained buttons have no border
@@ -78,96 +58,8 @@ export const buttonStyles = StyleSheet.create((theme) => ({
       },
     },
     
-    // Compound variants for specific combinations
-    compoundVariants: [
-      // Outlined variant intent colors - only set border colors here
-      {
-        variant: 'outlined',
-        intent: 'primary',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
-          color: theme.intents?.primary?.main || '#3b82f6',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'success',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.success?.main || '#22c55e'}`,
-          color: theme.intents?.success?.main || '#22c55e',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'error',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.error?.main || '#ef4444'}`,
-          color: theme.intents?.error?.main || '#ef4444',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'warning',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.warning?.main || '#f59e0b'}`,
-          color: theme.intents?.warning?.main || '#f59e0b',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'neutral',
-        styles: {
-          backgroundColor: 'transparent',
-          border: `1px solid ${theme.intents?.neutral?.main || '#6b7280'}`,
-          color: theme.intents?.neutral?.main || '#6b7280',
-        },
-      },
-      // Text variant intent colors - no borders
-      {
-        variant: 'text',
-        intent: 'primary',
-        styles: {
-          backgroundColor: 'transparent',
-          color: theme.intents?.primary?.main || '#3b82f6',
-        },
-      },
-      {
-        variant: 'text',
-        intent: 'success',
-        styles: {
-          backgroundColor: 'transparent',
-          color: theme.intents?.success?.main || '#22c55e',
-        },
-      },
-      {
-        variant: 'text',
-        intent: 'error',
-        styles: {
-          backgroundColor: 'transparent',
-          color: theme.intents?.error?.main || '#ef4444',
-        },
-      },
-      {
-        variant: 'text',
-        intent: 'warning',
-        styles: {
-          backgroundColor: 'transparent',
-          color: theme.intents?.warning?.main || '#f59e0b',
-        },
-      },
-      {
-        variant: 'text',
-        intent: 'neutral',
-        styles: {
-          backgroundColor: 'transparent',
-          color: theme.intents?.neutral?.main || '#6b7280',
-        },
-      },
-    ],
+    // Dynamically generated compound variants for outlined and text variants
+    compoundVariants: generateButtonCompoundVariants(theme),
     
     // Web-specific styles
     _web: {

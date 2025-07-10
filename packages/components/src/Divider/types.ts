@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { IntentVariant } from '../theme/variants';
 
 export interface DividerProps {
   /**
@@ -19,7 +20,7 @@ export interface DividerProps {
   /**
    * The color intent of the divider
    */
-  intent?: 'primary' | 'secondary' | 'neutral' | 'success' | 'error' | 'warning' | 'info';
+  intent?: IntentVariant;
   
   /**
    * The length of the divider (percentage or fixed)

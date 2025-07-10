@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { DisplayColorVariant } from '../theme/variants';
 
 export interface BadgeProps {
   /**
@@ -17,9 +18,9 @@ export interface BadgeProps {
   variant?: 'filled' | 'outlined' | 'dot';
   
   /**
-   * The intent/color scheme of the badge
+   * The color scheme of the badge
    */
-  intent?: 'primary' | 'success' | 'error' | 'warning' | 'neutral' | 'info';
+  color?: DisplayColorVariant;
   
   /**
    * Additional styles

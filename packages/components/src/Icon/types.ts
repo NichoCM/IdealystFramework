@@ -1,14 +1,5 @@
 import { IconName } from "./icon-types";
-
-export type IconColorVariant = 
-  | 'primary'
-  | 'success'
-  | 'error'
-  | 'warning'
-  | 'neutral'
-  | 'text'
-  | 'text-secondary'
-  | 'text-disabled';
+import type { DisplayColorVariant } from '../theme/variants';
 
 export type IconSizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -26,7 +17,7 @@ export interface IconProps {
   /**
    * Predefined color variant based on theme
    */
-  color?: IconColorVariant;
+  color?: DisplayColorVariant;
   
   /**
    * Additional styles (platform-specific)

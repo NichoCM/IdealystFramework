@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { IntentVariant } from '../theme/variants';
 
 export interface CheckboxProps {
   /**
@@ -29,7 +30,7 @@ export interface CheckboxProps {
   /**
    * The intent/color scheme of the checkbox
    */
-  intent?: 'primary' | 'neutral' | 'success' | 'error' | 'warning' | 'info';
+  intent?: IntentVariant;
   
   /**
    * The visual style variant of the checkbox

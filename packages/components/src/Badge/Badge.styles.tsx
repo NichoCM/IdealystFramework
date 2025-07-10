@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native-unistyles';
+import { generateBadgeCompoundVariants } from '../theme/variantHelpers';
 
 export const badgeStyles = StyleSheet.create((theme) => ({
   badge: {
@@ -53,177 +54,31 @@ export const badgeStyles = StyleSheet.create((theme) => ({
           paddingVertical: 0,
         },
       },
-      intent: {
-        primary: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-        success: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-        error: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-        warning: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-        neutral: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-        info: {
-          // Intent colors only apply to filled badges - handled by compound variants
-        },
-      },
+      // Dynamically generated color variants (placeholder - actual styling in compound variants)
+      color: Object.fromEntries([
+        // All palette colors including shade-specific variants
+        ...(theme.palettes ? Object.entries(theme.palettes).flatMap(([colorKey, palette]) => [
+          // Base color
+          [colorKey, {}],
+          // All shade variants
+          ...Object.keys(palette).map((shade) => [`${colorKey}.${shade}`, {}])
+        ]) : [
+          // Fallback base colors
+          ['blue', {}], ['green', {}], ['red', {}], ['amber', {}], 
+          ['gray', {}], ['purple', {}], ['pink', {}], ['cyan', {}]
+        ]),
+        // Semantic colors
+        ['primary', {}],
+        ['secondary', {}],
+        ['disabled', {}],
+        ['inverse', {}],
+        ['muted', {}],
+      ]),
     },
     
+    // Dynamically generated compound variants plus static size variants
     compoundVariants: [
-      // Filled variant background colors
-      {
-        variant: 'filled',
-        intent: 'primary',
-        styles: {
-          backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-        },
-      },
-      {
-        variant: 'filled',
-        intent: 'success',
-        styles: {
-          backgroundColor: theme.intents?.success?.main || '#22c55e',
-        },
-      },
-      {
-        variant: 'filled',
-        intent: 'error',
-        styles: {
-          backgroundColor: theme.intents?.error?.main || '#ef4444',
-        },
-      },
-      {
-        variant: 'filled',
-        intent: 'warning',
-        styles: {
-          backgroundColor: theme.intents?.warning?.main || '#f59e0b',
-        },
-      },
-      {
-        variant: 'filled',
-        intent: 'neutral',
-        styles: {
-          backgroundColor: theme.intents?.neutral?.main || '#6b7280',
-        },
-      },
-      {
-        variant: 'filled',
-        intent: 'info',
-        styles: {
-          backgroundColor: theme.intents?.info?.main || '#06b6d4',
-        },
-      },
-      // Dot variant background colors
-      {
-        variant: 'dot',
-        intent: 'primary',
-        styles: {
-          backgroundColor: theme.intents?.primary?.main || '#3b82f6',
-        },
-      },
-      {
-        variant: 'dot',
-        intent: 'success',
-        styles: {
-          backgroundColor: theme.intents?.success?.main || '#22c55e',
-        },
-      },
-      {
-        variant: 'dot',
-        intent: 'error',
-        styles: {
-          backgroundColor: theme.intents?.error?.main || '#ef4444',
-        },
-      },
-      {
-        variant: 'dot',
-        intent: 'warning',
-        styles: {
-          backgroundColor: theme.intents?.warning?.main || '#f59e0b',
-        },
-      },
-      {
-        variant: 'dot',
-        intent: 'neutral',
-        styles: {
-          backgroundColor: theme.intents?.neutral?.main || '#6b7280',
-        },
-      },
-      {
-        variant: 'dot',
-        intent: 'info',
-        styles: {
-          backgroundColor: theme.intents?.info?.main || '#06b6d4',
-        },
-      },
-      // Outlined variant border colors
-      {
-        variant: 'outlined',
-        intent: 'primary',
-        styles: {
-          borderColor: theme.intents?.primary?.main || '#3b82f6',
-          _web: {
-            border: `1px solid ${theme.intents?.primary?.main || '#3b82f6'}`,
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'success',
-        styles: {
-          borderColor: theme.intents?.success?.main || '#22c55e',
-          _web: {
-            border: `1px solid ${theme.intents?.success?.main || '#22c55e'}`,
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'error',
-        styles: {
-          borderColor: theme.intents?.error?.main || '#ef4444',
-          _web: {
-            border: `1px solid ${theme.intents?.error?.main || '#ef4444'}`,
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'warning',
-        styles: {
-          borderColor: theme.intents?.warning?.main || '#f59e0b',
-          _web: {
-            border: `1px solid ${theme.intents?.warning?.main || '#f59e0b'}`,
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'neutral',
-        styles: {
-          borderColor: theme.intents?.neutral?.main || '#6b7280',
-          _web: {
-            border: `1px solid ${theme.intents?.neutral?.main || '#6b7280'}`,
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'info',
-        styles: {
-          borderColor: theme.intents?.info?.main || '#06b6d4',
-          _web: {
-            border: `1px solid ${theme.intents?.info?.main || '#06b6d4'}`,
-          },
-        },
-      },
-      
+      ...generateBadgeCompoundVariants(theme),
       // Web-specific text size variants
       {
         size: 'small',
@@ -246,62 +101,6 @@ export const badgeStyles = StyleSheet.create((theme) => ({
         styles: {
           _web: {
             fontSize: 14,
-          },
-        },
-      },
-      
-      // Web-specific outlined text colors
-      {
-        variant: 'outlined',
-        intent: 'primary',
-        styles: {
-          _web: {
-            color: theme.intents?.primary?.main || '#3b82f6',
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'success',
-        styles: {
-          _web: {
-            color: theme.intents?.success?.main || '#22c55e',
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'error',
-        styles: {
-          _web: {
-            color: theme.intents?.error?.main || '#ef4444',
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'warning',
-        styles: {
-          _web: {
-            color: theme.intents?.warning?.main || '#f59e0b',
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'neutral',
-        styles: {
-          _web: {
-            color: theme.intents?.neutral?.main || '#6b7280',
-          },
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'info',
-        styles: {
-          _web: {
-            color: theme.intents?.info?.main || '#06b6d4',
           },
         },
       },
@@ -342,49 +141,14 @@ export const badgeStyles = StyleSheet.create((theme) => ({
     },
     
     compoundVariants: [
-      // Outlined variant text colors
-      {
+      // Outlined variant text colors - dynamically generated
+      ...Object.entries(theme.palettes || {}).map(([colorKey, palette]: [string, any]) => ({
         variant: 'outlined',
-        intent: 'primary',
+        color: colorKey,
         styles: {
-          color: theme.intents?.primary?.main || '#3b82f6',
+          color: palette?.[500] || '#6b7280',
         },
-      },
-      {
-        variant: 'outlined',
-        intent: 'success',
-        styles: {
-          color: theme.intents?.success?.main || '#22c55e',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'error',
-        styles: {
-          color: theme.intents?.error?.main || '#ef4444',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'warning',
-        styles: {
-          color: theme.intents?.warning?.main || '#f59e0b',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'neutral',
-        styles: {
-          color: theme.intents?.neutral?.main || '#6b7280',
-        },
-      },
-      {
-        variant: 'outlined',
-        intent: 'info',
-        styles: {
-          color: theme.intents?.info?.main || '#06b6d4',
-        },
-      },
+      })),
     ],
   },
 })); 

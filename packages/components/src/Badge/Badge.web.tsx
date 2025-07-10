@@ -7,14 +7,14 @@ const Badge: React.FC<BadgeProps> = ({
   children,
   size = 'medium',
   variant = 'filled',
-  intent = 'primary',
+  color = 'blue',
   style,
   testID,
 }) => {
   badgeStyles.useVariants({
     size,
     variant: variant as any,
-    intent,
+    color,
   });
 
   const badgeStyleArray = [badgeStyles.badge, style];

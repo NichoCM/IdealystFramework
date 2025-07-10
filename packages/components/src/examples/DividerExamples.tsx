@@ -86,8 +86,8 @@ export const DividerExamples = () => {
           </Card>
           
           <Card variant="outlined" padding="medium">
-            <Text>Secondary divider</Text>
-            <Divider intent="secondary" />
+                    <Text>Neutral divider</Text>
+        <Divider intent="neutral" />
             <Text>Content below</Text>
           </Card>
           

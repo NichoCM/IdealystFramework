@@ -2,8 +2,11 @@
 export { 
   lightTheme, 
   darkTheme, 
-  breakpoints,
 } from '../unistyles';
+
+export {
+  breakpoints,
+} from './breakpoints';
 
 // Re-export default themes
 export {
@@ -56,7 +59,8 @@ export type {
 } from './colorResolver';
 
 // Import themes for local use
-import { lightTheme, darkTheme, breakpoints } from '../unistyles';
+import { lightTheme, darkTheme } from '../unistyles';
+import { breakpoints } from './breakpoints';
 
 // For backward compatibility with existing components
 export const appThemes = {

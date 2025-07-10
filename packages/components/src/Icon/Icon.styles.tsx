@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native-unistyles';
+import { generateColorVariants } from '../theme/variantHelpers';
 
 const iconStyles = StyleSheet.create((theme) => ({
   icon: {
@@ -11,32 +12,8 @@ const iconStyles = StyleSheet.create((theme) => ({
     
     // Variants for different color schemes and sizes
     variants: {
-      color: {
-        primary: {
-          color: theme.intents?.primary?.main || '#3b82f6',
-        },
-        success: {
-          color: theme.intents?.success?.main || '#22c55e',
-        },
-        error: {
-          color: theme.intents?.error?.main || '#ef4444',
-        },
-        warning: {
-          color: theme.intents?.warning?.main || '#f59e0b',
-        },
-        neutral: {
-          color: theme.intents?.neutral?.main || '#6b7280',
-        },
-        text: {
-          color: theme.colors?.text || '#000000',
-        },
-        'text-secondary': {
-          color: theme.colors?.text?.secondary || '#6b7280',
-        },
-        'text-disabled': {
-          color: theme.colors?.text?.disabled || '#9ca3af',
-        },
-      },
+      // Dynamically generated color variants using generateColorVariants helper
+      color: generateColorVariants(theme),
       size: {
         xs: {
           width: 12,
