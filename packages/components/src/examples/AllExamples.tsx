@@ -4,6 +4,7 @@ import { ButtonExamples } from './ButtonExamples';
 import { TextExamples } from './TextExamples';
 import { ViewExamples } from './ViewExamples';
 import { InputExamples } from './InputExamples';
+import { IconExamples } from './IconExamples';
 import { CardExamples } from './CardExamples';
 import { CheckboxExamples } from './CheckboxExamples';
 import { DividerExamples } from './DividerExamples';
@@ -36,6 +37,9 @@ export const AllExamples = () => {
       <Divider spacing="medium" />
       
       <InputExamples />
+      <Divider spacing="medium" />
+      
+      <IconExamples />
       <Divider spacing="medium" />
       
       <CardExamples />

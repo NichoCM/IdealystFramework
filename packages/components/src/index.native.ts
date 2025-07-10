@@ -34,6 +34,9 @@ export * from './Avatar/types';
 export { default as Screen } from './Screen';
 export * from './Screen/types';
 
+export { default as Icon } from './Icon';
+export * from './Icon/types';
+
 export type { ButtonProps } from './Button/types';
 export type { TextProps } from './Text/types';
 export type { ViewProps } from './View/types';

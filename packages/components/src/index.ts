@@ -16,7 +16,6 @@ export * from './View/types';
 export { default as Input } from './Input';
 export * from './Input/types';
 
-
 // New primitive components
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox/types';
@@ -36,6 +35,9 @@ export * from './Avatar/types';
 export { default as Screen } from './Screen';
 export * from './Screen/types';
 
+export { default as Icon } from './Icon';
+export * from './Icon/types';
+
 export type { ButtonProps } from './Button/types';
 export type { TextProps } from './Text/types';
 export type { ViewProps } from './View/types';
@@ -46,6 +48,7 @@ export type { DividerProps } from './Divider/types';
 export type { BadgeProps } from './Badge/types';
 export type { AvatarProps } from './Avatar/types';
 export type { ScreenProps } from './Screen/types';
+export type { IconProps } from './Icon/types';
 
 export { appThemes, breakpoints } from './theme';
 export type { AppThemes, AppBreakpoints } from './theme'; 

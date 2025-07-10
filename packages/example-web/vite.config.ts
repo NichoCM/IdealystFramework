@@ -7,9 +7,14 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [['react-native-unistyles/plugin', {
-          root: 'src',
-        }]],
+        plugins: [
+          ['react-native-unistyles/plugin', {
+            root: 'src',
+          }],
+          ['@idealyst/components/plugin/web', {
+            root: 'src',
+          }]
+        ],
       },
     }),
   ],
@@ -38,6 +43,8 @@ export default defineConfig({
       '@react-native/normalize-colors',
       'react-native-unistyles',
       'react-native-unistyles/web',
+      '@mdi/react',
+      '@mdi/js',
     ],
     exclude: [
       'react-native-edge-to-edge',

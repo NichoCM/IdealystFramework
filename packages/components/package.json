@@ -13,6 +13,11 @@
       "require": "./src/index.ts",
       "types": "./src/index.ts"
     },
+    "./plugin/web": {
+      "import": "./plugin/web.js",
+      "require": "./plugin/web.js",
+      "types": "./plugin/web.d.ts"
+    },
     "./examples": {
       "import": "./src/examples/index.ts",
       "require": "./src/examples/index.ts",
@@ -29,6 +34,10 @@
     "dev": "rollup -c -w"
   },
   "peerDependencies": {
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
+    "@react-native-vector-icons/common": "^12.0.1",
+    "@react-native-vector-icons/material-design-icons": "^12.0.1",
     "@react-native/normalize-colors": "*",
     "react": ">=16.8.0",
     "react-native": ">=0.60.0",
@@ -37,6 +46,12 @@
     "react-native-unistyles": "3.0.0-rc.5"
   },
   "peerDependenciesMeta": {
+    "@mdi/js": {
+      "optional": true
+    },
+    "@mdi/react": {
+      "optional": true
+    },
     "@react-native/normalize-colors": {
       "optional": true
     },
@@ -50,6 +65,9 @@
       "optional": true
     },
     "react-native-unistyles": {
+      "optional": true
+    },
+    "react-native-vector-icons": {
       "optional": true
     }
   },

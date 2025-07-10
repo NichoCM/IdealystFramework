@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import { ExampleTabRouter, } from '@idealyst/navigation/examples';
+import { ExampleStackRouter, } from '@idealyst/navigation/examples';
 import { NavigatorProvider } from '@idealyst/navigation';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavigatorProvider route={ExampleTabRouter} />
+        <NavigatorProvider route={ExampleStackRouter} />
       </BrowserRouter>
     </div>
   );  

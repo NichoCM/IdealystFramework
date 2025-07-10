@@ -234,21 +234,6 @@ import { Avatar } from '@idealyst/components';
 - `size`: `"small" | "medium" | "large"`
 - `fallback`: Text to display when image fails to load
 
-### Demo Component
-
-#### DemoView
-A utility component for showcasing components in examples and demos.
-
-```tsx
-import { DemoView } from '@idealyst/components';
-
-<DemoView title="Button Examples">
-  <Button variant="contained" intent="primary">
-    Demo Button
-  </Button>
-</DemoView>
-```
-
 ## Theme System
 
 The library includes a comprehensive theme system with light and dark mode support.

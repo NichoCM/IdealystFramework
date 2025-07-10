@@ -1,5 +1,5 @@
 import React from 'react';
-import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
+import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxExamples, DividerExamples, IconExamples, InputExamples, TextExamples, ViewExamples } from "../../../components/src/examples";
 import { Screen, Text, View, Button } from "../../../components/src";
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { RouteParam } from '../routing';
@@ -83,6 +83,12 @@ const ViewTabScreen = () => (
     </Screen>
 );
 
+const IconTabScreen = () => (
+    <Screen>
+        <IconExamples />
+    </Screen>
+);
+
 const TabRouter: RouteParam = {
     path: "/",
     component: HomeTabScreen,
@@ -99,6 +105,7 @@ const TabRouter: RouteParam = {
         { path: "input", component: InputTabScreen },
         { path: "text", component: TextTabScreen },
         { path: "view", component: ViewTabScreen },
+        { path: "icon", component: IconTabScreen },
     ],
 }
 
