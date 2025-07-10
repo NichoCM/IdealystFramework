@@ -1,9 +1,3 @@
-// Configure Unistyles theme FIRST - before any components are imported
-import './unistyles';
-
-// Initialize theme first
-import './theme/init';
-
 export { default as Button } from './Button';
 export * from './Button/types';
 
@@ -50,5 +44,5 @@ export type { AvatarProps } from './Avatar/types';
 export type { ScreenProps } from './Screen/types';
 export type { IconProps } from './Icon/types';
 
-export { appThemes, breakpoints } from './theme';
-export type { AppThemes, AppBreakpoints } from './theme'; 
+export { breakpoints } from './theme';
+export type { AppTheme } from './theme';   

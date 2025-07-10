@@ -1,78 +1,188 @@
-// Re-export themes from the main unistyles configuration
-export { 
-  lightTheme, 
-  darkTheme, 
-} from '../unistyles';
+// =============================================================================
+// THEME PACKAGE - Complete theming solution
+// =============================================================================
+// This file exports everything needed for theming in a clean, organized way
 
-export {
-  breakpoints,
-} from './breakpoints';
+// Import everything we need first
+import {
+  createTheme,
+  generateColorPalette,
+  lighten,
+  darken,
+  createLightResolvedIntents,
+  createDarkResolvedIntents,
+  createLightResolvedColors,
+  createDarkResolvedColors,
+  extendTheme,
+  type ThemeConfig,
+  type ThemeColorPalette,
+  type ResolvedIntent,
+  type ThemeColorSystem,
+} from './themeBuilder';
 
-// Re-export default themes
-export {
-  defaultLightTheme,
-  defaultDarkTheme,
+import {
   createDefaultLightTheme,
   createDefaultDarkTheme,
+  createStandardPalettes,
+  createDarkPalettes,
+  createLightIntentMappings,
+  createDarkIntentMappings,
+  createLightColorMappings,
+  createDarkColorMappings,
+  defaultLightTheme,
+  defaultDarkTheme,
   commonThemeProperties,
 } from './defaultThemes';
 
-export type {
-  AppTheme,
-  AppIntents,
-  AppColors,
-  AppPalettes,
-  IntentNames,
-  ColorNames,
-} from '../unistyles';
+import {
+  extendedThemes,
+  extendedColorPalettes,
+  extendedDarkColorPalettes,
+  type ExtendedColorVariant,
+  type ExtendedIntentVariant,
+} from '../examples/extendedTheme';
 
-// Re-export color system
-export { 
-  colorPalettes,
-  intentMappings,
-  colorMappings,
-  darkThemeOverrides,
-} from './colors';
-
-export type {
-  ColorPalette,
-  ColorShade,
-  IntentName,
-  ColorName
-} from './colors';
-
-// Re-export color utilities
-export {
-  resolveColor,
-  createThemeContext,
-  getIntentColors,
-  getPaletteColors,
-  isValidColorReference,
-  getColorWithOpacity,
-  lightThemeContext,
-  darkThemeContext,
-} from './colorResolver';
-
-export type {
-  ColorReference,
-  ThemeContext,
-} from './colorResolver';
-
-// Import themes for local use
-import { lightTheme, darkTheme } from '../unistyles';
 import { breakpoints } from './breakpoints';
+// Note: Removed import from ../unistyles to prevent circular dependency
+// when navigation package imports from this theme index
 
-// For backward compatibility with existing components
-export const appThemes = {
-  light: lightTheme,
-  dark: darkTheme,
+// Re-export everything for external use
+export {
+  // Core theme building functionality
+  createTheme,
+  generateColorPalette,
+  lighten,
+  darken,
+  createLightResolvedIntents,
+  createDarkResolvedIntents,
+  createLightResolvedColors,
+  createDarkResolvedColors,
+  extendTheme,
+  type ThemeConfig,
+  type ThemeColorPalette,
+  type ResolvedIntent,
+  type ThemeColorSystem,
+  
+  // Default themes and palettes
+  createDefaultLightTheme,
+  createDefaultDarkTheme,
+  createStandardPalettes,
+  createDarkPalettes,
+  createLightIntentMappings,
+  createDarkIntentMappings,
+  createLightColorMappings,
+  createDarkColorMappings,
+  defaultLightTheme,
+  defaultDarkTheme,
+  commonThemeProperties,
+  
+  // Extended themes for examples
+  extendedThemes,
+  extendedColorPalettes,
+  extendedDarkColorPalettes,
+  type ExtendedColorVariant,
+  type ExtendedIntentVariant,
+  
+  // Breakpoints for responsive design
+  breakpoints,
+  
+  // Legacy theme exports for backward compatibility (avoiding circular dependency)
+  extendedThemes as legacyThemes,
+};
+
+// Individual theme exports for backward compatibility
+export const lightTheme = extendedThemes.light;
+export const darkTheme = extendedThemes.dark;
+
+// =============================================================================
+// THEME PRESETS - Ready-to-use theme configurations
+// =============================================================================
+
+/**
+ * Complete theme presets ready for immediate use
+ */
+export const themePresets = {
+  // Standard themes
+  light: defaultLightTheme,
+  dark: defaultDarkTheme,
+  
+  // Extended themes with additional colors
+  lightExtended: extendedThemes.light,
+  darkExtended: extendedThemes.dark,
 } as const;
 
-export type AppThemes = typeof appThemes;
-export type AppBreakpoints = typeof breakpoints;
+/**
+ * Theme creation utilities
+ */
+export const themeUtils = {
+  // Color palette generation
+  generateColorPalette,
+  lighten,
+  darken,
+  
+  // Theme creation
+  createTheme,
+  extendTheme,
+  
+  // Palette creators
+  createStandardPalettes,
+  createDarkPalettes,
+  
+  // Intent creators
+  createLightIntentMappings,
+  createDarkIntentMappings,
+  
+  // Color system creators
+  createLightColorMappings,
+  createDarkColorMappings,
+} as const;
 
-// Note: In Unistyles v3, themes are configured through declaration merging
-// No need for explicit configuration calls - just import this file
-console.log('✅ Unistyles v3 themes ready:', Object.keys(appThemes));
+/**
+ * Type definitions for theme-related interfaces
+ */
+export type ThemePreset = keyof typeof themePresets;
+export type ThemeMode = 'light' | 'dark';
+export type AppTheme = typeof extendedThemes.light; // Define AppTheme to avoid circular dependency
 
- 
+// =============================================================================
+// CONVENIENCE EXPORTS - For common use cases
+// =============================================================================
+
+/**
+ * Quick access to commonly used themes
+ */
+export const quickThemes = {
+  light: extendedThemes.light,
+  dark: extendedThemes.dark,
+} as const;
+
+/**
+ * All available color palettes (standard + extended)
+ */
+export const allColorPalettes = {
+  ...createStandardPalettes(),
+  ...extendedColorPalettes,
+} as const;
+
+// =============================================================================
+// DOCUMENTATION HELPERS
+// =============================================================================
+
+/**
+ * Theme documentation and examples
+ */
+export const themeDocumentation = {
+  description: 'Complete theming system for cross-platform React components',
+  availableThemes: Object.keys(themePresets),
+  availablePalettes: Object.keys(allColorPalettes),
+  themeStructure: {
+    palettes: 'Color palettes with 50-900 shades',
+    intents: 'Semantic color mappings (primary, success, error, etc.)',
+    colors: 'Component color system (text, surface, border, interactive)',
+    typography: 'Font families, sizes, weights, and line heights',
+    spacing: 'Consistent spacing scale',
+    borderRadius: 'Border radius scale',
+    shadows: 'Shadow definitions for elevation',
+    transitions: 'Animation timing definitions',
+  },
+} as const; 

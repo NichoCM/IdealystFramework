@@ -1,10 +1,10 @@
-import '@idealyst/components/src/unistyles';
+// Import navigation unistyles after all other imports to ensure it overrides any previous configuration
+import '@idealyst/navigation/examples/unistyles';
 
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-
 // Hydrate the app if it's SSR, otherwise render normally
 const container = document.getElementById('root')!;
 

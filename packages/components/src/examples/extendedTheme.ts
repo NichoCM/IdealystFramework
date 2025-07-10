@@ -1,14 +1,20 @@
-import { defaultLightTheme, defaultDarkTheme } from '../theme/defaultThemes';
+import { 
+  createTheme, 
+  type ThemeConfig 
+} from '../theme/themeBuilder';
+import { 
+  createStandardPalettes, 
+  createDarkPalettes, 
+  createLightIntentMappings, 
+  createDarkIntentMappings, 
+  createLightColorMappings, 
+  createDarkColorMappings
+} from '../theme/defaultThemes';
 
-const appThemes = {
-  light: defaultLightTheme,
-  dark: defaultDarkTheme,
-} as const;
-
-// Extended color palettes
+// Extended color palettes - includes all base colors plus additional ones
 export const extendedColorPalettes = {
   // Include all base colors
-  ...appThemes.light.palettes,
+  ...createStandardPalettes(),
   
   // Add extended colors
   orange: {
@@ -77,59 +83,224 @@ export const extendedColorPalettes = {
   },
 } as const;
 
-// Extended intent mappings
-export const extendedIntentMappings = {
-  // Include all base intents
-  ...appThemes.light.intents,
+// Extended color palettes for dark mode
+export const extendedDarkColorPalettes = {
+  // Include all base dark colors
+  ...createDarkPalettes(),
   
-  // Add extended intents
-  accent: {
-    palette: 'orange' as const,
-    main: 500 as const,
-    on: '#ffffff',
-    container: 100 as const,
-    onContainer: 800 as const,
-    light: 200 as const,
-    dark: 700 as const,
-    border: 300 as const,
-  },
-  
-  feature: {
-    palette: 'teal' as const,
-    main: 500 as const,
-    on: '#ffffff',
-    container: 100 as const,
-    onContainer: 800 as const,
-    light: 200 as const,
-    dark: 700 as const,
-    border: 300 as const,
-  },
-  
-  highlight: {
-    palette: 'violet' as const,
-    main: 500 as const,
-    on: '#ffffff',
-    container: 100 as const,
-    onContainer: 800 as const,
-    light: 200 as const,
-    dark: 700 as const,
-    border: 300 as const,
-  },
+  // Add the same extended colors (they work well in both light and dark)
+  orange: extendedColorPalettes.orange,
+  teal: extendedColorPalettes.teal,
+  indigo: extendedColorPalettes.indigo,
+  violet: extendedColorPalettes.violet,
+  emerald: extendedColorPalettes.emerald,
 } as const;
 
-// Extended themes
+// Helper function to create extended light intents
+function createExtendedLightIntents(palettes: typeof extendedColorPalettes) {
+  return {
+    // Include all base intents
+    ...createLightIntentMappings(),
+    
+    // Add extended intents with resolved colors
+    accent: {
+      main: palettes.orange[500],
+      on: '#ffffff',
+      container: palettes.orange[100],
+      onContainer: palettes.orange[800],
+      light: palettes.orange[200],
+      dark: palettes.orange[700],
+      border: palettes.orange[300],
+    },
+    
+    feature: {
+      main: palettes.teal[500],
+      on: '#ffffff',
+      container: palettes.teal[100],
+      onContainer: palettes.teal[800],
+      light: palettes.teal[200],
+      dark: palettes.teal[700],
+      border: palettes.teal[300],
+    },
+    
+    highlight: {
+      main: palettes.violet[500],
+      on: '#ffffff',
+      container: palettes.violet[100],
+      onContainer: palettes.violet[800],
+      light: palettes.violet[200],
+      dark: palettes.violet[700],
+      border: palettes.violet[300],
+    },
+  } as any; // Type assertion for extended intents
+}
+
+// Helper function to create extended dark intents
+function createExtendedDarkIntents(palettes: typeof extendedDarkColorPalettes) {
+  return {
+    // Include all base intents
+    ...createDarkIntentMappings(),
+    
+    // Add extended intents with resolved colors
+    accent: {
+      main: palettes.orange[400],
+      on: palettes.gray[50],
+      container: palettes.orange[200],
+      onContainer: palettes.orange[800],
+      light: palettes.orange[300],
+      dark: palettes.orange[600],
+      border: palettes.orange[400],
+    },
+    
+    feature: {
+      main: palettes.teal[400],
+      on: palettes.gray[50],
+      container: palettes.teal[200],
+      onContainer: palettes.teal[800],
+      light: palettes.teal[300],
+      dark: palettes.teal[600],
+      border: palettes.teal[400],
+    },
+    
+    highlight: {
+      main: palettes.violet[400],
+      on: palettes.gray[50],
+      container: palettes.violet[200],
+      onContainer: palettes.violet[800],
+      light: palettes.violet[300],
+      dark: palettes.violet[600],
+      border: palettes.violet[400],
+    },
+  } as any; // Type assertion for extended intents
+}
+
+// Create extended themes using the new theme builder
 export const extendedThemes = {
-  light: {
-    ...appThemes.light,
+  light: createTheme({
+    name: 'ExtendedLight',
+    mode: 'light',
     palettes: extendedColorPalettes,
-    intents: extendedIntentMappings,
-  },
+    intents: createExtendedLightIntents(extendedColorPalettes),
+    colors: createLightColorMappings(),
+    
+    typography: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    },
+    
+    borderRadius: {
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 16,
+      xxl: 20,
+    },
+    
+    spacing: {
+      xs: 4,
+      sm: 8,
+      md: 16,
+      lg: 24,
+      xl: 32,
+      xxl: 40,
+      xxxl: 48,
+    },
+    
+    shadows: {
+      sm: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1,
+      },
+      md: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 4,
+      },
+      lg: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.15,
+        shadowRadius: 16,
+        elevation: 8,
+      },
+    },
+    
+    transitions: {
+      fast: '0.15s ease',
+      base: '0.2s ease',
+      slow: '0.3s ease',
+      button: 'all 0.2s ease',
+      fade: 'opacity 0.2s ease',
+      slide: 'transform 0.3s ease',
+    },
+  }),
   
-  dark: {
-    ...appThemes.dark,
-    palettes: extendedColorPalettes,
-    intents: extendedIntentMappings,
-  },
+  dark: createTheme({
+    name: 'ExtendedDark',
+    mode: 'dark',
+    palettes: extendedDarkColorPalettes,
+    intents: createExtendedDarkIntents(extendedDarkColorPalettes),
+    colors: createDarkColorMappings(),
+    
+    typography: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    },
+    
+    borderRadius: {
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 16,
+      xxl: 20,
+    },
+    
+    spacing: {
+      xs: 4,
+      sm: 8,
+      md: 16,
+      lg: 24,
+      xl: 32,
+      xxl: 40,
+      xxxl: 48,
+    },
+    
+    shadows: {
+      sm: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        elevation: 1,
+      },
+      md: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+        elevation: 4,
+      },
+      lg: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.4,
+        shadowRadius: 16,
+        elevation: 8,
+      },
+    },
+    
+    transitions: {
+      fast: '0.15s ease',
+      base: '0.2s ease',
+      slow: '0.3s ease',
+      button: 'all 0.2s ease',
+      fade: 'opacity 0.2s ease',
+      slide: 'transform 0.3s ease',
+    },
+  }),
 } as const;
 
 // Extended type definitions for TypeScript

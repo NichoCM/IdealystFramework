@@ -29,7 +29,7 @@ export type AppIntents = typeof lightTheme.intents;
 export type AppColors = typeof lightTheme.colors;
 export type AppPalettes = typeof lightTheme.palettes;
 export type IntentNames = keyof AppIntents;
-export type ColorNames = keyof AppColors; 
+export type ColorNames = keyof AppColors;
 
 StyleSheet.configure({
     settings: {

@@ -3,27 +3,65 @@ import { AvatarExamples, BadgeExamples, ButtonExamples, CardExamples, CheckboxEx
 import { Screen, Text, View, Button } from "../../../components/src";
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { RouteParam } from '../routing';
+import { getNextTheme, getThemeDisplayName, isHighContrastTheme } from './unistyles';
 
 const HomeTabScreen = () => {
-    const toggleTheme = () => {
-        const currentTheme = UnistylesRuntime.themeName;
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        UnistylesRuntime.setTheme(newTheme);
+    const currentTheme = UnistylesRuntime.themeName || 'light';
+    
+    const cycleTheme = () => {
+        const nextTheme = getNextTheme(currentTheme);
+        UnistylesRuntime.setTheme(nextTheme as any);
+        console.log('Theme changed to:', nextTheme);
+    };
+
+    const toggleHighContrast = () => {
+        const currentTheme = UnistylesRuntime.themeName || 'light';
+        let newTheme: string;
+        
+        if (isHighContrastTheme(currentTheme)) {
+            // Switch to standard variant
+            newTheme = currentTheme.includes('dark') ? 'dark' : 'light';
+        } else {
+            // Switch to high contrast variant
+            newTheme = currentTheme.includes('dark') ? 'darkHighContrast' : 'lightHighContrast';
+        }
+        
+        UnistylesRuntime.setTheme(newTheme as any);
         console.log('Theme toggled to:', newTheme);
     };
 
     return (
         <Screen>
             <View>
-                <Button variant="outlined" onPress={toggleTheme}>
-                    Toggle Theme (Current: {UnistylesRuntime.themeName})
-                </Button>
                 <Text size="large" weight="bold">
                     Welcome to the Component Library
                 </Text>
                 <Text size="medium">
                     Use the tabs above to explore different components
                 </Text>
+                
+                <View style={{ marginTop: 24, gap: 12 }}>
+                    <Text size="medium" weight="semibold">
+                        Theme Controls
+                    </Text>
+                    <Text size="small">
+                        Current Theme: {getThemeDisplayName(currentTheme)}
+                    </Text>
+                    
+                    <Button variant="outlined" onPress={cycleTheme}>
+                        Cycle Theme (Light → Dark → Light HC → Dark HC)
+                    </Button>
+                    
+                    <Button variant="outlined" onPress={toggleHighContrast}>
+                        Toggle High Contrast
+                    </Button>
+                    
+                    {isHighContrastTheme(currentTheme) && (
+                        <Text size="small" style={{ fontStyle: 'italic' }}>
+                            ♿ High contrast mode is active for better accessibility
+                        </Text>
+                    )}
+                </View>
             </View>
         </Screen>
     );

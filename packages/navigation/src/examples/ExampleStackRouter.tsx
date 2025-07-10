@@ -5,33 +5,71 @@ import { useNavigator } from "../context";
 import { UnistylesRuntime, StyleSheet } from 'react-native-unistyles';
 import { GeneralLayout } from '../layouts/GeneralLayout';
 import { RouteParam } from '../routing';
+import { getNextTheme, getThemeDisplayName, isHighContrastTheme } from './unistyles';
 
 const HomeScreen = () => {
     const navigator = useNavigator();
-    const currentTheme = "light";
+    const currentTheme = UnistylesRuntime.themeName || 'light';
 
-    const toggleTheme = () => {
-        const currentTheme = UnistylesRuntime.themeName;
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        UnistylesRuntime.setTheme(newTheme);        
+    const cycleTheme = () => {
+        const nextTheme = getNextTheme(currentTheme);
+        UnistylesRuntime.setTheme(nextTheme as any);
+        console.log('Theme changed to:', nextTheme);
+    };
+
+    const toggleHighContrast = () => {
+        const currentTheme = UnistylesRuntime.themeName || 'light';
+        let newTheme: string;
+        
+        if (isHighContrastTheme(currentTheme)) {
+            // Switch to standard variant
+            newTheme = currentTheme.includes('dark') ? 'dark' : 'light';
+        } else {
+            // Switch to high contrast variant
+            newTheme = currentTheme.includes('dark') ? 'darkHighContrast' : 'lightHighContrast';
+        }
+        
+        UnistylesRuntime.setTheme(newTheme as any);
+        console.log('Theme toggled to:', newTheme);
     };
 
     return (
         <Screen>
             <View style={{ maxWidth: 800, width: '100%', gap: 10, marginHorizontal: 'auto' }}>
-            {/* Theme Toggle Section */}
-            <View>
+            {/* Theme Controls Section */}
+            <View style={{ gap: 12, padding: 16, backgroundColor: 'rgba(128, 128, 128, 0.1)', borderRadius: 8 }}>
                 <Text size="medium" weight="bold">
-                    Current Theme: {currentTheme}
+                    Theme Controls
                 </Text>
-                <Button
-                    variant="outlined"
-                    intent="primary"
-                    size="medium"
-                    onPress={toggleTheme}
-                >
-                    {currentTheme === 'light' ? '🌙' : '☀️'} Toggle to {currentTheme === 'light' ? 'Dark' : 'Light'} Mode
-                </Button>
+                <Text size="small">
+                    Current Theme: {getThemeDisplayName(currentTheme)}
+                </Text>
+                
+                <View style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap' }}>
+                    <Button
+                        variant="outlined"
+                        intent="primary"
+                        size="medium"
+                        onPress={cycleTheme}
+                    >
+                        🔄 Cycle Theme
+                    </Button>
+                    
+                    <Button
+                        variant="outlined"
+                        intent="neutral"
+                        size="medium"
+                        onPress={toggleHighContrast}
+                    >
+                        ♿ Toggle High Contrast
+                    </Button>
+                </View>
+                
+                {isHighContrastTheme(currentTheme) && (
+                    <Text size="small" style={{ fontStyle: 'italic', color: '#666' }}>
+                        ♿ High contrast mode is active for better accessibility
+                    </Text>
+                )}
             </View>
 
             {/* Component Navigation Buttons */}
