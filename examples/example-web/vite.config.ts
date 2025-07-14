@@ -29,9 +29,9 @@ export default defineConfig({
       '@react-native/normalize-colors': path.resolve(__dirname, 'node_modules/@react-native/normalize-colors'),
       
       // Workspace package aliases for proper resolution
-      '@idealyst/components': path.resolve(__dirname, '../components/src'),
-      '@idealyst/navigation': path.resolve(__dirname, '../navigation/src'),
-      '@idealyst/theme': path.resolve(__dirname, '../theme/src'),
+      '@idealyst/components': path.resolve(__dirname, '../../packages/components/src'),
+      '@idealyst/navigation': path.resolve(__dirname, '../../packages/navigation/src'),
+      '@idealyst/theme': path.resolve(__dirname, '../../packages/theme/src'),
     },
     // Platform-specific file resolution
     extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.js', '.jsx'],
