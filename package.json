@@ -1,5 +1,6 @@
 {
   "name": "idealyst-monorepo",
+  "version": "1.0.1",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -10,9 +11,15 @@
     "publish:components": "cd packages/components && npm publish",
     "publish:navigation": "cd packages/navigation && npm publish",
     "publish:all": "yarn publish:theme && yarn publish:components && yarn publish:navigation",
-    "version:patch": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version patch",
-    "version:minor": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version minor",
-    "version:major": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version major"
+    "version:patch": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version patch && yarn version:sync",
+    "version:minor": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version minor && yarn version:sync",
+    "version:major": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version major && yarn version:sync",
+    "version:sync": "node scripts/sync-versions.js",
+    "version:set": "node scripts/set-version.js",
+    "version:status": "node scripts/version-status.js",
+    "version:alpha": "node scripts/set-version.js",
+    "version:beta": "node scripts/set-version.js",
+    "version:rc": "node scripts/set-version.js"
   },
   "resolutions": {
     "@react-navigation/native": "7.1.14",
