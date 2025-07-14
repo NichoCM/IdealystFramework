@@ -15,6 +15,7 @@ const packagePaths = [
   'packages/theme/package.json',
   'packages/components/package.json',
   'packages/navigation/package.json',
+  'packages/cli/package.json',
   'examples/example-native/package.json',
   'examples/example-web/package.json'
 ];
@@ -37,7 +38,7 @@ function checkPackageVersion(packagePath) {
   console.log(`${statusIcon} ${packageName}: ${packageVersion}`);
   
   // Check internal dependencies
-  const idealystPackages = ['@idealyst/theme', '@idealyst/components', '@idealyst/navigation'];
+  const idealystPackages = ['@idealyst/theme', '@idealyst/components', '@idealyst/navigation', '@idealyst/cli'];
   
   ['dependencies', 'peerDependencies', 'devDependencies'].forEach(depType => {
     if (packageJson[depType]) {

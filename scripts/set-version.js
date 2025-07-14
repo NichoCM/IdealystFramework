@@ -32,6 +32,7 @@ const packagePaths = [
   'packages/theme/package.json',
   'packages/components/package.json',
   'packages/navigation/package.json',
+  'packages/cli/package.json',
   'examples/example-native/package.json',
   'examples/example-web/package.json'
 ];
@@ -49,19 +50,14 @@ function updatePackageVersion(packagePath) {
   packageJson.version = newVersion;
   
   // Update dependencies to use the new version
-  const idealystPackages = ['@idealyst/theme', '@idealyst/components', '@idealyst/navigation'];
+  const idealystPackages = ['@idealyst/theme', '@idealyst/components', '@idealyst/navigation', '@idealyst/cli'];
   
   ['dependencies', 'peerDependencies', 'devDependencies'].forEach(depType => {
     if (packageJson[depType]) {
       idealystPackages.forEach(pkg => {
         if (packageJson[depType][pkg]) {
           // Keep the caret prefix for external dependencies
-          if (packagePath.includes('examples/')) {
-            packageJson[depType][pkg] = `^${newVersion}`;
-          } else {
-            // For internal packages, use workspace protocol
-            packageJson[depType][pkg] = `workspace:^${newVersion}`;
-          }
+          packageJson[depType][pkg] = `^${newVersion}`;
         }
       });
     }

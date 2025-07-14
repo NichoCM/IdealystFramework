@@ -1,3 +1,7 @@
+// Import theme configuration first to ensure Unistyles is properly initialized
+// This is needed when using packages from node_modules instead of workspace aliases
+import '@idealyst/theme/unistyles';
+
 // Import navigation unistyles after all other imports to ensure it overrides any previous configuration
 import '@idealyst/navigation/examples/unistyles';
 

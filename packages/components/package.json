@@ -1,6 +1,6 @@
 {
   "name": "@idealyst/components",
-  "version": "1.0.1",
+  "version": "1.0.12",
   "description": "Shared component library for React and React Native",
   "main": "src/index.ts",
   "module": "src/index.ts",
@@ -32,11 +32,6 @@
       "import": "./src/examples/index.ts",
       "require": "./src/examples/index.ts",
       "types": "./src/examples/index.ts"
-    },
-    "./src/unistyles": {
-      "import": "./src/unistyles.ts",
-      "require": "./src/unistyles.ts",
-      "types": "./src/unistyles.ts"
     }
   },
   "scripts": {
@@ -46,7 +41,7 @@
     "publish:npm": "npm publish"
   },
   "peerDependencies": {
-    "@idealyst/theme": "workspace:^1.0.1",
+    "@idealyst/theme": "^1.0.12",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@react-native-vector-icons/common": "^12.0.1",
@@ -56,7 +51,7 @@
     "react-native": ">=0.60.0",
     "react-native-edge-to-edge": "*",
     "react-native-nitro-modules": "*",
-    "react-native-unistyles": "3.0.0-rc.5"
+    "react-native-unistyles": "^3.0.4"
   },
   "peerDependenciesMeta": {
     "@idealyst/theme": {

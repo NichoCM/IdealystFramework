@@ -1,15 +1,18 @@
 {
-  "name": "@idealyst/example-web",
+  "name": "{{packageName}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
   "private": true,
-  "version": "1.0.12",
   "type": "module",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@idealyst/components": "^1.0.12",
-    "@idealyst/navigation": "^1.0.12",
-    "@idealyst/theme": "^1.0.12",
+    "@idealyst/components": "^1.0.3",
+    "@idealyst/navigation": "^1.0.3",
+    "@idealyst/theme": "^1.0.3",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@react-native/normalize-colors": "^0.80.1",
@@ -45,4 +48,4 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
-}
+} 
