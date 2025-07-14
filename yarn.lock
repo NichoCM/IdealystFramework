@@ -1759,7 +1759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@idealyst/components@npm:*, @idealyst/components@workspace:*, @idealyst/components@workspace:packages/components":
+"@idealyst/components@workspace:*, @idealyst/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@idealyst/components@workspace:packages/components"
   dependencies:
@@ -1768,6 +1768,7 @@ __metadata:
     rollup-plugin-typescript2: "npm:^0.34.0"
     typescript: "npm:^5.0.0"
   peerDependencies:
+    "@idealyst/theme": ^1.0.0
     "@mdi/js": ^7.4.47
     "@mdi/react": ^1.6.1
     "@react-native-vector-icons/common": ^12.0.1
@@ -1779,6 +1780,8 @@ __metadata:
     react-native-nitro-modules: "*"
     react-native-unistyles: 3.0.0-rc.5
   peerDependenciesMeta:
+    "@idealyst/theme":
+      optional: true
     "@mdi/js":
       optional: true
     "@mdi/react":
@@ -1806,8 +1809,9 @@ __metadata:
     "@babel/preset-env": "npm:^7.28.0"
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
-    "@idealyst/components": "npm:*"
-    "@idealyst/navigation": "npm:*"
+    "@idealyst/components": "workspace:*"
+    "@idealyst/navigation": "workspace:*"
+    "@idealyst/theme": "workspace:*"
     "@mdi/js": "npm:^7.4.47"
     "@mdi/react": "npm:^1.6.1"
     "@react-native/normalize-colors": "npm:^0.80.1"
@@ -1839,17 +1843,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@idealyst/navigation@npm:*, @idealyst/navigation@workspace:*, @idealyst/navigation@workspace:packages/navigation":
+"@idealyst/navigation@workspace:*, @idealyst/navigation@workspace:packages/navigation":
   version: 0.0.0-use.local
   resolution: "@idealyst/navigation@workspace:packages/navigation"
   dependencies:
-    "@idealyst/components": "npm:*"
     "@types/react": "npm:^19.1.8"
     "@types/react-dom": "npm:^19.1.6"
     rollup: "npm:^3.20.0"
     rollup-plugin-typescript2: "npm:^0.34.0"
     typescript: "npm:^5.0.0"
   peerDependencies:
+    "@idealyst/components": "workspace:*"
+    "@idealyst/theme": "workspace:*"
     "@react-navigation/bottom-tabs": ^7.0.0
     "@react-navigation/drawer": ^7.0.0
     "@react-navigation/native": ^7.0.0
@@ -1863,6 +1868,22 @@ __metadata:
     react-native-unistyles: 3.0.0-rc.5
     react-router: ^7.6.3
     react-router-dom: ^7.6.3
+  languageName: unknown
+  linkType: soft
+
+"@idealyst/theme@workspace:*, @idealyst/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@idealyst/theme@workspace:packages/theme"
+  dependencies:
+    "@types/react": "npm:^19.1.0"
+    rollup: "npm:^3.20.0"
+    rollup-plugin-typescript2: "npm:^0.34.0"
+    typescript: "npm:^5.0.0"
+  peerDependencies:
+    react-native-unistyles: 3.0.0-rc.5
+  peerDependenciesMeta:
+    react-native-unistyles:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3664,6 +3685,7 @@ __metadata:
     "@babel/runtime": "npm:^7.27.6"
     "@idealyst/components": "workspace:*"
     "@idealyst/navigation": "workspace:*"
+    "@idealyst/theme": "workspace:*"
     "@react-native-community/cli": "npm:19.0.0"
     "@react-native-community/cli-platform-android": "npm:19.0.0"
     "@react-native-community/cli-platform-ios": "npm:19.0.0"

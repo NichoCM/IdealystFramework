@@ -13,11 +13,15 @@ module.exports = {
     '@idealyst/navigation': {
       root: path.join(__dirname, '../navigation'),
     },
+    '@idealyst/theme': {
+      root: path.join(__dirname, '../theme'),
+    },
   },
   // Additional configuration for workspace
   watchFolders: [
     path.resolve(__dirname, '../components'),
     path.resolve(__dirname, '../navigation'),
+    path.resolve(__dirname, '../theme'),
     path.resolve(__dirname, '../../node_modules'),
   ],
 }; 

@@ -5,6 +5,15 @@
     "packages/*"
   ],
   "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "publish:theme": "cd packages/theme && npm publish",
+    "publish:components": "cd packages/components && npm publish",
+    "publish:navigation": "cd packages/navigation && npm publish",
+    "publish:all": "yarn publish:theme && yarn publish:components && yarn publish:navigation",
+    "version:patch": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version patch",
+    "version:minor": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version minor",
+    "version:major": "yarn workspaces foreach --include '@idealyst/theme' --include '@idealyst/components' --include '@idealyst/navigation' version major"
+  },
   "resolutions": {
     "@react-navigation/native": "7.1.14",
     "@react-navigation/bottom-tabs": "7.4.2",

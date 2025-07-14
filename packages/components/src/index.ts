@@ -44,5 +44,5 @@ export type { AvatarProps } from './Avatar/types';
 export type { ScreenProps } from './Screen/types';
 export type { IconProps } from './Icon/types';
 
-export { breakpoints } from './theme';
-export type { AppTheme } from './theme';   
+export { breakpoints } from '@idealyst/theme';
+export type { AppTheme } from '@idealyst/theme';   

@@ -1,7 +1,6 @@
 import { 
   createTheme, 
-  type ThemeConfig,
-} from '@idealyst/components/src/theme';
+} from '@idealyst/theme';
 
 // High contrast color palettes - designed for maximum accessibility
 export const highContrastLightPalettes = {

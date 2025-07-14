@@ -6,8 +6,11 @@ module.exports = {
     ['react-native-unistyles/plugin', {
       debug: true,
       root: 'src',
-      autoProcessImports: ['@idealyst/components', '@idealyst/navigation'],
-      autoProcessPaths: [path.resolve(__dirname, '../components/src')],
+      autoProcessImports: ['@idealyst/components', '@idealyst/navigation', '@idealyst/theme'],
+      autoProcessPaths: [path.resolve(__dirname, '../components/src'),
+        path.resolve(__dirname, '../navigation/src'),
+        path.resolve(__dirname, '../theme/src'),
+      ],
     },],
     'react-native-reanimated/plugin'
   ]

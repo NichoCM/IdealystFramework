@@ -1,15 +1,13 @@
 import { 
   createTheme, 
-  type ThemeConfig 
-} from '../theme/themeBuilder';
-import { 
+  type ThemeConfig,
   createStandardPalettes, 
   createDarkPalettes, 
   createLightIntentMappings, 
   createDarkIntentMappings, 
   createLightColorMappings, 
   createDarkColorMappings
-} from '../theme/defaultThemes';
+} from '@idealyst/theme';
 
 // Extended color palettes - includes all base colors plus additional ones
 export const extendedColorPalettes = {

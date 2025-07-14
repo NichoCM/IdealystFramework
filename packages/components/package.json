@@ -6,6 +6,16 @@
   "module": "src/index.ts",
   "types": "src/index.ts",
   "react-native": "src/index.native.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/idealyst-framework.git",
+    "directory": "packages/components"
+  },
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "react-native": "./src/index.native.ts",
@@ -27,18 +37,16 @@
       "import": "./src/unistyles.ts",
       "require": "./src/unistyles.ts",
       "types": "./src/unistyles.ts"
-    },
-    "./src/theme": {
-      "import": "./src/theme/index.ts",
-      "require": "./src/theme/index.ts",
-      "types": "./src/theme/index.ts"
     }
   },
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "prepublishOnly": "echo 'Publishing TypeScript source directly'",
+    "publish:npm": "npm publish"
   },
   "peerDependencies": {
+    "@idealyst/theme": "^1.0.0",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@react-native-vector-icons/common": "^12.0.1",
@@ -51,6 +59,9 @@
     "react-native-unistyles": "3.0.0-rc.5"
   },
   "peerDependenciesMeta": {
+    "@idealyst/theme": {
+      "optional": true
+    },
     "@mdi/js": {
       "optional": true
     },
@@ -83,7 +94,8 @@
     "typescript": "^5.0.0"
   },
   "files": [
-    "src"
+    "src",
+    "plugin"
   ],
   "keywords": [
     "react",

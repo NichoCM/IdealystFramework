@@ -5,7 +5,7 @@ const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
 // Get all peer dependencies to treat as externals
 const peerDependencies = Object.keys(pkg.peerDependencies || {});
-const devDependencies = Object.keys(pkg.devDependencies || {});
+const dependencies = Object.keys(pkg.dependencies || {});
 
 // React Navigation packages should be external (not bundled)
 const reactNavigationExternals = [
@@ -19,20 +19,21 @@ const reactNavigationExternals = [
   'react-native-safe-area-context',
   'react-native-gesture-handler',
   'react-native-reanimated',
-  'react-router-dom'
+  'react-router-dom',
+  'react-router'
 ];
 
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: pkg.main,
+      file: 'dist/index.js',
       format: 'cjs',
       exports: 'named',
       sourcemap: true,
     },
     {
-      file: pkg.module,
+      file: 'dist/index.esm.js',
       format: 'esm',
       exports: 'named',
       sourcemap: true,
@@ -40,6 +41,7 @@ export default {
   ],
   external: [
     ...peerDependencies,
+    ...dependencies,
     ...reactNavigationExternals,
     // External check function for any react-navigation packages
     (id) => id.startsWith('@react-navigation/') || id.startsWith('react')
@@ -48,6 +50,9 @@ export default {
     typescript({
       rollupCommonJSResolveHack: true,
       exclude: ['**/__tests__/**'],
+      declaration: true,
+      declarationDir: 'dist',
+      rootDir: 'src',
       clean: true,
     }),
   ],

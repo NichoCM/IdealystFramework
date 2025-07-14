@@ -1,4 +1,4 @@
-import { breakpoints, extendedThemes } from '@idealyst/components/src/theme';
+import { breakpoints, defaultLightTheme, defaultDarkTheme } from '@idealyst/theme';
 import { highContrastThemes } from './highContrastThemes';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -6,8 +6,8 @@ import { StyleSheet } from 'react-native-unistyles';
 // This overrides the more limited declaration from the components package
 declare module 'react-native-unistyles' {
   export interface UnistylesThemes {
-    light: typeof extendedThemes.light;
-    dark: typeof extendedThemes.dark;
+    light: typeof defaultLightTheme;
+    dark: typeof defaultDarkTheme;
     lightHighContrast: typeof highContrastThemes.lightHighContrast;
     darkHighContrast: typeof highContrastThemes.darkHighContrast;
   }
@@ -17,8 +17,8 @@ declare module 'react-native-unistyles' {
 // This will override any previous configuration
 StyleSheet.configure({
   themes: {
-    light: extendedThemes.light,
-    dark: extendedThemes.dark,
+    light: defaultLightTheme,
+    dark: defaultDarkTheme,
     lightHighContrast: highContrastThemes.lightHighContrast,
     darkHighContrast: highContrastThemes.darkHighContrast,
   },

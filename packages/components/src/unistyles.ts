@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { defaultLightTheme, defaultDarkTheme } from './theme/defaultThemes';
+import { defaultLightTheme, defaultDarkTheme, breakpoints } from '@idealyst/theme';
 import { extendedThemes } from './examples/extendedTheme';
-import { breakpoints } from './theme/breakpoints';
 
 // Use the extended themes instead of default themes
 export const lightTheme = extendedThemes.light;

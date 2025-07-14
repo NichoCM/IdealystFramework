@@ -7,8 +7,9 @@
     "dev": "vite"
   },
   "dependencies": {
-    "@idealyst/components": "*",
-    "@idealyst/navigation": "*",
+    "@idealyst/components": "workspace:*",
+    "@idealyst/navigation": "workspace:*",
+    "@idealyst/theme": "workspace:*",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@react-native/normalize-colors": "^0.80.1",

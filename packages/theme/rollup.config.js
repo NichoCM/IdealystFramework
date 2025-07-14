@@ -20,7 +20,7 @@ module.exports = {
     typescript({
       typescript: require('typescript'),
       tsconfig: './tsconfig.json',
-      exclude: ['**/*.test.ts', '**/*.test.tsx', '**/*.native.ts', '**/*.native.tsx'],
+      exclude: ['**/*.test.ts', '**/*.test.tsx'],
       declaration: true,
       declarationDir: 'dist',
       rootDir: 'src',
@@ -28,16 +28,6 @@ module.exports = {
     }),
   ],
   external: [
-    'react',
-    'react-dom',
-    'react-native',
     'react-native-unistyles',
-    '@react-native/normalize-colors',
-    'react-native-edge-to-edge',
-    'react-native-nitro-modules',
-    '@react-native-vector-icons/common',
-    '@react-native-vector-icons/material-design-icons',
-    '@mdi/js',
-    '@mdi/react',
   ],
 }; 
