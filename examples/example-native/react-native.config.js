@@ -19,9 +19,9 @@ module.exports = {
   },
   // Additional configuration for workspace
   watchFolders: [
-    path.resolve(__dirname, '../components'),
-    path.resolve(__dirname, '../navigation'),
-    path.resolve(__dirname, '../theme'),
+    path.resolve(__dirname, '../../packages/components'),
+    path.resolve(__dirname, '../../packages/navigation'),
+    path.resolve(__dirname, '../../packages/theme'),
     path.resolve(__dirname, '../../node_modules'),
   ],
 }; 
