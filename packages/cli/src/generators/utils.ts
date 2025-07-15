@@ -4,6 +4,7 @@ import { spawn } from 'child_process';
 import chalk from 'chalk';
 import ora from 'ora';
 import validatePackageName from 'validate-npm-package-name';
+import inquirer from 'inquirer';
 import { TemplateData } from '../types';
 
 export function validateProjectName(name: string): boolean {
@@ -136,22 +137,28 @@ export function runCommand(command: string, args: string[], options: { cwd: stri
   });
 }
 
-export function getTemplateData(projectName: string, description?: string): TemplateData {
+export function getTemplateData(projectName: string, description?: string, appName?: string): TemplateData {
   return {
     projectName,
     packageName: createPackageName(projectName),
     version: '1.0.0',
-    description: description || `A new Idealyst project: ${projectName}`
+    description: description || `A new Idealyst project: ${projectName}`,
+    appName
   };
 }
 
-export async function initializeReactNativeProject(projectName: string, directory: string): Promise<void> {
+export async function initializeReactNativeProject(projectName: string, directory: string, displayName?: string): Promise<void> {
   const spinner = ora('Initializing React Native project...').start();
   
   try {
     // Use the correct React Native CLI command format with specific version and yarn
     const cliCommand = 'npx';
     const args = ['@react-native-community/cli@latest', 'init', projectName, '--version', '0.80.1', '--pm', 'yarn'];
+    
+    // Add title if displayName is provided
+    if (displayName) {
+      args.push('--title', displayName);
+    }
     
     // Run React Native initialization in the target directory
     await runCommand(cliCommand, args, { cwd: directory });
@@ -243,4 +250,64 @@ export async function mergePackageJsonDependencies(templatePath: string, project
     console.warn(chalk.yellow('⚠️  Could not merge package.json dependencies'));
     throw error;
   }
+}
+
+export async function promptForProjectName(): Promise<string> {
+  const { projectName } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'projectName',
+      message: 'What is your project name?',
+      validate: (input: string) => {
+        if (!input || input.trim().length === 0) {
+          return 'Project name is required';
+        }
+        const lowerName = input.toLowerCase();
+        if (!validateProjectName(lowerName)) {
+          return 'Project name must be a valid npm package name (lowercase, no spaces)';
+        }
+        return true;
+      },
+      filter: (input: string) => input.toLowerCase().trim()
+    }
+  ]);
+  return projectName;
+}
+
+export async function promptForProjectType(): Promise<string> {
+  const { projectType } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'projectType',
+      message: 'What type of project would you like to create?',
+      choices: [
+        { name: 'React Native App', value: 'native' },
+        { name: 'React Web App', value: 'web' },
+        { name: 'Shared Library', value: 'shared' }
+      ],
+      default: 'native'
+    }
+  ]);
+  return projectType;
+}
+
+export async function promptForAppName(projectName: string): Promise<string> {
+  const { appName } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'appName',
+      message: 'What is the display name for your app? (used for native app titles)',
+      default: projectName.split('-').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      ).join(' '),
+      validate: (input: string) => {
+        if (!input || input.trim().length === 0) {
+          return 'App name is required';
+        }
+        return true;
+      },
+      filter: (input: string) => input.trim()
+    }
+  ]);
+  return appName;
 } 

@@ -1,6 +1,3 @@
-// Configure Unistyles theme FIRST - before any components are imported
-import './unistyles';
-
 export { default as Button } from './Button';
 export * from './Button/types';
 

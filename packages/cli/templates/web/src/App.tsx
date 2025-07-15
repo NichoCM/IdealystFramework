@@ -1,20 +1,16 @@
-import React from 'react';
-import { View, Text, Button } from '@idealyst/components';
+import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import { ExampleStackRouter, } from '@idealyst/navigation/examples';
+import { NavigatorProvider } from '@idealyst/navigation';
 
-const App = () => {
+function App() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-      <Text variant="h1">Welcome to {{projectName}}</Text>
-      <Text variant="body" style={{ marginTop: 20, textAlign: 'center' }}>
-        This is a React web application built with the Idealyst Framework.
-      </Text>
-      <Button 
-        title="Get Started" 
-        onPress={() => console.log('Button pressed!')}
-        style={{ marginTop: 20 }}
-      />
-    </View>
-  );
-};
+    <div className="App">
+      <BrowserRouter>
+        <NavigatorProvider route={ExampleStackRouter} />
+      </BrowserRouter>
+    </div>
+  );  
+}
 
 export default App; 

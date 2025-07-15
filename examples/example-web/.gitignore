@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 
 # Development lib directory (for babel processing workaround)
-lib 
+lib
+
+/.yarn/
