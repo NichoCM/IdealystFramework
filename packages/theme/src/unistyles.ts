@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { breakpoints } from './index';
+import { breakpoints } from './breakpoints';
 import { defaultLightTheme as lightTheme, defaultDarkTheme as darkTheme } from './defaultThemes';
 
 // Export enhanced theme types

@@ -1,37 +1,40 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import babel from 'vite-plugin-babel'
 import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
+    babel({
+      filter: (id) => {
+        return id.includes('node_modules/@idealyst/') && /\.(js|jsx|ts|tsx)$/.test(id);
+      },
+      babelConfig: {
+        presets: [
+          ['@babel/preset-typescript', {
+            isTSX: true,
+            allExtensions: true,
+          }]
+        ],
         plugins: [
           ['react-native-unistyles/plugin', {
             root: 'src',
+            debug: true,
+            autoProcessPaths: ['@idealyst/components', '@idealyst/navigation', '@idealyst/theme'],
           }],
-          ['@idealyst/components/plugin/web', {
-            root: 'src',
-          }]
-        ],
-      },
+          ['@idealyst/components/plugin/web', { root: 'src' }]
+        ]
+      }
     }),
+    // Then process everything else with React plugin
+    react(),
   ],
-  server: {
-    host: '0.0.0.0',
-    port: 5173
-  },
   resolve: {
     alias: {
       // Use absolute path to resolve react-native-web properly
       'react-native': path.resolve(__dirname, 'node_modules/react-native-web'),
       '@react-native/normalize-colors': path.resolve(__dirname, 'node_modules/@react-native/normalize-colors'),
-      
-      // Workspace package aliases for proper resolution
-      '@idealyst/components': path.resolve(__dirname, '../../packages/components/src'),
-      '@idealyst/navigation': path.resolve(__dirname, '../../packages/navigation/src'),
-      '@idealyst/theme': path.resolve(__dirname, '../../packages/theme/src'),
     },
     // Platform-specific file resolution
     extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.js', '.jsx'],
@@ -54,6 +57,13 @@ export default defineConfig({
     exclude: [
       'react-native-edge-to-edge',
       'react-native-nitro-modules',
+      '@idealyst/components',
+      '@idealyst/navigation', 
+      '@idealyst/theme',
     ],
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5173
   },
 }) 

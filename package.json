@@ -1,11 +1,11 @@
 {
   "name": "idealyst-monorepo",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@3.6.4",
   "scripts": {
     "publish:theme": "cd packages/theme && npm publish",
     "publish:components": "cd packages/components && npm publish",

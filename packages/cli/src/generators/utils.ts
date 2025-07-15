@@ -143,4 +143,104 @@ export function getTemplateData(projectName: string, description?: string): Temp
     version: '1.0.0',
     description: description || `A new Idealyst project: ${projectName}`
   };
+}
+
+export async function initializeReactNativeProject(projectName: string, directory: string): Promise<void> {
+  const spinner = ora('Initializing React Native project...').start();
+  
+  try {
+    // Use the correct React Native CLI command format with specific version and yarn
+    const cliCommand = 'npx';
+    const args = ['@react-native-community/cli@latest', 'init', projectName, '--version', '0.80.1', '--pm', 'yarn'];
+    
+    // Run React Native initialization in the target directory
+    await runCommand(cliCommand, args, { cwd: directory });
+    
+    spinner.succeed('React Native project initialized successfully');
+  } catch (error) {
+    spinner.fail('Failed to initialize React Native project');
+    console.log(chalk.yellow('Make sure you have the React Native CLI and yarn available:'));
+    console.log(chalk.white('  npx @react-native-community/cli@latest init ProjectName --version 0.80.1 --pm yarn'));
+    console.log(chalk.yellow('If you encounter issues, try:'));
+    console.log(chalk.white('  npm install -g @react-native-community/cli'));
+    console.log(chalk.white('  npm install -g yarn'));
+    console.log(chalk.white('  # or'));
+    console.log(chalk.white('  yarn global add @react-native-community/cli'));
+    throw error;
+  }
+}
+
+export async function overlayIdealystFiles(templatePath: string, projectPath: string, data: TemplateData): Promise<void> {
+  const spinner = ora('Applying Idealyst Framework files...').start();
+  
+  try {
+    // Copy Idealyst-specific files over the React Native project
+    await fs.copy(templatePath, projectPath, {
+      overwrite: true,
+      filter: (src) => {
+        const relativePath = path.relative(templatePath, src);
+        // Skip package.json as we'll merge it separately
+        return !relativePath.includes('node_modules') && 
+               !relativePath.includes('.git') && 
+               !relativePath.endsWith('package.json');
+      }
+    });
+    
+    // Process template files
+    await processTemplateFiles(projectPath, data);
+    
+    // Merge package.json dependencies
+    await mergePackageJsonDependencies(templatePath, projectPath);
+    
+    spinner.succeed('Idealyst Framework files applied successfully');
+  } catch (error) {
+    spinner.fail('Failed to apply Idealyst Framework files');
+    throw error;
+  }
+}
+
+export async function mergePackageJsonDependencies(templatePath: string, projectPath: string): Promise<void> {
+  const templatePackageJsonPath = path.join(templatePath, 'package.json');
+  const projectPackageJsonPath = path.join(projectPath, 'package.json');
+  
+  try {
+    // Read both package.json files
+    const templatePackageJson = await fs.readJSON(templatePackageJsonPath);
+    const projectPackageJson = await fs.readJSON(projectPackageJsonPath);
+    
+    // Merge dependencies
+    const idealystDependencies = {
+      '@idealyst/components': '^1.0.3',
+      '@idealyst/navigation': '^1.0.3',
+      '@idealyst/theme': '^1.0.3',
+      '@react-native-vector-icons/common': '^12.0.1',
+      '@react-native-vector-icons/material-design-icons': '^12.0.1',
+      '@react-navigation/bottom-tabs': '^7.4.2',
+      '@react-navigation/drawer': '^7.5.3',
+      '@react-navigation/native': '^7.1.14',
+      '@react-navigation/native-stack': '^7.3.21',
+      'react-native-edge-to-edge': '^1.6.2',
+      'react-native-gesture-handler': '^2.27.1',
+      'react-native-nitro-modules': '^0.26.3',
+      'react-native-reanimated': '^3.18.0',
+      'react-native-safe-area-context': '^5.5.1',
+      'react-native-screens': '^4.11.1',
+      'react-native-unistyles': '^3.0.4',
+      'react-native-vector-icons': '^10.2.0'
+    };
+    
+    // Merge the dependencies
+    projectPackageJson.dependencies = {
+      ...projectPackageJson.dependencies,
+      ...idealystDependencies
+    };
+    
+    // Write back the merged package.json
+    await fs.writeJSON(projectPackageJsonPath, projectPackageJson, { spaces: 2 });
+    
+    console.log(chalk.green('✅ Merged Idealyst dependencies into package.json'));
+  } catch (error) {
+    console.warn(chalk.yellow('⚠️  Could not merge package.json dependencies'));
+    throw error;
+  }
 } 
